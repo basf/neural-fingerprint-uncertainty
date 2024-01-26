@@ -1,0 +1,13 @@
+md5: cefb42211e017782c51002dc4d2ee49d
+frozen: true
+deps:
+- path: data/final_data/ml_ready_data.tsv
+  repo:
+    url: 
+      git@gitlab.roqs.basf.net:cheminformatics/data/benchmarking-data/moleculenet/tox21.git
+    rev_lock: 25bb4f3a84fe8af2c19c4bde15cddfca04417921
+outs:
+- md5: 64b66fa331e99aab710cb680da1a494b
+  size: 2997205
+  hash: md5
+  path: ml_ready_data.tsv
