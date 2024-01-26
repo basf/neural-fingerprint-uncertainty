@@ -1,0 +1,8 @@
+stages:
+  assign_groups:
+    cmd: python scripts/01_assign_groups.py
+    deps:
+      - data/imported_data/ml_ready_data.tsv
+      - scripts/01_assign_groups.py
+    outs:
+      - data/intermediate_data/tox21_presplit.tsv
