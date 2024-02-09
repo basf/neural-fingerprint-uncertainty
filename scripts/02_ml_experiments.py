@@ -10,7 +10,7 @@ from imblearn.ensemble import BalancedRandomForestClassifier
 from molpipeline.pipeline import Pipeline
 from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
 from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
-from molpipeline.sklearn_estimators.precompute import PrecomputedTanimotoSimilarity
+from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
 from sklearn.neighbors import KNeighborsClassifier
@@ -60,7 +60,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
         [
             ("smi2mol", SmilesToMolPipelineElement()),
             ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=True)),
-            ("precomputed_kernel", PrecomputedTanimotoSimilarity()),
+            ("precomputed_kernel", TanimotoToTraining()),
             (
                 "k_nearest_neighbors",
                 KNeighborsClassifier(metric="precomputed", n_jobs=n_jobs),
