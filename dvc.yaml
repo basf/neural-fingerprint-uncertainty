@@ -1,3 +1,6 @@
+vars:
+  - ./config/endpoints.yaml
+
 stages:
   assign_groups:
     cmd: python scripts/01_assign_groups.py
@@ -6,3 +9,13 @@ stages:
       - scripts/01_assign_groups.py
     outs:
       - data/intermediate_data/tox21_presplit.tsv
+  ml_experiments:
+    foreach: ${endpoint}  # Specified in data_config.yaml
+    do:
+      cmd: python ./scripts/02_ml_experiments.py --endpoint ${item}
+      deps:
+        - ./data/intermediate_data/tox21_presplit.tsv
+        - ./scripts/02_ml_experiments.py
+      outs:
+        - ./data/model_performances/${item}_performance.tsv
+        - ./modeldata/intermediate_data/test_set_predictions_${item}.tsv.gz
