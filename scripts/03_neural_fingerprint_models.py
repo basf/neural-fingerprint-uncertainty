@@ -1,0 +1,146 @@
+"""Run ML experiments on the Tox21 dataset."""
+import argparse
+from pathlib import Path
+from typing import Any
+
+import joblib
+import numpy as np
+import pandas as pd
+from imblearn.ensemble import BalancedRandomForestClassifier
+from molpipeline.pipeline import Pipeline
+from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
+from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
+from molpipeline.pipeline_elements.mol2any.mol2chemprop import MolToChemprop
+from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
+from molpipeline.utils.kernel import tanimoto_similarity_sparse
+from ml_pipeline.custom_models.chemprop_classifier import ChempropClassifier
+from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from tqdm.auto import tqdm
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command line arguments.
+
+    Returns
+    -------
+    argparse.Namespace
+        Parsed command line arguments.
+    """
+    argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument(
+        "--n_jobs",
+        type=int,
+        default=16,
+        help="Number of jobs to use for training.",
+    )
+    argument_parser.add_argument(
+        "--endpoint",
+        type=str,
+        help="Endpoint to train on.",
+    )
+    args = argument_parser.parse_args()
+    return args
+
+
+def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
+    """Define the models to train.
+
+    Parameters
+    ----------
+    n_jobs : int
+        Number of jobs to use for training.
+
+    Returns
+    -------
+    dict[str, tuple[Pipeline, dict[str, list[Any]]]]
+        Dictionary of model names and tuples of the model pipeline and the
+        hyperparameter grid.
+    """
+    chemprop_pipeline = Pipeline(
+        [
+            ("smi2mol", SmilesToMolPipelineElement()),
+            ("mol2graph", MolToChemprop()),
+            ("chemprop", ChempropClassifier()),
+        ],
+        n_jobs=n_jobs,
+        memory=joblib.Memory(),
+    )
+    chemprop_hyperparams = {}
+    return {
+        "chemprop": (chemprop_pipeline, chemprop_hyperparams),
+    }
+
+
+
+def main() -> None:
+    """Run ML experiments on the Tox21 dataset."""
+    data_path = Path(__file__).parents[1] / "data"
+    tox21_presplit_df = pd.read_csv(
+        data_path / "intermediate_data" / "tox21_presplit.tsv", sep="\t"
+    )
+
+    args = parse_args()
+    unique_endpoints = tox21_presplit_df.endpoint.unique()
+
+    endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
+    save_path = data_path / "intermediate_data" / f"test_set_predictions_{args.endpoint}.tsv.gz"
+
+    split_strategy_list = [
+        "Random",
+        "Agglomerative clustering",
+        #  "Murcko scaffold",
+        #  "Generic scaffold",
+    ]
+
+    model_dict = define_models(args.n_jobs)
+    splitter = LeavePGroupsOut(1)
+    prediction_df_list = []
+
+    n_splits: int = 0
+    for split_strategy in split_strategy_list:
+        n_splits = n_splits + splitter.get_n_splits(
+            groups=endpoint_df[split_strategy].tolist()
+        )
+    pbar = tqdm(total=n_splits * len(model_dict), leave=False)
+
+    for split_strategy in split_strategy_list:
+        for trial, (train_idx, test_idx) in enumerate(
+            splitter.split(
+                endpoint_df.smiles.tolist(),
+                groups=endpoint_df[split_strategy].tolist(),
+            )
+        ):
+            for model_name, (model, hyperparams) in model_dict.items():
+                model = GridSearchCV(
+                    model,
+                    hyperparams,
+                    cv=LeaveOneGroupOut(),
+                    scoring="balanced_accuracy",
+                )
+                train_df = endpoint_df.iloc[train_idx]
+                test_df = endpoint_df.iloc[test_idx].copy()
+                # TODO: Balance training data
+                model.fit(
+                    train_df.smiles.tolist(),
+                    train_df.label.tolist(),
+                    groups=train_df[split_strategy].tolist(),
+                )
+                test_df["proba"] = model.predict_proba(test_df.smiles.tolist())[
+                    :, 1
+                ]
+                test_df["prediction"] = model.predict(test_df.smiles.tolist())
+                test_df["endpoint"] = args.endpoint
+                test_df["trial"] = trial
+                test_df["Split strategy"] = split_strategy
+                test_df["model"] = model_name
+                prediction_df_list.append(test_df)
+                pbar.update(1)
+    pbar.close()
+    prediction_df = pd.concat(prediction_df_list)
+    prediction_df.to_csv(save_path, sep="\t", index=False)
+
+
+if __name__ == "__main__":
+    main()
