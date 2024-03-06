@@ -5,14 +5,14 @@ stages:
     deps:
     - path: data/imported_data/ml_ready_data.tsv
       hash: md5
-      md5: 64b66fa331e99aab710cb680da1a494b
-      size: 2997205
+      md5: 54295e0f2b66a62728981c4cd31a27ad
+      size: 78378626
     - path: scripts/01_assign_groups.py
       hash: md5
-      md5: 133526275a90b23fe516fc3dfe95be7b
-      size: 4859
+      md5: 528aad1ae2fc61ac2cd03e46545b0a83
+      size: 5434
     outs:
     - path: data/intermediate_data/tox21_presplit.tsv
       hash: md5
-      md5: 7f2cd78a48b8ed961dcc933e706b79c5
-      size: 3578966
+      md5: 8cb65f3d0f96d781d5f52c82fde02e11
+      size: 1502243
