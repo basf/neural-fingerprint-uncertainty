@@ -25,10 +25,11 @@ stages:
       size: 89745147
     - path: ./scripts/02_ml_experiments.py
       hash: md5
-      md5: 2292283cc802c2d7f0860d24d475ce25
-      size: 6235
+      md5: cca50499de42e4b97b1186c3fb4c0853
+      size: 6258
     outs:
-    - path: ./data/model_predictions/test_set_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+    - path: 
+        ./data/intermediate_data/model_predictions/test_set_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
       hash: md5
-      md5: e43410a8e114ffe1b7dce4a394e4a0fd
-      size: 82966
+      md5: c8553f6470d72cea4aae79d56a871230
+      size: 83393

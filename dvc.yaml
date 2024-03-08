@@ -17,4 +17,4 @@ stages:
         - ./data/intermediate_data/tox21_presplit.tsv
         - ./scripts/02_ml_experiments.py
       outs:
-        - ./data/model_predictions/test_set_predictions_${item}.tsv.gz
+        - ./data/intermediate_data/model_predictions/test_set_predictions_${item}.tsv.gz

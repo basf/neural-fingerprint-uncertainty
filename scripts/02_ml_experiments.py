@@ -128,7 +128,7 @@ def main() -> None:
     unique_endpoints = tox21_presplit_df.endpoint.unique()
 
     endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
-    prediction_path = data_path / "model_predictions"
+    prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
     save_path = prediction_path / f"test_set_predictions_{args.endpoint}.tsv.gz"
 
