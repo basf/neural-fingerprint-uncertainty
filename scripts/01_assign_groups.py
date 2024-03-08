@@ -1,6 +1,7 @@
 """Assign groups to the Tox21 dataset for cross-validation."""
+
 import os
-from pathlib import Path
+from pathlib import Path  # pathmodifications
 
 import numpy as np
 import pandas as pd
@@ -89,10 +90,31 @@ cluster_dict = {
 
 data_path = Path(__file__).parents[1] / "data"
 tox21_df = pd.read_csv(data_path / "imported_data" / "ml_ready_data.tsv", sep="\t")
+selected_endpoint_list = [
+    "APR_HepG2_CellLoss_72h_dn",
+    "ATG_NRF2_ARE_CIS_up",
+    "ATG_PXRE_CIS_up",
+    "BSK_3C_HLADR_down",
+    "BSK_3C_Proliferation_down",
+    "BSK_3C_SRB_down",
+    "BSK_3C_Vis_down",
+    "BSK_4H_Eotaxin3_down",
+    "BSK_CASM3C_Proliferation_down",
+    "BSK_LPS_VCAM1_down",
+    "BSK_SAg_CD38_down",
+    "BSK_SAg_CD40_down",
+    "BSK_SAg_Proliferation_down",
+    "BSK_hDFCGF_CollagenIII_down",
+    "BSK_hDFCGF_Proliferation_down",
+]
+print(tox21_df.columns)
+
 endpoint_df_list = []
 skf = StratifiedKFold(N_GROUPS, shuffle=True)
 sgkf = StratifiedGroupKFold(N_GROUPS)
 for endpoint, endpoint_df in tqdm(tox21_df.groupby("endpoint")):
+    if endpoint not in selected_endpoint_list:
+        continue
     group_array = -np.ones_like(endpoint_df.label.to_numpy())
     for split, (train_idx, test_idx) in enumerate(
         skf.split(endpoint_df.smiles.tolist(), endpoint_df.label.to_numpy())

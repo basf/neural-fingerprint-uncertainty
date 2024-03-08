@@ -1,4 +1,5 @@
 """Run ML experiments on the Tox21 dataset."""
+
 import argparse
 from pathlib import Path
 from typing import Any
@@ -62,7 +63,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
         [
             ("smi2mol", SmilesToMolPipelineElement()),
             ("mol2graph", MolToChemprop()),
-            ("chemprop", ChempropClassifier()),
+            ("chemprop", ChempropClassifier(dropout=0.2)),
         ],
         n_jobs=n_jobs,
         memory=joblib.Memory(),
@@ -71,7 +72,6 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     return {
         "chemprop": (chemprop_pipeline, chemprop_hyperparams),
     }
-
 
 
 def main() -> None:
@@ -85,7 +85,11 @@ def main() -> None:
     unique_endpoints = tox21_presplit_df.endpoint.unique()
 
     endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
-    save_path = data_path / "intermediate_data" / f"test_set_predictions_{args.endpoint}.tsv.gz"
+    save_path = (
+        data_path
+        / "intermediate_data"
+        / f"nn_test_set_predictions_{args.endpoint}.tsv.gz"
+    )
 
     split_strategy_list = [
         "Random",
@@ -127,9 +131,7 @@ def main() -> None:
                     train_df.label.tolist(),
                     groups=train_df[split_strategy].tolist(),
                 )
-                test_df["proba"] = model.predict_proba(test_df.smiles.tolist())[
-                    :, 1
-                ]
+                test_df["proba"] = model.predict_proba(test_df.smiles.tolist())[:, 1]
                 test_df["prediction"] = model.predict(test_df.smiles.tolist())
                 test_df["endpoint"] = args.endpoint
                 test_df["trial"] = trial

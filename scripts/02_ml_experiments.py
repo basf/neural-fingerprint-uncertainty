@@ -1,4 +1,5 @@
 """Run ML experiments on the Tox21 dataset."""
+
 import argparse
 from pathlib import Path
 from typing import Any
@@ -172,9 +173,7 @@ def main() -> None:
                     train_df.label.tolist(),
                     groups=train_df[split_strategy].tolist(),
                 )
-                test_df["proba"] = model.predict_proba(test_df.smiles.tolist())[
-                    :, 1
-                ]
+                test_df["proba"] = model.predict_proba(test_df.smiles.tolist())[:, 1]
                 test_df["prediction"] = model.predict(test_df.smiles.tolist())
                 test_df["endpoint"] = args.endpoint
                 test_df["trial"] = trial
