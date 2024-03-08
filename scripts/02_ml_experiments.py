@@ -59,7 +59,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     knn_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=True)),
+            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
             ("precomputed_kernel", TanimotoToTraining()),
             (
                 "k_nearest_neighbors",
@@ -76,7 +76,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     svc_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=True)),
+            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
             ("svc", SVC(kernel=tanimoto_similarity_sparse, probability=True)),
         ],
         n_jobs=n_jobs,
@@ -90,13 +90,14 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     random_forest_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=True)),
+            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
             (
                 "balanced_random_forest",
                 BalancedRandomForestClassifier(
                     n_estimators=1024,
                     sampling_strategy="all",
                     replacement=True,
+                    bootstrap=False,
                     n_jobs=n_jobs,
                 ),
             ),
@@ -127,7 +128,9 @@ def main() -> None:
     unique_endpoints = tox21_presplit_df.endpoint.unique()
 
     endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
-    save_path = data_path / "intermediate_data" / f"test_set_predictions_{args.endpoint}.tsv.gz"
+    prediction_path = data_path / "model_predictions"
+    prediction_path.mkdir(parents=True, exist_ok=True)
+    save_path = prediction_path / f"test_set_predictions_{args.endpoint}.tsv.gz"
 
     split_strategy_list = [
         "Random",
