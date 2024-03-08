@@ -9,27 +9,27 @@ stages:
       size: 78378626
     - path: scripts/01_assign_groups.py
       hash: md5
-      md5: 133526275a90b23fe516fc3dfe95be7b
-      size: 4859
+      md5: 528aad1ae2fc61ac2cd03e46545b0a83
+      size: 5434
     outs:
     - path: data/intermediate_data/tox21_presplit.tsv
       hash: md5
-      md5: 8d2926c17b2039fb316e44026c480bce
-      size: 89745147
+      md5: 8cb65f3d0f96d781d5f52c82fde02e11
+      size: 1502243
   ml_experiments@APR_HepG2_CellLoss_72h_dn:
     cmd: python ./scripts/02_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
     deps:
     - path: ./data/intermediate_data/tox21_presplit.tsv
       hash: md5
-      md5: 8d2926c17b2039fb316e44026c480bce
-      size: 89745147
+      md5: 8cb65f3d0f96d781d5f52c82fde02e11
+      size: 1502243
     - path: ./scripts/02_ml_experiments.py
       hash: md5
-      md5: cca50499de42e4b97b1186c3fb4c0853
-      size: 6258
+      md5: 9ff5d9c50b1309b8ba0d61bf076fbed5
+      size: 6221
     outs:
     - path: 
         ./data/intermediate_data/model_predictions/test_set_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
       hash: md5
-      md5: c8553f6470d72cea4aae79d56a871230
-      size: 83393
+      md5: 7f8fd3a8f456ebf56aee0c52ec78ed8f
+      size: 81241
