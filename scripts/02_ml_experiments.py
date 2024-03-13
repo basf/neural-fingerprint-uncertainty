@@ -13,6 +13,7 @@ from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
 from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
 from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
@@ -71,7 +72,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
         memory=joblib.Memory(),
     )
     knn_hyperparams = {
-        "k_nearest_neighbors__n_neighbors": [5, 9],
+        "k_nearest_neighbors__n_neighbors": [9],
     }
 
     svc_pipeline = Pipeline(
@@ -94,11 +95,9 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
             ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
             (
                 "balanced_random_forest",
-                BalancedRandomForestClassifier(
+                RandomForestClassifier(
                     n_estimators=1024,
-                    sampling_strategy="all",
-                    replacement=True,
-                    bootstrap=False,
+                    bootstrap=True,
                     n_jobs=n_jobs,
                 ),
             ),
