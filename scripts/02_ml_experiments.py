@@ -7,7 +7,6 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
-from imblearn.ensemble import BalancedRandomForestClassifier
 from molpipeline.pipeline import Pipeline
 from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
 from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
