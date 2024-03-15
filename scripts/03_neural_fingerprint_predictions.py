@@ -125,7 +125,7 @@ def define_models(n_jobs) -> dict[str, tuple[BaseEstimator, dict[str, list[Any]]
     model_dict = {
         "KNN": (knn_model, knn_hyperparams),
         "SVC": (svc_model, svc_hyperparams),
-        "BRF": (rf_model, rf_hyperparams),
+        "RF": (rf_model, rf_hyperparams),
     }
     return model_dict
 

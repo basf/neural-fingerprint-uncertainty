@@ -111,7 +111,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     model_dict = {
         "KNN": (knn_pipeline, knn_hyperparams),
         "SVC": (svc_pipeline, svc_hyperparams),
-        "BRF": (random_forest_pipeline, rf_hyperparams),
+        "RF": (random_forest_pipeline, rf_hyperparams),
     }
     return model_dict
 
