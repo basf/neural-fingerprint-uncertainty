@@ -203,9 +203,9 @@ def main() -> None:
                 endpoint_df.label.to_numpy()[train_idx],
             )
             test_df = endpoint_df.iloc[test_idx].copy()
-            test_df["proba"] = chemprop_model.predict_proba(
-                test_df.smiles.tolist()
-            )[:, 1]
+            test_df["proba"] = chemprop_model.predict_proba(test_df.smiles.tolist())[
+                :, 1
+            ]
             test_df["prediction"] = chemprop_model.predict(test_df.smiles.tolist())
             test_df["endpoint"] = args.endpoint
             test_df["trial"] = trial
