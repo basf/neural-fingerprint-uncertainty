@@ -1,5 +1,8 @@
 """Run ML experiments on the Tox21 dataset."""
 
+# pylint: disable=invalid-name
+# pylint: enable=invalid-name
+
 import argparse
 import logging
 from pathlib import Path
@@ -12,13 +15,10 @@ from lightning import pytorch as pl
 from molpipeline.pipeline import Pipeline
 from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
 from molpipeline.pipeline_elements.error_handling import ErrorFilter, ErrorReplacer
-from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
 from molpipeline.pipeline_elements.mol2any.mol2chemprop import MolToChemprop
 from molpipeline.pipeline_elements.post_prediction import PostPredictionWrapper
 from molpipeline.sklearn_estimators.chemprop.models import ChempropClassifier
 from molpipeline.sklearn_estimators.chemprop.neural_fingerprint import ChempropNeuralFP
-from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
-from molpipeline.utils.kernel import tanimoto_similarity_sparse
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
@@ -81,7 +81,7 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
             (
                 "chemprop",
                 ChempropClassifier(
-                    n_jobs=4,
+                    n_jobs=n_jobs,
                     lightning_trainer=trainer,
                     model__message_passing__dropout=0.2,
                 ),
@@ -92,7 +92,7 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
     )
 
 
-def define_models(n_jobs) -> dict[str, tuple[BaseEstimator, dict[str, list[Any]]]]:
+def define_models(n_jobs: int) -> dict[str, tuple[BaseEstimator, dict[str, list[Any]]]]:
     """Define the models to train.
 
     Parameters
@@ -107,7 +107,7 @@ def define_models(n_jobs) -> dict[str, tuple[BaseEstimator, dict[str, list[Any]]
         hyperparameter grid.
     """
     knn_model = KNeighborsClassifier(n_neighbors=9, n_jobs=n_jobs)
-    knn_hyperparams = {}
+    knn_hyperparams: dict[str, Any] = {}
 
     svc_model = SVC(probability=True)
     svc_hyperparams = {

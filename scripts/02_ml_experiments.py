@@ -1,5 +1,8 @@
 """Run ML experiments on the Tox21 dataset."""
 
+# pylint: disable=invalid-name
+# pylint: enable=invalid-name
+
 import argparse
 from pathlib import Path
 from typing import Any
@@ -43,7 +46,7 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
-def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
+def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     """Define the models to train.
 
     Parameters
@@ -84,7 +87,7 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
         memory=joblib.Memory(),
     )
     svc_hyperparams = {
-        "svc__C": np.power(5.0, np.arange(-4, 4)),
+        "svc__C": np.power(5.0, np.arange(-4, 4)).tolist(),
         "svc__class_weight": [None, "balanced"],
     }
 
@@ -124,7 +127,6 @@ def main() -> None:
     )
 
     args = parse_args()
-    unique_endpoints = tox21_presplit_df.endpoint.unique()
 
     endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
     prediction_path = data_path / "intermediate_data" / "model_predictions"
