@@ -121,14 +121,16 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
 
 def main() -> None:
     """Run ML experiments on the Tox21 dataset."""
+    args = parse_args()
     data_path = Path(__file__).parents[1] / "data"
-    tox21_presplit_df = pd.read_csv(
-        data_path / "intermediate_data" / "tox21_presplit.tsv", sep="\t"
+    endpoint_df = pd.read_csv(
+        data_path
+        / "intermediate_data"
+        / "presplit_data"
+        / f"presplit_data_{args.endpoint}.tsv",
+        sep="\t",
     )
 
-    args = parse_args()
-
-    endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
     save_path = prediction_path / f"test_set_predictions_{args.endpoint}.tsv.gz"

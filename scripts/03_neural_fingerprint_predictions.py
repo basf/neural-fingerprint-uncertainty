@@ -169,14 +169,15 @@ def main() -> None:
     logging.getLogger("lightning.pytorch.utilities.rank_zero").setLevel(logging.ERROR)
     logging.getLogger("lightning.pytorch.accelerators.cuda").setLevel(logging.ERROR)
 
-    data_path = Path(__file__).parents[1] / "data"
-    presplit_ml_data_df = pd.read_csv(
-        data_path / "intermediate_data" / "tox21_presplit.tsv", sep="\t"
-    )
-
     args = parse_args()
-
-    endpoint_df = presplit_ml_data_df.query(f"endpoint == '{args.endpoint}'")
+    data_path = Path(__file__).parents[1] / "data"
+    endpoint_df = pd.read_csv(
+        data_path
+        / "intermediate_data"
+        / "presplit_data"
+        / f"presplit_data_{args.endpoint}.tsv",
+        sep="\t",
+    )
 
     split_strategy_list = [
         "Random",
