@@ -133,7 +133,9 @@ def main() -> None:
 
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
-    save_path = prediction_path / f"morgan_fingerprint_predictions_{args.endpoint}.tsv.gz"
+    save_path = (
+        prediction_path / f"morgan_fingerprint_predictions_{args.endpoint}.tsv.gz"
+    )
 
     split_strategy_list = [
         "Random",
