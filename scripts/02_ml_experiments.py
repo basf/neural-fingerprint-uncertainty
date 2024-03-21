@@ -64,7 +64,7 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
         [
             ("smi2mol", SmilesToMolPipelineElement()),
             ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
-            ("precomputed_kernel", TanimotoToTraining()),
+            ("precomputed_kernel", TanimotoToTraining(distance=True)),
             (
                 "k_nearest_neighbors",
                 KNeighborsClassifier(metric="precomputed", n_jobs=n_jobs),
