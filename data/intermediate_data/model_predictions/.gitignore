@@ -1,18 +1,3 @@
-/test_set_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
-/test_set_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
-/test_set_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
-/test_set_predictions_ATG_PXRE_CIS_up.tsv.gz
-/test_set_predictions_BSK_3C_HLADR_down.tsv.gz
-/test_set_predictions_BSK_3C_Proliferation_down.tsv.gz
-/test_set_predictions_BSK_3C_SRB_down.tsv.gz
-/test_set_predictions_BSK_3C_Vis_down.tsv.gz
-/test_set_predictions_BSK_4H_Eotaxin3_down.tsv.gz
-/test_set_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
-/test_set_predictions_BSK_LPS_VCAM1_down.tsv.gz
-/test_set_predictions_BSK_SAg_CD38_down.tsv.gz
-/test_set_predictions_BSK_SAg_CD40_down.tsv.gz
-/test_set_predictions_BSK_SAg_Proliferation_down.tsv.gz
-/test_set_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
 /neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
 /neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
 /neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
@@ -50,3 +35,4 @@
 /morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
 /morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
 /morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
