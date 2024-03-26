@@ -88,7 +88,7 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     )
     svc_hyperparams = {
         "svc__C": np.power(5.0, np.arange(-4, 4)).tolist(),
-        "svc__class_weight": [None, "balanced"],
+        "svc__class_weight": [None],
     }
 
     random_forest_pipeline = Pipeline(
