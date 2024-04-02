@@ -9,17 +9,11 @@ from pathlib import Path  # pathmodifications
 import numpy as np
 import numpy.typing as npt
 import pandas as pd
-from molpipeline.pipeline import Pipeline
-from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
-from molpipeline.pipeline_elements.error_handling import ErrorFilter, ErrorReplacer
-from molpipeline.pipeline_elements.mol2any import (
-    MolToFoldedMorganFingerprint,
-    MolToSmilesPipelineElement,
-)
-from molpipeline.pipeline_elements.mol2mol import (
-    MakeScaffoldGenericPipelineElement,
-    MurckoScaffoldPipelineElement,
-)
+from molpipeline import Pipeline
+from molpipeline.any2mol import SmilesToMol
+from molpipeline.error_handling import ErrorFilter, FilterReinserter
+from molpipeline.mol2any import MolToMorganFP, MolToSmiles
+from molpipeline.mol2mol import MakeScaffoldGeneric, MurckoScaffold
 from molpipeline.utils.kernel import self_tanimoto_distance
 from sklearn.base import clone
 from sklearn.cluster import AgglomerativeClustering
@@ -39,8 +33,8 @@ def get_clustering_pipeline() -> Pipeline:
     """
     clustering_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=False)),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             (
                 "agg_clustering",
                 AgglomerativeClustering(
@@ -64,14 +58,14 @@ def get_scaffold_pipeline() -> Pipeline:
     Pipeline
         The scaffold pipeline.
     """
-    murcko_scaffold = MurckoScaffoldPipelineElement()
+    murcko_scaffold = MurckoScaffold()
     none_filter = ErrorFilter.from_element_list([murcko_scaffold])
-    none_filler = ErrorReplacer.from_error_filter(none_filter, "")
+    none_filler = FilterReinserter.from_error_filter(none_filter, "")
     scaffold_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
+            ("smi2mol", SmilesToMol()),
             ("murcko_scaffold", murcko_scaffold),
-            ("mol2smi", MolToSmilesPipelineElement()),
+            ("mol2smi", MolToSmiles()),
             ("none_filter", none_filter),
             ("none_filler", none_filler),
             ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
@@ -92,15 +86,15 @@ def get_generic_scaffold_pipeline() -> Pipeline:
     Pipeline
         The generic scaffold pipeline.
     """
-    murcko_scaffold2 = MurckoScaffoldPipelineElement()
+    murcko_scaffold2 = MurckoScaffold()
     none_filter2 = ErrorFilter.from_element_list([murcko_scaffold2])
-    none_filler2 = ErrorReplacer.from_error_filter(none_filter2, "")
+    none_filler2 = FilterReinserter.from_error_filter(none_filter2, "")
     generic_scaffold_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
+            ("smi2mol", SmilesToMol()),
             ("murcko_scaffold", murcko_scaffold2),
-            ("generic_scaffold", MakeScaffoldGenericPipelineElement()),
-            ("mol2smi", MolToSmilesPipelineElement()),
+            ("generic_scaffold", MakeScaffoldGeneric()),
+            ("mol2smi", MolToSmiles()),
             ("none_filter", none_filter2),
             ("none_filler", none_filler2),
             ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
