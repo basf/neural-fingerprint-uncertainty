@@ -10,10 +10,10 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
-from molpipeline.pipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
-from molpipeline.mol2any import MolToMorganFP
 from molpipeline.estimators.similarity_transformation import TanimotoToTraining
+from molpipeline.mol2any import MolToMorganFP
+from molpipeline.pipeline import Pipeline
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
