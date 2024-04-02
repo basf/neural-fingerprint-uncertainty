@@ -11,9 +11,9 @@ import joblib
 import numpy as np
 import pandas as pd
 from molpipeline.pipeline import Pipeline
-from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
-from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
-from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
+from molpipeline.any2mol import SmilesToMol
+from molpipeline.mol2any import MolToMorganFP
+from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
@@ -62,8 +62,8 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     """
     knn_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             ("precomputed_kernel", TanimotoToTraining(distance=True)),
             (
                 "k_nearest_neighbors",
@@ -79,8 +79,8 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
 
     svc_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             ("svc", SVC(kernel=tanimoto_similarity_sparse, probability=True)),
         ],
         n_jobs=n_jobs,
@@ -92,8 +92,8 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
 
     random_forest_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             (
                 "balanced_random_forest",
                 RandomForestClassifier(
