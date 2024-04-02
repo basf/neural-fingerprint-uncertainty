@@ -34,7 +34,7 @@ def get_clustering_pipeline() -> Pipeline:
     clustering_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP(return_as="sparse")),
+            ("mol2morgan", MolToMorganFP(return_as="dense")),
             (
                 "agg_clustering",
                 AgglomerativeClustering(
