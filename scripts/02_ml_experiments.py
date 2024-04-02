@@ -170,7 +170,6 @@ def main() -> None:
                 )
                 train_df = endpoint_df.iloc[train_idx]
                 test_df = endpoint_df.iloc[test_idx].copy()
-                # TODO: Balance training data
                 model.fit(
                     train_df.smiles.tolist(),
                     train_df.label.tolist(),
