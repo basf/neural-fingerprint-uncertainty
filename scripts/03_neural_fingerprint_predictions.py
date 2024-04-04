@@ -12,6 +12,7 @@ import joblib
 import numpy as np
 import pandas as pd
 from lightning import pytorch as pl
+from lightning.pytorch.utilities import disable_possible_user_warnings
 from molpipeline.pipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
 from molpipeline.error_handling import ErrorFilter, FilterReinserter
@@ -166,6 +167,7 @@ def compile_pipeline(
 def main() -> None:
     """Run ML experiments on the Tox21 dataset."""
 
+    disable_possible_user_warnings()
     logging.getLogger("lightning.pytorch.utilities.rank_zero").setLevel(logging.ERROR)
     logging.getLogger("lightning.pytorch.accelerators.cuda").setLevel(logging.ERROR)
 
