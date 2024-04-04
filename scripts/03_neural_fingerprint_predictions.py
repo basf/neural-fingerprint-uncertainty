@@ -13,12 +13,12 @@ import numpy as np
 import pandas as pd
 from lightning import pytorch as pl
 from molpipeline.pipeline import Pipeline
-from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
-from molpipeline.pipeline_elements.error_handling import ErrorFilter, ErrorReplacer
-from molpipeline.pipeline_elements.mol2any.mol2chemprop import MolToChemprop
-from molpipeline.pipeline_elements.post_prediction import PostPredictionWrapper
-from molpipeline.sklearn_estimators.chemprop.models import ChempropClassifier
-from molpipeline.sklearn_estimators.chemprop.neural_fingerprint import ChempropNeuralFP
+from molpipeline.any2mol import SmilesToMol
+from molpipeline.error_handling import ErrorFilter, FilterReinserter
+from molpipeline.mol2any.mol2chemprop import MolToChemprop
+from molpipeline.post_prediction import PostPredictionWrapper
+from molpipeline.estimators.chemprop.models import ChempropClassifier
+from molpipeline.estimators.chemprop.neural_fingerprint import ChempropNeuralFP
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
@@ -75,7 +75,7 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
     )
     return Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
+            ("smi2mol", SmilesToMol()),
             ("error_filter", ErrorFilter(filter_everything=True)),
             ("mol2graph", MolToChemprop()),
             (
@@ -148,10 +148,10 @@ def compile_pipeline(
         The compiled pipeline.
     """
     error_filter = ErrorFilter(filter_everything=True)
-    error_replacer = ErrorReplacer.from_error_filter(error_filter, np.nan)
+    error_replacer = FilterReinserter.from_error_filter(error_filter, np.nan)
     return Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
+            ("smi2mol", SmilesToMol()),
             ("error_filter", error_filter),
             ("mol2graph", MolToChemprop()),
             ("neural_encoder", neural_encoder),
