@@ -84,7 +84,7 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
                 ChempropClassifier(
                     n_jobs=n_jobs,
                     lightning_trainer=trainer,
-                    model__message_passing__dropout=0.2,
+                    model__message_passing__dropout_rate=0.2,
                 ),
             ),
         ],
@@ -164,7 +164,7 @@ def compile_pipeline(
     )
 
 
-def main() -> None:
+def main() -> None:  # pylint: disable=too-many-locals
     """Run ML experiments on the Tox21 dataset."""
 
     disable_possible_user_warnings()
@@ -216,7 +216,7 @@ def main() -> None:
             test_df["model"] = "Chemprop"
             prediction_df_list.append(test_df)
 
-            chemprop_encoder = chemprop_model["chemprop"].to_encoder()
+            chemprop_encoder = chemprop_model["chemprop"].to_encoder()  # pylint: disable=no-member
             for model_name, (model, hyperparams) in tqdm(
                 model_dict.items(), desc="Model", leave=False
             ):
