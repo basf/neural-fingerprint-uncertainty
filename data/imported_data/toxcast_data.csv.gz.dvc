@@ -1,0 +1,12 @@
+md5: 5bda34570327c8ff7a866a3b32b30c2a
+frozen: true
+deps:
+- checksum: '"92911bbf9c1e2ad85231014859388cd6"'
+  size: 404948
+  hash: md5
+  path: https://deepchemdata.s3-us-west-1.amazonaws.com/datasets/toxcast_data.csv.gz
+outs:
+- md5: 92911bbf9c1e2ad85231014859388cd6
+  size: 404948
+  hash: md5
+  path: toxcast_data.csv.gz
