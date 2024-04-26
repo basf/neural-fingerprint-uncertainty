@@ -1,5 +1,8 @@
 """Run ML experiments on the Tox21 dataset."""
 
+# pylint: disable=invalid-name
+# pylint: enable=invalid-name
+
 import argparse
 from pathlib import Path
 from typing import Any
@@ -7,11 +10,10 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
-from imblearn.ensemble import BalancedRandomForestClassifier
+from molpipeline.any2mol import SmilesToMol
+from molpipeline.estimators.similarity_transformation import TanimotoToTraining
+from molpipeline.mol2any import MolToMorganFP
 from molpipeline.pipeline import Pipeline
-from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
-from molpipeline.pipeline_elements.mol2any import MolToFoldedMorganFingerprint
-from molpipeline.sklearn_estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
@@ -44,7 +46,7 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
-def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
+def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     """Define the models to train.
 
     Parameters
@@ -60,9 +62,9 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     """
     knn_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
-            ("precomputed_kernel", TanimotoToTraining()),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
+            ("precomputed_kernel", TanimotoToTraining(distance=True)),
             (
                 "k_nearest_neighbors",
                 KNeighborsClassifier(metric="precomputed", n_jobs=n_jobs),
@@ -77,22 +79,21 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
 
     svc_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             ("svc", SVC(kernel=tanimoto_similarity_sparse, probability=True)),
         ],
         n_jobs=n_jobs,
         memory=joblib.Memory(),
     )
     svc_hyperparams = {
-        "svc__C": np.power(5.0, np.arange(-4, 4)),
-        "svc__class_weight": [None, "balanced"],
+        "svc__C": np.power(5.0, np.arange(-4, 4)).tolist(),
     }
 
     random_forest_pipeline = Pipeline(
         [
-            ("smi2mol", SmilesToMolPipelineElement()),
-            ("mol2morgan", MolToFoldedMorganFingerprint(output_datatype="sparse")),
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
             (
                 "balanced_random_forest",
                 RandomForestClassifier(
@@ -112,25 +113,28 @@ def define_models(n_jobs) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     model_dict = {
         "KNN": (knn_pipeline, knn_hyperparams),
         "SVC": (svc_pipeline, svc_hyperparams),
-        "BRF": (random_forest_pipeline, rf_hyperparams),
+        "RF": (random_forest_pipeline, rf_hyperparams),
     }
     return model_dict
 
 
 def main() -> None:
     """Run ML experiments on the Tox21 dataset."""
+    args = parse_args()
     data_path = Path(__file__).parents[1] / "data"
-    tox21_presplit_df = pd.read_csv(
-        data_path / "intermediate_data" / "tox21_presplit.tsv", sep="\t"
+    endpoint_df = pd.read_csv(
+        data_path
+        / "intermediate_data"
+        / "presplit_data"
+        / f"presplit_data_{args.endpoint}.tsv",
+        sep="\t",
     )
 
-    args = parse_args()
-    unique_endpoints = tox21_presplit_df.endpoint.unique()
-
-    endpoint_df = tox21_presplit_df.query(f"endpoint == '{args.endpoint}'")
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
-    save_path = prediction_path / f"test_set_predictions_{args.endpoint}.tsv.gz"
+    save_path = (
+        prediction_path / f"morgan_fingerprint_predictions_{args.endpoint}.tsv.gz"
+    )
 
     split_strategy_list = [
         "Random",
@@ -166,7 +170,6 @@ def main() -> None:
                 )
                 train_df = endpoint_df.iloc[train_idx]
                 test_df = endpoint_df.iloc[test_idx].copy()
-                # TODO: Balance training data
                 model.fit(
                     train_df.smiles.tolist(),
                     train_df.label.tolist(),

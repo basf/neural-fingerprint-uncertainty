@@ -14,3 +14,7 @@ endpoint:
   - "BSK_SAg_Proliferation_down"
   - "BSK_hDFCGF_CollagenIII_down"
   - "BSK_hDFCGF_Proliferation_down"
+  - "CEETOX_H295R_11DCORT_dn"
+  - "CEETOX_H295R_ANDR_dn"
+  - "TOX21_ARE_BLA_agonist_ratio"
+  - "TOX21_TR_LUC_GH3_Antagonist"
