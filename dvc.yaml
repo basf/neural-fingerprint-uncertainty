@@ -2,13 +2,20 @@ vars:
   - ./config/endpoints.yaml
 
 stages:
+  preprocess_data:
+    cmd: python scripts/01_preprocess_data.py
+    deps:
+      - scripts/01_preprocess_data.py
+      - data/imported_data/toxcast_data.csv.gz
+    outs:
+      - data/intermediate_data/ml_ready_data.tsv
   assign_groups:
     foreach: ${endpoint}  # Specified in data_config.yaml
     do:
       cmd: python scripts/02_assign_groups.py  --endpoint ${item}
       deps:
-        - data/imported_data/ml_ready_data.tsv
         - scripts/02_assign_groups.py
+        - data/intermediate_data/ml_ready_data.tsv
       outs:
         - data/intermediate_data/presplit_data/presplit_data_${item}.tsv
   ml_experiments:
