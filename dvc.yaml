@@ -53,7 +53,7 @@ stages:
   create_final_plots:
     cmd: python scripts/06_create_final_figures.py --endpoint_a "BSK_4H_Eotaxin3_down" --endpoint_b "ATG_PXRE_CIS_up"
     deps:
-      - ./data/figures
+      - ./data/intermediate_data/model_predictions
       - ./scripts/06_create_final_figures.py
     outs:
       - ./data/figures/final_figures/proba_distribution_rf.png
