@@ -13,13 +13,13 @@ import numpy as np
 import pandas as pd
 from lightning import pytorch as pl
 from lightning.pytorch.utilities import disable_possible_user_warnings
-from molpipeline.pipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
 from molpipeline.error_handling import ErrorFilter, FilterReinserter
-from molpipeline.mol2any.mol2chemprop import MolToChemprop
-from molpipeline.post_prediction import PostPredictionWrapper
 from molpipeline.estimators.chemprop.models import ChempropClassifier
 from molpipeline.estimators.chemprop.neural_fingerprint import ChempropNeuralFP
+from molpipeline.mol2any.mol2chemprop import MolToChemprop
+from molpipeline.pipeline import Pipeline
+from molpipeline.post_prediction import PostPredictionWrapper
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
@@ -216,7 +216,9 @@ def main() -> None:  # pylint: disable=too-many-locals
             test_df["model"] = "Chemprop"
             prediction_df_list.append(test_df)
 
-            chemprop_encoder = chemprop_model["chemprop"].to_encoder()  # pylint: disable=no-member
+            chemprop_encoder = chemprop_model[  # pylint: disable=no-member
+                "chemprop"
+            ].to_encoder()
             for model_name, (model, hyperparams) in tqdm(
                 model_dict.items(), desc="Model", leave=False
             ):
