@@ -20,8 +20,6 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold
 from sklearn.preprocessing import FunctionTransformer, OrdinalEncoder
 
-N_GROUPS = 5
-
 
 def get_clustering_pipeline() -> Pipeline:
     """Get the clustering pipeline.
@@ -195,6 +193,11 @@ def parse_args() -> argparse.Namespace:
         help="Number of jobs to use for training.",
     )
     argument_parser.add_argument(
+        "--n_groups",
+        type=int,
+        default=5,
+    )
+    argument_parser.add_argument(
         "--endpoint",
         type=str,
         help="Endpoint to train on.",
@@ -226,10 +229,10 @@ def main() -> None:
 
     data_df = pd.read_csv(data_path / "intermediate_data" / "ml_ready_data.tsv", sep="\t")
     data_df = data_df.loc[data_df.endpoint == args.endpoint]
-    data_df["Random"] = get_stratified_k_fold_splits(data_df, N_GROUPS)
+    data_df["Random"] = get_stratified_k_fold_splits(data_df, args.n_groups)
     for grouping_name, grouping_pipeline in cluster_dict.items():
         data_df[grouping_name] = get_pipeline_splits(
-            data_df, N_GROUPS, grouping_pipeline
+            data_df, args.n_groups, grouping_pipeline
         )
     data_df.to_csv(
         save_path / f"presplit_data_{args.endpoint}.tsv", sep="\t", index=False

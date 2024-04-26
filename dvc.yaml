@@ -12,7 +12,7 @@ stages:
   assign_groups:
     foreach: ${endpoint}  # Specified in data_config.yaml
     do:
-      cmd: python scripts/02_assign_groups.py  --endpoint ${item}
+      cmd: python scripts/02_assign_groups.py  --endpoint ${item}  --n_groups 5
       deps:
         - scripts/02_assign_groups.py
         - data/intermediate_data/ml_ready_data.tsv
