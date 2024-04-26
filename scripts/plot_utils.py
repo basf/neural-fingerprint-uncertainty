@@ -24,7 +24,7 @@ def get_sim_pipeline() -> Pipeline:
             ("mol2morgan", MolToMorganFP()),
             ("sim", TanimotoToTraining()),
         ],
-        n_jobs=-1,
+        n_jobs=1,
     )
     return sim_pipeline
 
