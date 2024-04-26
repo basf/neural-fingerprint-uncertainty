@@ -49,9 +49,9 @@ stages:
       - ./data/figures
       - ./scripts/06_create_final_figures.py
     outs:
-      - ./data/figures/${item}/proba_distribution_rf.png
-      - ./data/figures/${item}/calibration_curves.png
-      - ./data/figures/${item}/performance_metrics.png
-      - ./data/figures/${item}/performance_metrics_alt.png
-      - ./data/figures/${item}/similarity_to_training.png
-      - ./data/figures/${item}/test_set_composition.png
+      - ./data/figures/final_figures/proba_distribution_rf.png
+      - ./data/figures/final_figures/calibration_curves.png
+      - ./data/figures/final_figures/performance_metrics.png
+      - ./data/figures/final_figures/performance_metrics_alt.png
+      - ./data/figures/final_figures/similarity_to_training.png
+      - ./data/figures/final_figures/test_set_composition.png
