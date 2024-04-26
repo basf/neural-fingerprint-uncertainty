@@ -37,7 +37,7 @@ stages:
       outs:
         - ./data/intermediate_data/model_predictions/neural_fingerprint_predictions_${item}.tsv.gz
   create_plots:
-    foreach: ${endpoint}  # Spec specified in data_config.yaml
+    foreach: ${endpoint}  # Specified in data_config.yaml
     do:
       cmd: python ./scripts/04_create_plots.py --endpoint ${item}
       deps:
