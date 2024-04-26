@@ -379,7 +379,7 @@ def plot_proba_rf(
                 stat="density",
                 common_norm=False,
             )
-            axs[i, j].set_title(f"{model} - {split}")
+            axs[i, j].set_title(f"{model}")
             if i == 1:
                 axs[i, j].set_xlabel("Predicted probability")
             else:
