@@ -1,131 +1,240 @@
 """Assign groups to the Tox21 dataset for cross-validation."""
-import os
-from pathlib import Path
+
+# pylint: disable=invalid-name
+# pylint: enable=invalid-name
+
+import argparse
+from pathlib import Path  # pathmodifications
 
 import numpy as np
+import numpy.typing as npt
 import pandas as pd
-from molpipeline.pipeline import Pipeline
-from molpipeline.pipeline_elements.any2mol import SmilesToMolPipelineElement
-from molpipeline.pipeline_elements.error_handling import ErrorFilter, ErrorReplacer
-from molpipeline.pipeline_elements.mol2any import (
-    MolToFoldedMorganFingerprint,
-    MolToSmilesPipelineElement,
-)
-from molpipeline.pipeline_elements.mol2mol import (
-    MakeScaffoldGenericPipelineElement,
-    MurckoScaffoldPipelineElement,
-)
+from molpipeline import Pipeline
+from molpipeline.any2mol import SmilesToMol
+from molpipeline.error_handling import ErrorFilter, FilterReinserter
+from molpipeline.mol2any import MolToMorganFP, MolToSmiles
+from molpipeline.mol2mol import MakeScaffoldGeneric, MurckoScaffold
 from molpipeline.utils.kernel import self_tanimoto_distance
 from sklearn.base import clone
 from sklearn.cluster import AgglomerativeClustering
-from sklearn.model_selection import (
-    GroupKFold,
-    KFold,
-    StratifiedGroupKFold,
-    StratifiedKFold,
-)
+from sklearn.model_selection import StratifiedGroupKFold, StratifiedKFold
 from sklearn.preprocessing import FunctionTransformer, OrdinalEncoder
-from tqdm.auto import tqdm
 
 N_GROUPS = 5
-clustering_pipeline = Pipeline(
-    [
-        ("smi2mol", SmilesToMolPipelineElement()),
-        ("mol2morgan", MolToFoldedMorganFingerprint(sparse_output=False)),
-        (
-            "agg_clustering",
-            AgglomerativeClustering(
-                distance_threshold=0.8,
-                linkage="average",
-                metric=self_tanimoto_distance,
-                n_clusters=None,
+
+
+def get_clustering_pipeline() -> Pipeline:
+    """Get the clustering pipeline.
+
+    Returns
+    -------
+    Pipeline
+        The clustering pipeline.
+    """
+    clustering_pipeline = Pipeline(
+        [
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="dense")),
+            (
+                "agg_clustering",
+                AgglomerativeClustering(
+                    distance_threshold=0.8,
+                    linkage="average",
+                    metric=self_tanimoto_distance,
+                    n_clusters=None,
+                ),
             ),
-        ),
-    ],
-    n_jobs=16,
-)
+        ],
+        n_jobs=16,
+    )
+    return clustering_pipeline
 
-murcko_scaffold = MurckoScaffoldPipelineElement()
-none_filter = ErrorFilter.from_element_list([murcko_scaffold])
-none_filler = ErrorReplacer.from_error_filter(none_filter, "")
-scaffold_pipeline = Pipeline(
-    [
-        ("smi2mol", SmilesToMolPipelineElement()),
-        ("murcko_scaffold", murcko_scaffold),
-        ("mol2smi", MolToSmilesPipelineElement()),
-        ("none_filter", none_filter),
-        ("none_filler", none_filler),
-        ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
-        ("transpose", FunctionTransformer(func=np.transpose)),
-        ("scaffold_encoder", OrdinalEncoder()),
-        ("reshape1d", FunctionTransformer(func=np.ravel)),
-    ],
-    n_jobs=16,
-)
 
-murcko_scaffold2 = MurckoScaffoldPipelineElement()
-none_filter2 = ErrorFilter.from_element_list([murcko_scaffold2])
-none_filler2 = ErrorReplacer.from_error_filter(none_filter2, "")
-generic_scaffold_pipeline = Pipeline(
-    [
-        ("smi2mol", SmilesToMolPipelineElement()),
-        ("murcko_scaffold", murcko_scaffold2),
-        ("generic_scaffold", MakeScaffoldGenericPipelineElement()),
-        ("mol2smi", MolToSmilesPipelineElement()),
-        ("none_filter", none_filter2),
-        ("none_filler", none_filler2),
-        ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
-        ("transpose", FunctionTransformer(func=np.transpose)),
-        ("scaffold_encoder", OrdinalEncoder()),
-        ("reshape1d", FunctionTransformer(func=np.ravel)),
-    ],
-    n_jobs=16,
-)
-cluster_dict = {
-    "Agglomerative clustering": clustering_pipeline,
-    "Murcko scaffold": scaffold_pipeline,
-    "Generic scaffold": generic_scaffold_pipeline,
-}
+def get_scaffold_pipeline() -> Pipeline:
+    """Get the scaffold pipeline.
 
-data_path = Path(__file__).parents[1] / "data"
-tox21_df = pd.read_csv(data_path / "imported_data" / "ml_ready_data.tsv", sep="\t")
-endpoint_df_list = []
-skf = StratifiedKFold(N_GROUPS, shuffle=True)
-sgkf = StratifiedGroupKFold(N_GROUPS)
-for endpoint, endpoint_df in tqdm(tox21_df.groupby("endpoint")):
-    group_array = -np.ones_like(endpoint_df.label.to_numpy())
-    for split, (train_idx, test_idx) in enumerate(
-        skf.split(endpoint_df.smiles.tolist(), endpoint_df.label.to_numpy())
+    Returns
+    -------
+    Pipeline
+        The scaffold pipeline.
+    """
+    murcko_scaffold = MurckoScaffold()
+    none_filter = ErrorFilter.from_element_list([murcko_scaffold])
+    none_filler = FilterReinserter.from_error_filter(none_filter, "")
+    scaffold_pipeline = Pipeline(
+        [
+            ("smi2mol", SmilesToMol()),
+            ("murcko_scaffold", murcko_scaffold),
+            ("mol2smi", MolToSmiles()),
+            ("none_filter", none_filter),
+            ("none_filler", none_filler),
+            ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
+            ("transpose", FunctionTransformer(func=np.transpose)),
+            ("scaffold_encoder", OrdinalEncoder()),
+            ("reshape1d", FunctionTransformer(func=np.ravel)),
+        ],
+        n_jobs=16,
+    )
+    return scaffold_pipeline
+
+
+def get_generic_scaffold_pipeline() -> Pipeline:
+    """Get the generic scaffold pipeline.
+
+    Returns
+    -------
+    Pipeline
+        The generic scaffold pipeline.
+    """
+    murcko_scaffold2 = MurckoScaffold()
+    none_filter2 = ErrorFilter.from_element_list([murcko_scaffold2])
+    none_filler2 = FilterReinserter.from_error_filter(none_filter2, "")
+    generic_scaffold_pipeline = Pipeline(
+        [
+            ("smi2mol", SmilesToMol()),
+            ("murcko_scaffold", murcko_scaffold2),
+            ("generic_scaffold", MakeScaffoldGeneric()),
+            ("mol2smi", MolToSmiles()),
+            ("none_filter", none_filter2),
+            ("none_filler", none_filler2),
+            ("reshape2d", FunctionTransformer(func=np.atleast_2d)),
+            ("transpose", FunctionTransformer(func=np.transpose)),
+            ("scaffold_encoder", OrdinalEncoder()),
+            ("reshape1d", FunctionTransformer(func=np.ravel)),
+        ],
+        n_jobs=16,
+    )
+    return generic_scaffold_pipeline
+
+
+def get_stratified_k_fold_splits(
+    data_df: pd.DataFrame, n_splits: int
+) -> npt.NDArray[np.int_]:
+    """Split the data randomly and stratified.
+
+    Parameters
+    ----------
+    data_df : pd.DataFrame
+        The data to split.
+    n_splits : int
+        The number of splits.
+
+    Returns
+    -------
+    npt.NDArray[np.int_]
+        The group array.
+    """
+    skf = StratifiedKFold(n_splits, shuffle=True, random_state=20240320)
+    group_array = -np.ones_like(data_df.label.to_numpy())
+    for split, (_, test_idx) in enumerate(
+        skf.split(data_df.smiles.tolist(), data_df.label.to_numpy())
     ):
         group_array[test_idx] = split
-    endpoint_df["Random"] = group_array
+    return group_array
+
+
+def get_pipeline_splits(
+    data_df: pd.DataFrame, n_splits: int, pipeline: Pipeline
+) -> npt.NDArray[np.int_]:
+    """Split the data using a pipeline.
+
+    Parameters
+    ----------
+    data_df : pd.DataFrame
+        The data to split.
+    n_splits : int
+        The number of splits.
+    pipeline : Pipeline
+        The pipeline to use for splitting.
+
+    Returns
+    -------
+    npt.NDArray[np.int_]
+        The group array.
+    """
+    # Step 1: Clone the pipeline to avoid side effects
+    pipeline_copy = clone(pipeline)
+
+    # Step 2: Fit the pipeline to the data
+    if hasattr(pipeline_copy, "fit_predict"):
+        cluster_label = pipeline_copy.fit_predict(
+            data_df.smiles.tolist(), data_df.label.to_numpy()
+        )
+    else:
+        cluster_label = pipeline_copy.fit_transform(
+            data_df.smiles.tolist(), data_df.label.to_numpy()
+        )
+
+    # Step 3: Split the data using the cluster labels
+    sgkf = StratifiedGroupKFold(n_splits, random_state=20240320, shuffle=True)
+    group_array = -np.ones_like(data_df.label.to_numpy())
+    for split, (_, test_idx) in enumerate(
+        sgkf.split(
+            data_df.smiles.tolist(),
+            data_df.label.to_numpy(),
+            groups=cluster_label,
+        )
+    ):
+        group_array[test_idx] = split
+    return group_array
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command line arguments.
+
+    Returns
+    -------
+    argparse.Namespace
+        Parsed command line arguments.
+    """
+    argument_parser = argparse.ArgumentParser()
+    argument_parser.add_argument(
+        "--n_jobs",
+        type=int,
+        default=16,
+        help="Number of jobs to use for training.",
+    )
+    argument_parser.add_argument(
+        "--endpoint",
+        type=str,
+        help="Endpoint to train on.",
+    )
+    args = argument_parser.parse_args()
+    return args
+
+
+def main() -> None:
+    """Assign groups to the Tox21 dataset for cross-validation."""
+    # Set up paths
+    base_path = Path(__file__).parents[1]
+    data_path = base_path / "data"
+    save_path = base_path / "data" / "intermediate_data" / "presplit_data"
+    save_path.mkdir(parents=True, exist_ok=True)
+
+    # Get arguments
+    args = parse_args()
+
+    #  Create the clustering pipelines
+    clustering_pipeline = get_clustering_pipeline()
+    scaffold_pipeline = get_scaffold_pipeline()
+    generic_scaffold_pipeline = get_generic_scaffold_pipeline()
+    cluster_dict = {
+        "Agglomerative clustering": clustering_pipeline,
+        "Murcko scaffold": scaffold_pipeline,
+        "Generic scaffold": generic_scaffold_pipeline,
+    }
+
+    data_df = pd.read_csv(data_path / "imported_data" / "ml_ready_data.tsv", sep="\t")
+    data_df = data_df.loc[data_df.endpoint == args.endpoint]
+    data_df["Random"] = get_stratified_k_fold_splits(data_df, N_GROUPS)
     for grouping_name, grouping_pipeline in cluster_dict.items():
-        grouping_pipeline_copy = clone(grouping_pipeline)
-        if hasattr(grouping_pipeline_copy, "fit_predict"):
-            cluster_label = grouping_pipeline_copy.fit_predict(
-                endpoint_df.smiles.tolist(), endpoint_df.label.to_numpy()
-            )
-        else:
-            cluster_label = grouping_pipeline_copy.fit_transform(
-                endpoint_df.smiles.tolist(), endpoint_df.label.to_numpy()
-            )
-        group_array = -np.ones_like(endpoint_df.label.to_numpy())
-        for split, (train_idx, test_idx) in enumerate(
-            sgkf.split(
-                endpoint_df.smiles.tolist(),
-                endpoint_df.label.to_numpy(),
-                groups=cluster_label,
-            )
-        ):
-            group_array[test_idx] = split
-        endpoint_df[grouping_name] = group_array
-    # Aggolomerative clustering with group K fold
-    endpoint_df_list.append(endpoint_df)
-tox21_presplit = pd.concat(endpoint_df_list)
+        data_df[grouping_name] = get_pipeline_splits(
+            data_df, N_GROUPS, grouping_pipeline
+        )
+    data_df.to_csv(
+        save_path / f"presplit_data_{args.endpoint}.tsv", sep="\t", index=False
+    )
 
 
-if not os.path.isdir(data_path / "intermediate_data"):
-    os.mkdir(data_path / "intermediate_data")
-tox21_presplit.to_csv(
-    data_path / "intermediate_data" / "tox21_presplit.tsv", sep="\t", index=False
-)
+if __name__ == "__main__":
+    main()
