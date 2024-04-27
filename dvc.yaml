@@ -39,7 +39,7 @@ stages:
   create_plots:
     foreach: ${endpoint}  # Specified in data_config.yaml
     do:
-      cmd: python ./scripts/04_create_plots.py --endpoint ${item}
+      cmd: python ./scripts/05_create_plots.py --endpoint ${item}
       deps:
         - data/intermediate_data/model_predictions/morgan_fingerprint_predictions_${item}.tsv.gz
         - data/intermediate_data/model_predictions/neural_fingerprint_predictions_${item}.tsv.gz
