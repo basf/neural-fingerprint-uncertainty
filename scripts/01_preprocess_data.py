@@ -37,24 +37,24 @@ def get_standardization_pipeline(n_jobs: int = -1) -> Pipeline:
     """
     element_filter = ElementFilter(
         allowed_element_numbers=[
-            1,
-            3,
-            5,
-            6,
-            7,
-            8,
-            9,
-            11,
-            12,
-            14,
-            15,
-            16,
-            17,
-            19,
-            20,
-            34,
-            35,
-            53,
+            1,  # H
+            3,  # Li
+            5,  # B
+            6,  # C
+            7,  # N
+            8,  # O
+            9,  # F
+            11,  # Na
+            12,  # Mg
+            14,  # Si
+            15,  # P
+            16,  # S
+            17,  # Cl
+            19,  # K
+            20,  # Ca
+            34,  # Se
+            35,  # Br
+            53,  # I
         ],
     )
     error_filter = ErrorFilter(filter_everything=True)
