@@ -119,7 +119,7 @@ def plot_similarity_to_training(
     handles = None
     labels = None
     for i, data_df in enumerate(data_df_list):
-        for _, split in enumerate(["Random", "Agglomerative clustering"]):
+        for _, split in enumerate(["Agglomerative clustering", "Random"]):
             split_df = data_df.loc[data_df["Split strategy"] == split]
             test_set_nn_similarity2ax(split_df, axs[i], split)
         if col_tiles:

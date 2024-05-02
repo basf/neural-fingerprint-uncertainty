@@ -285,7 +285,6 @@ def test_set_nn_similarity2ax(
         label=label,
         bins=np.linspace(0, 1, 20),
         alpha=0.5,
-        hue_order=["Agglomerative clustering", "Random"],
     )
     ax.set_xlabel("Similarity to training set")
     ax.set_ylabel("Count")
