@@ -160,62 +160,6 @@ def plot_metrics(
         Figure size.
     """
     model_order, color_dict = get_model_order_and_color()
-    (_, subfig_list), axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=2)
-    handles = None
-    labels = None
-    for i, data_df in enumerate(data_df_list):
-        performance_df = get_performance_metrics(data_df)
-        if data_name_list:
-            subfig_list[i].suptitle(data_name_list[i])
-        for j, split in enumerate(["Random", "Agglomerative clustering"]):
-            ax = axs[i, j]
-            sns.boxplot(
-                data=performance_df.loc[performance_df["split"] == split],
-                x="metric",
-                hue="model",
-                y="Performance",
-                ax=ax,
-                palette=color_dict,
-                hue_order=model_order,
-            )
-            if i == j == 0:
-                handles, labels = ax.get_legend_handles_labels()
-            ax.set_xlabel("")
-            ax.legend().remove()
-            ax.set_title(f"{split} split")
-            if j == 0:
-                ax.set_ylabel("Metric value")
-            else:
-                ax.set_ylabel("")
-
-    if not handles or not labels:
-        raise ValueError("No handles and labels found.")
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
-    if save_path:
-        save_path = Path(save_path)
-        plt.savefig(save_path / "performance_metrics.png")
-
-
-def plot_metrics_alt(
-    data_df_list: list[pd.DataFrame],
-    data_name_list: list[str] | None = None,
-    save_path: Path | str | None = None,
-    figsize: tuple[int, int] | None = None,
-) -> None:
-    """Plot the performance metrics for each model.
-
-    Parameters
-    ----------
-    data_df_list : list[pd.DataFrame]
-        Predictions for the endpoint.
-    data_name_list : list[str] | None
-        Names of the endpoints.
-    save_path : Path | str | None, optional (default=None)
-        Path to save the figure.
-    figsize : tuple[int, int] | None, optional (default=None)
-        Figure size.
-    """
-    model_order, color_dict = get_model_order_and_color()
     (_, subfig_list), axs, ax_legend = get_nx2_figure(
         figsize=figsize, nrows=2, share_y=False
     )
@@ -225,7 +169,7 @@ def plot_metrics_alt(
         performance_df = get_performance_metrics(data_df)
         if data_name_list:
             subfig_list[i].suptitle(data_name_list[i])
-        for j, metric in enumerate(["BA", "Brier score"]):
+        for j, metric in enumerate(["Balanced accuracy", "Brier score"]):
             ax = axs[i, j]
             sns.boxplot(
                 data=performance_df.loc[performance_df["metric"] == metric],
@@ -245,13 +189,15 @@ def plot_metrics_alt(
                 ax.set_ylabel("Metric value")
             else:
                 ax.set_ylabel("")
-
+        axs[i, 0].set_ylim([0.45, 0.8])
+        axs[i, 1].set_ylim([0.16, 0.32])
+        axs[i, 1].set_yticks(np.arange(0.16, 0.35, 0.04))
     if not handles or not labels:
         raise ValueError("No handles and labels found.")
     ax_legend.legend(handles, labels, loc="center", ncol=4)
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / "performance_metrics_alt.png")
+        plt.savefig(save_path / "performance_metrics.png")
 
 
 def plot_calibration_curves(
@@ -409,6 +355,11 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
+    plot_metrics(
+        [data_a_df, data_b_df],
+        data_name_list=[endpoint_a, endpoint_b],
+        save_path=save_path,
+    )
     plot_test_set_composition(
         [data_a_df, data_b_df],
         data_name_list=[endpoint_a, endpoint_b],

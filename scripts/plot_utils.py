@@ -302,7 +302,7 @@ def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
             "split": split,
         }
         ba_dict = {
-            "metric": "BA",
+            "metric": "Balanced accuracy",
             "Performance": balanced_accuracy_score(
                 iter_df["label"], iter_df["prediction"]
             ),
