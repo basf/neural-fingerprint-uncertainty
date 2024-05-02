@@ -370,16 +370,6 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
         save_path,
         col_tiles=[endpoint_a, endpoint_b],
     )
-    plot_metrics(
-        [data_a_df, data_b_df],
-        data_name_list=[endpoint_a, endpoint_b],
-        save_path=save_path,
-    )
-    plot_metrics_alt(
-        [data_a_df, data_b_df],
-        data_name_list=[endpoint_a, endpoint_b],
-        save_path=save_path,
-    )
     plot_calibration_curves(
         [data_a_df, data_b_df],
         data_name_list=[endpoint_a, endpoint_b],
