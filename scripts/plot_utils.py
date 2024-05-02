@@ -223,7 +223,14 @@ def test_set_composition2ax(
         axis=0
     )
     n_trials = test_set_cpds.trial.nunique()
-    sns.scatterplot(data=count_df, x=0, y=1, hue="Split strategy", ax=ax)
+    sns.scatterplot(
+        data=count_df,
+        x=0,
+        y=1,
+        hue="Split strategy",
+        ax=ax,
+        hue_order=["Agglomerative clustering", "Random"],
+    )
     ax.scatter(
         [neg_total / n_trials],
         [pos_total / n_trials],
@@ -272,7 +279,14 @@ def test_set_nn_similarity2ax(
             raise AssertionError()
         sim_list.extend(max_sim.tolist())
 
-    sns.histplot(sim_list, ax=ax, label=label, bins=np.linspace(0, 1, 20), alpha=0.5)
+    sns.histplot(
+        sim_list,
+        ax=ax,
+        label=label,
+        bins=np.linspace(0, 1, 20),
+        alpha=0.5,
+        hue_order=["Agglomerative clustering", "Random"],
+    )
     ax.set_xlabel("Similarity to training set")
     ax.set_ylabel("Count")
 
