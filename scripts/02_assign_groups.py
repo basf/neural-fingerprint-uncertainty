@@ -227,7 +227,9 @@ def main() -> None:
         "Generic scaffold": generic_scaffold_pipeline,
     }
 
-    data_df = pd.read_csv(data_path / "intermediate_data" / "ml_ready_data.tsv", sep="\t")
+    data_df = pd.read_csv(
+        data_path / "intermediate_data" / "ml_ready_data.tsv", sep="\t"
+    )
     data_df = data_df.loc[data_df.endpoint == args.endpoint]
     data_df["Random"] = get_stratified_k_fold_splits(data_df, args.n_groups)
     for grouping_name, grouping_pipeline in cluster_dict.items():
