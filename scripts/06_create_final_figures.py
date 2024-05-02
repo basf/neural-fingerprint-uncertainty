@@ -13,10 +13,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-from molpipeline import Pipeline
-from molpipeline.any2mol import SmilesToMol
-from molpipeline.estimators.similarity_transformation import TanimotoToTraining
-from molpipeline.mol2any import MolToMorganFP
 from plot_utils import (
     get_nx2_figure,
     get_performance_metrics,
@@ -69,18 +65,6 @@ def plot_test_set_composition(
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "test_set_composition.png")
-
-
-def get_sim_pipeline() -> Pipeline:
-    """Get the similarity pipeline."""
-    sim_pipeline = Pipeline(
-        [
-            ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP()),
-            ("sim", TanimotoToTraining()),
-        ]
-    )
-    return sim_pipeline
 
 
 def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
