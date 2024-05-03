@@ -1272,8 +1272,8 @@ stages:
       nfiles: 39
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: b84336f1a1cd2eee825a2715dc3e3043
-      size: 12958
+      md5: 6ac856bb571ed18de25d0f1af346e1cc
+      size: 16444
     outs:
     - path: ./data/figures/final_figures/calibration_curves.png
       hash: md5
@@ -1287,10 +1287,14 @@ stages:
       hash: md5
       md5: 13a05dc95b33a046fd3fd6cce4c87fec
       size: 90968
+    - path: ./data/figures/final_figures/scatter_metrics.png
+      hash: md5
+      md5: 7e3660a2b11b3056041ec212bb73e879
+      size: 57174
     - path: ./data/figures/final_figures/similarity_to_training.png
       hash: md5
-      md5: 8eb532e83ba253bf80182f08fad8e901
-      size: 30150
+      md5: ee36a7e3392f6b4c11bfbdf2e257c1bc
+      size: 30124
     - path: ./data/figures/final_figures/test_set_composition.png
       hash: md5
       md5: e6cf6040760508257891f53bd25a6111
