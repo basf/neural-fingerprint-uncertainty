@@ -16,6 +16,7 @@ import seaborn as sns
 from plot_utils import (
     get_nx2_figure,
     get_performance_metrics,
+    load_all_data,
     load_data,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
@@ -200,6 +201,103 @@ def plot_metrics(
         plt.savefig(save_path / "performance_metrics.png")
 
 
+def plot_metrics_scatter(
+    base_path: Path,
+    save_path: Path | str | None = None,
+    figsize: tuple[int, int] | None = None,
+) -> None:
+    """Create a scatter plot with all endpoints and models.
+
+    The X axis is the balanced accuracy and the Y axis is the Brier score.
+    The color represents the model.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    save_path : Path | str | None, optional (default=None)
+        Path to save the figure.
+    figsize : tuple[int, int] | None, optional (default=None)
+    """
+    final_performance_df = load_all_data(base_path)
+    final_performance_df = final_performance_df.pivot_table(
+        index=["endpoint", "metric", "model"], columns="split", values="Performance"
+    ).reset_index()
+    model_order, color_dict = get_model_order_and_color()
+    _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1, share_y=False)
+    for i, metric in enumerate(["Balanced accuracy", "Brier score",]):
+        sns.scatterplot(
+            data=final_performance_df.loc[final_performance_df["metric"] == metric],
+            x="Random",
+            y="Agglomerative clustering",
+            hue="model",
+            palette=color_dict,
+            ax=axs[i],
+            hue_order=model_order,
+        )
+        axs[i].set_title(metric)
+        axs[i].set_xlabel("Random split")
+        axs[i].plot([0, 1], [0, 1], ls="--", color="gray")
+
+    axs[0].set_ylabel("Agglomerative clustering split")
+    axs[1].set_ylabel("")
+    axs[0].set_xlim([0.5, 1])
+    axs[0].set_ylim([0.5, 1])
+    axs[1].set_xlim([0, 0.5])
+    axs[1].set_ylim([0, 0.5])
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    axs[0].legend().remove()
+    axs[1].legend().remove()
+    if save_path:
+        save_path = Path(save_path)
+        plt.savefig(save_path / "scatter_metrics.png")
+
+
+def plot_metrics_all(
+        base_path: Path,
+        save_path: Path | str | None = None,
+        figsize: tuple[int, int] | None = None,
+    ) -> None:
+    """Create a boxplot with metrics of all endpoints and models.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    save_path : Path | str | None, optional (default=None)
+        Path to save the figure.
+    figsize : tuple[int, int] | None, optional (default=None)
+        Size of the figure.
+    """
+    all_endpoint_df = load_all_data(base_path)
+    model_order, color_dict = get_model_order_and_color()
+    _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1, share_y=False)
+
+    for i, metric in enumerate(["Balanced accuracy", "Brier score"]):
+        sns.boxplot(
+            data=all_endpoint_df.loc[all_endpoint_df["metric"] == metric],
+            x="split",
+            hue="model",
+            y="Performance",
+            ax=axs[i],
+            palette=color_dict,
+            hue_order=model_order,
+        )
+        axs[i].set_title(metric)
+        axs[i].set_xlabel("")
+        axs[i].set_ylabel("Metric value")
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    axs[0].legend().remove()
+    axs[1].legend().remove()
+    if save_path:
+        save_path = Path(save_path)
+        plt.savefig(save_path / "performance_metrics_all.png")
+
+
+
+
 def plot_calibration_curves(
     data_df_list: list[pd.DataFrame],
     data_name_list: list[str] | None,
@@ -355,6 +453,8 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
+    plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4))
+    plot_metrics_all(base_path, save_path=save_path, figsize=(8, 4))
     plot_metrics(
         [data_a_df, data_b_df],
         data_name_list=[endpoint_a, endpoint_b],
