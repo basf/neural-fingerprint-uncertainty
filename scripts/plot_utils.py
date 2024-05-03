@@ -14,6 +14,7 @@ from molpipeline.any2mol import SmilesToMol
 from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.mol2any import MolToMorganFP
 from sklearn.metrics import balanced_accuracy_score, brier_score_loss
+import yaml
 
 
 def get_sim_pipeline() -> Pipeline:
@@ -165,6 +166,34 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
     )
     endpoint_df.loc[endpoint_df["model"] == "Chemprop", "Model name"] = "Chemprop"
     return endpoint_df
+
+
+def load_all_data(base_path: Path) -> pd.DataFrame:
+    """Load all the data for all endpoints.
+
+    Parameters
+    ----------
+    base_path : Path
+        Base path of the project.
+
+    Returns
+    -------
+    pd.DataFrame
+        Data for all endpoints.
+    """
+    prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
+    config_path = base_path / "config" / "endpoints.yaml"
+    # Load endpoints from yaml
+    with open(config_path, "r", encoding="UTF-8") as file:
+        endpoint_list = yaml.safe_load(file)["endpoint"]
+    performance_df_list = []
+    for endpoint in endpoint_list:
+        data_df = load_data(endpoint, prediction_folder)
+        performance_df = get_performance_metrics(data_df)
+        performance_df["endpoint"] = endpoint
+        performance_df_list.append(performance_df)
+    final_performance_df = pd.concat(performance_df_list)
+    return final_performance_df
 
 
 def get_test_set_compounds(data_df: pd.DataFrame) -> pd.DataFrame:
