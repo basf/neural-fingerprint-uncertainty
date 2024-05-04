@@ -15,6 +15,7 @@ from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.mol2any import MolToMorganFP
 from molpipeline.pipeline import Pipeline
 from molpipeline.utils.kernel import tanimoto_similarity_sparse
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
 from sklearn.neighbors import KNeighborsClassifier
@@ -109,11 +110,35 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     rf_hyperparams = {
         "balanced_random_forest__max_depth": [4, 16, None],
     }
-
+    cal_rf_pipeline = Pipeline(
+        [
+            ("smi2mol", SmilesToMol()),
+            ("mol2morgan", MolToMorganFP(return_as="sparse")),
+            (
+                "calibrated_rf",
+                CalibratedClassifierCV(
+                    estimator=RandomForestClassifier(
+                        n_estimators=1024,
+                        n_jobs=n_jobs,
+                    ),
+                    method="sigmoid",
+                    cv=5,
+                    n_jobs=1,
+                    ensemble=False,
+                ),
+            ),
+        ],
+        n_jobs=n_jobs,
+        memory=joblib.Memory(),
+    )
+    cal_rf_hyperparams = {
+        "calibrated_rf_estimator__max_depth": [4, 16, None],
+    }
     model_dict = {
         "KNN": (knn_pipeline, knn_hyperparams),
         "SVC": (svc_pipeline, svc_hyperparams),
         "RF": (random_forest_pipeline, rf_hyperparams),
+        "Calibrated RF": (cal_rf_pipeline, cal_rf_hyperparams),
     }
     return model_dict
 
