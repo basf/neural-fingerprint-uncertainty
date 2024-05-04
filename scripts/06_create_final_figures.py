@@ -14,6 +14,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from plot_utils import (
+    get_model_order_and_color,
     get_nx2_figure,
     get_performance_metrics,
     load_all_data,
@@ -66,34 +67,6 @@ def plot_test_set_composition(
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "test_set_composition.png")
-
-
-def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
-    """Get the model order and color mapping.
-
-    Returns
-    -------
-    list[str]
-        Model order.
-    dict[str, str]
-        Model color mapping.
-    """
-    model_order = [
-        "Morgan FP + KNN",
-        "Neural FP + KNN",
-        "Morgan FP + RF",
-        "Neural FP + RF",
-        "Morgan FP + SVC",
-        "Neural FP + SVC",
-        "Chemprop",
-    ]
-    model_color = {}
-    for i, model in enumerate(model_order):
-        if model != "Chemprop":
-            model_color[model] = sns.color_palette("Paired")[i]
-        else:
-            model_color[model] = sns.color_palette("Paired")[i + 1]
-    return model_order, model_color
 
 
 def plot_similarity_to_training(
@@ -225,7 +198,12 @@ def plot_metrics_scatter(
     ).reset_index()
     model_order, color_dict = get_model_order_and_color()
     _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1, share_y=False)
-    for i, metric in enumerate(["Balanced accuracy", "Brier score",]):
+    for i, metric in enumerate(
+        [
+            "Balanced accuracy",
+            "Brier score",
+        ]
+    ):
         sns.scatterplot(
             data=final_performance_df.loc[final_performance_df["metric"] == metric],
             x="Random",
@@ -255,10 +233,10 @@ def plot_metrics_scatter(
 
 
 def plot_metrics_all(
-        base_path: Path,
-        save_path: Path | str | None = None,
-        figsize: tuple[int, int] | None = None,
-    ) -> None:
+    base_path: Path,
+    save_path: Path | str | None = None,
+    figsize: tuple[int, int] | None = None,
+) -> None:
     """Create a boxplot with metrics of all endpoints and models.
 
     Parameters
@@ -294,8 +272,6 @@ def plot_metrics_all(
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "performance_metrics_all.png")
-
-
 
 
 def plot_calibration_curves(
