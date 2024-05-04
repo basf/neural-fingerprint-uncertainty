@@ -252,10 +252,12 @@ def main() -> None:  # pylint: disable=too-many-locals
 
             uncalibrated_chemprop = chemprop_model.estimator
             test_df = endpoint_df.iloc[test_idx].copy()
-            test_df["proba"] = uncalibrated_chemprop.predict_proba(test_df.smiles.tolist())[
-                :, 1
-            ]
-            test_df["prediction"] = uncalibrated_chemprop.predict(test_df.smiles.tolist())
+            test_df["proba"] = uncalibrated_chemprop.predict_proba(
+                test_df.smiles.tolist()
+            )[:, 1]
+            test_df["prediction"] = uncalibrated_chemprop.predict(
+                test_df.smiles.tolist()
+            )
             test_df["endpoint"] = args.endpoint
             test_df["trial"] = trial
             test_df["Split strategy"] = split_strategy

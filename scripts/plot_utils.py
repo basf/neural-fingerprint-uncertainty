@@ -194,9 +194,9 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
         " + ".join, axis=1
     )
     endpoint_df.loc[endpoint_df["model"] == "Chemprop", "Model name"] = "Chemprop"
-    endpoint_df.loc[
-        endpoint_df["model"] == "Calibrated Chemprop", "Model name"
-    ] = "Calibrated Chemprop"
+    endpoint_df.loc[endpoint_df["model"] == "Calibrated Chemprop", "Model name"] = (
+        "Calibrated Chemprop"
+    )
     return endpoint_df
 
 
