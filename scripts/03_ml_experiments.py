@@ -132,7 +132,7 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
         memory=joblib.Memory(),
     )
     cal_rf_hyperparams = {
-        "calibrated_rf_estimator__max_depth": [4, 16, None],
+        "calibrated_rf__estimator__max_depth": [4, 16, None],
     }
     model_dict = {
         "KNN": (knn_pipeline, knn_hyperparams),
