@@ -8,13 +8,42 @@ import numpy as np
 import numpy.typing as npt
 import pandas as pd
 import seaborn as sns
+import yaml
 from matplotlib.figure import SubFigure
 from molpipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
 from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.mol2any import MolToMorganFP
 from sklearn.metrics import balanced_accuracy_score, brier_score_loss
-import yaml
+
+
+def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
+    """Get the model order and color mapping.
+
+    Returns
+    -------
+    list[str]
+        Model order.
+    dict[str, str]
+        Model color mapping.
+    """
+    model_order = [
+        "Morgan FP + KNN",
+        "Neural FP + KNN",
+        "Morgan FP + RF",
+        "Neural FP + RF",
+        "Morgan FP + SVC",
+        "Neural FP + SVC",
+        "Calibrated Chemprop",
+        "Chemprop",
+    ]
+    model_color = {}
+    for i, model in enumerate(model_order):
+        if model != "Chemprop":
+            model_color[model] = sns.color_palette("Paired")[i]
+        else:
+            model_color[model] = sns.color_palette("Paired")[i + 1]
+    return model_order, model_color
 
 
 def get_sim_pipeline() -> Pipeline:
@@ -158,13 +187,16 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
         for col_name, col_value in zip(split_columns, idx_list):  # type: ignore
             morgan_iter_df = morgan_iter_df.loc[morgan_iter_df[col_name] == col_value]
 
-        if idx_list[1] != "Chemprop":  # Chemprop has no corresponding Morgan model
+        if "Chemprop" not in idx_list[1]:  # Chemprop has no corresponding Morgan model
             assert_same_smiles_set(iter_df, morgan_iter_df)
     endpoint_df = pd.concat([nnfp_prediction_df, morganfp_prediction_df])
     endpoint_df["Model name"] = endpoint_df[["encoding", "model"]].apply(
         " + ".join, axis=1
     )
     endpoint_df.loc[endpoint_df["model"] == "Chemprop", "Model name"] = "Chemprop"
+    endpoint_df.loc[
+        endpoint_df["model"] == "Calibrated Chemprop", "Model name"
+    ] = "Calibrated Chemprop"
     return endpoint_df
 
 
