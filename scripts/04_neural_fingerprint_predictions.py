@@ -250,7 +250,7 @@ def main() -> None:  # pylint: disable=too-many-locals
             test_df["model"] = "Calibrated Chemprop"
             prediction_df_list.append(test_df)
 
-            uncalibrated_chemprop = chemprop_model.estimator
+            uncalibrated_chemprop = chemprop_model.calibrated_classifiers_[0].estimator
             test_df = endpoint_df.iloc[test_idx].copy()
             test_df["proba"] = uncalibrated_chemprop.predict_proba(
                 test_df.smiles.tolist()
