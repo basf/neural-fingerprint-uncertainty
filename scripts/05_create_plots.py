@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from plot_utils import (
+    get_model_order_and_color,
     get_nx2_figure,
     get_performance_metrics,
     load_data,
@@ -45,34 +46,6 @@ def plot_test_set_composition(
     ax.set_xlabel("Number of negative compounds")
     ax.set_ylabel("Number of positive compounds")
     plt.savefig(save_path / "test_set_composition.png")
-
-
-def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
-    """Get the model order and color mapping.
-
-    Returns
-    -------
-    list[str]
-        Model order.
-    dict[str, str]
-        Model color mapping.
-    """
-    model_order = [
-        "Morgan FP + KNN",
-        "Neural FP + KNN",
-        "Morgan FP + RF",
-        "Neural FP + RF",
-        "Morgan FP + SVC",
-        "Neural FP + SVC",
-        "Chemprop",
-    ]
-    model_color = {}
-    for i, model in enumerate(model_order):
-        if model != "Chemprop":
-            model_color[model] = sns.color_palette("Paired")[i]
-        else:
-            model_color[model] = sns.color_palette("Paired")[i + 1]
-    return model_order, model_color
 
 
 def plot_similarity_to_training(
@@ -113,33 +86,24 @@ def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """
     model_order, color_dict = get_model_order_and_color()
     performance_df = get_performance_metrics(data_df)
-    _, axs, ax_legend = get_nx2_figure(figsize=kwargs.get("figsize", None), nrows=1)
-    sns.boxplot(
-        data=performance_df.query("split == 'Random'"),
-        x="metric",
-        hue="model",
-        y="Performance",
-        ax=axs[0],
-        palette=color_dict,
-        hue_order=model_order,
+    _, axs, ax_legend = get_nx2_figure(
+        figsize=kwargs.get("figsize", None), nrows=1, share_y=False
     )
-    sns.boxplot(
-        data=performance_df.query("split == 'Agglomerative clustering'"),
-        x="metric",
-        hue="model",
-        y="Performance",
-        ax=axs[1],
-        palette=color_dict,
-        hue_order=model_order,
-    )
-    remove_ax_frame(ax_legend)
+    for i, metric in enumerate(["Balanced accuracy", "Brier score"]):
+        sns.boxplot(
+            data=performance_df.loc[performance_df["metric"] == metric],
+            x="split",
+            hue="model",
+            y="Performance",
+            ax=axs[i],
+            palette=color_dict,
+            hue_order=model_order,
+        )
+        axs[i].set_title(metric)
     handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    ax_legend.legend(handles, labels, loc="center", ncol=3)
     axs[0].legend().remove()
     axs[1].legend().remove()
-    axs[0].set_title("Random split")
-    axs[1].set_title("Agglomerative clustering split")
-    axs[0].set_ylabel("Metric value")
     axs[1].set_ylabel("")
     plt.savefig(save_path / "performance_metrics.png")
 
