@@ -77,7 +77,7 @@ def remove_ax_frame(ax: plt.Axes) -> None:
     ax.set_yticks([])
 
 
-def get_nx2_figure(  # pylint: disable=too-many-variables
+def get_nx2_figure(  # pylint: disable=too-many-locals
     figsize: tuple[int, int] | None = None, nrows: int = 1, share_y: bool = True
 ) -> tuple[tuple[plt.Figure, list[SubFigure]], npt.NDArray[plt.Axes], plt.Axes]:  # type: ignore
     """Get a figure with n rows, 2 cols, and a legend axis.
