@@ -21,6 +21,7 @@ from molpipeline.mol2any.mol2chemprop import MolToChemprop
 from molpipeline.pipeline import Pipeline
 from molpipeline.post_prediction import PostPredictionWrapper
 from sklearn.base import BaseEstimator
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import GridSearchCV, LeaveOneGroupOut, LeavePGroupsOut
 from sklearn.neighbors import KNeighborsClassifier
@@ -52,7 +53,7 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
-def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
+def define_chemprop_pipeline(n_jobs: int) -> CalibratedClassifierCV:
     """Define the Chemprop pipeline.
 
     Parameters
@@ -74,10 +75,11 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
         enable_progress_bar=False,
         val_check_interval=0.0,
     )
-    return Pipeline(
+    error_filter = ErrorFilter(filter_everything=True)
+    pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMol()),
-            ("error_filter", ErrorFilter(filter_everything=True)),
+            ("error_filter", error_filter),
             ("mol2graph", MolToChemprop()),
             (
                 "chemprop",
@@ -87,10 +89,25 @@ def define_chemprop_pipeline(n_jobs: int) -> Pipeline:
                     model__message_passing__dropout_rate=0.2,
                 ),
             ),
+            (
+                "error_replacer",
+                PostPredictionWrapper(
+                    FilterReinserter.from_error_filter(error_filter, fill_value=np.nan)
+                ),
+            ),
         ],
         n_jobs=1,
         memory=joblib.Memory(),
     )
+    calibrated_pipeline = CalibratedClassifierCV(
+        estimator=pipeline,
+        method="sigmoid",
+        cv=5,
+        n_jobs=1,
+        ensemble=False,
+    )
+
+    return calibrated_pipeline
 
 
 def define_models(n_jobs: int) -> dict[str, tuple[BaseEstimator, dict[str, list[Any]]]]:
@@ -122,11 +139,24 @@ def define_models(n_jobs: int) -> dict[str, tuple[BaseEstimator, dict[str, list[
     rf_hyperparams = {
         "max_depth": [4, 16, None],
     }
-
+    cal_rf_model = CalibratedClassifierCV(
+        estimator=RandomForestClassifier(
+            n_estimators=1024,
+            n_jobs=n_jobs,
+        ),
+        method="sigmoid",
+        cv=5,
+        n_jobs=1,
+        ensemble=False,
+    )
+    cal_rf_hyperparams = {
+        "estimator__max_depth": [4, 16, None],
+    }
     model_dict = {
         "KNN": (knn_model, knn_hyperparams),
         "SVC": (svc_model, svc_hyperparams),
         "RF": (rf_model, rf_hyperparams),
+        "Calibrated RF": (cal_rf_model, cal_rf_hyperparams),
     }
     return model_dict
 
@@ -197,8 +227,12 @@ def main() -> None:  # pylint: disable=too-many-locals
             endpoint_df["smiles"].tolist(),
             groups=endpoint_df[split_strategy].tolist(),
         )
+        n_splits = splitter.get_n_splits(
+            endpoint_df["smiles"].tolist(),
+            groups=endpoint_df[split_strategy].tolist(),
+        )
         for trial, (train_idx, test_idx) in tqdm(
-            enumerate(iter_splits), desc="Split", leave=False
+            enumerate(iter_splits), desc="Split", leave=False, total=n_splits
         ):
             chemprop_model = define_chemprop_pipeline(args.n_jobs)
             chemprop_model.fit(
@@ -213,10 +247,22 @@ def main() -> None:  # pylint: disable=too-many-locals
             test_df["endpoint"] = args.endpoint
             test_df["trial"] = trial
             test_df["Split strategy"] = split_strategy
+            test_df["model"] = "Calibrated Chemprop"
+            prediction_df_list.append(test_df)
+
+            uncalibrated_chemprop = chemprop_model.estimator
+            test_df = endpoint_df.iloc[test_idx].copy()
+            test_df["proba"] = uncalibrated_chemprop.predict_proba(test_df.smiles.tolist())[
+                :, 1
+            ]
+            test_df["prediction"] = uncalibrated_chemprop.predict(test_df.smiles.tolist())
+            test_df["endpoint"] = args.endpoint
+            test_df["trial"] = trial
+            test_df["Split strategy"] = split_strategy
             test_df["model"] = "Chemprop"
             prediction_df_list.append(test_df)
 
-            chemprop_encoder = chemprop_model[  # pylint: disable=no-member
+            chemprop_encoder = uncalibrated_chemprop[  # pylint: disable=no-member
                 "chemprop"
             ].to_encoder()
             for model_name, (model, hyperparams) in tqdm(
