@@ -3,6 +3,7 @@
 from pathlib import Path
 from typing import Any
 
+from loguru import logger
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.typing as npt
@@ -34,15 +35,12 @@ def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
         "Neural FP + RF",
         "Morgan FP + SVC",
         "Neural FP + SVC",
-        "Calibrated Chemprop",
         "Chemprop",
+        "Cal. Chemprop",
     ]
     model_color = {}
     for i, model in enumerate(model_order):
-        if model != "Chemprop":
-            model_color[model] = sns.color_palette("Paired")[i]
-        else:
-            model_color[model] = sns.color_palette("Paired")[i + 1]
+        model_color[model] = sns.color_palette("Paired")[i]
     return model_order, model_color
 
 
@@ -195,7 +193,7 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
     )
     endpoint_df.loc[endpoint_df["model"] == "Chemprop", "Model name"] = "Chemprop"
     endpoint_df.loc[endpoint_df["model"] == "Calibrated Chemprop", "Model name"] = (
-        "Calibrated Chemprop"
+        "Cal. Chemprop"
     )
     return endpoint_df
 
@@ -220,7 +218,11 @@ def load_all_data(base_path: Path) -> pd.DataFrame:
         endpoint_list = yaml.safe_load(file)["endpoint"]
     performance_df_list = []
     for endpoint in endpoint_list:
-        data_df = load_data(endpoint, prediction_folder)
+        try:
+            data_df = load_data(endpoint, prediction_folder)
+        except FileNotFoundError:
+            logger.warning(f"No predictions found for {endpoint}.")
+            continue
         performance_df = get_performance_metrics(data_df)
         performance_df["endpoint"] = endpoint
         performance_df_list.append(performance_df)
