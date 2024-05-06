@@ -1267,8 +1267,8 @@ stages:
     deps:
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 0b6296b2f1c118acc1fe7711dcc66e1c
-      size: 15787
+      md5: 82c34784affd8c4a998410aafc9031da
+      size: 17087
     outs:
     - path: ./data/figures/final_figures/calibration_curves.png
       hash: md5
@@ -1280,8 +1280,8 @@ stages:
       size: 75298
     - path: ./data/figures/final_figures/performance_metrics_all.png
       hash: md5
-      md5: dcb6b22316905eec0a325cb84b5ebb1c
-      size: 48293
+      md5: 7488f7858b5e6169bb7000d96bc19217
+      size: 85580
     - path: ./data/figures/final_figures/proba_distribution_rf.png
       hash: md5
       md5: fe0249dd51152c0ea2dddc2e6da5842a
@@ -1608,8 +1608,8 @@ stages:
     deps:
     - path: ./scripts/04_neural_fingerprint_predictions.py
       hash: md5
-      md5: 18808e7b77dfc9700ecc28364051cb23
-      size: 8071
+      md5: 13879489613008af0a8592b731a982cd
+      size: 9775
     - path: 
         data/intermediate_data/presplit_data/presplit_data_TOX21_TR_LUC_GH3_Antagonist.tsv
       hash: md5
@@ -1619,8 +1619,8 @@ stages:
     - path: 
         ./data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
       hash: md5
-      md5: fd83e398a1a0f03b76683cdcc7b6cda1
-      size: 1053050
+      md5: 81e1d94a671f459be9183a37f2b6daf5
+      size: 1618680
   neural_fingerprint_predictions@CEETOX_H295R_11DCORT_dn:
     cmd: python ./scripts/04_neural_fingerprint_predictions.py  --endpoint CEETOX_H295R_11DCORT_dn
     deps:
