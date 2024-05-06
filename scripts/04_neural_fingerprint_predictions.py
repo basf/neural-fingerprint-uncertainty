@@ -69,7 +69,7 @@ def define_chemprop_pipeline(n_jobs: int) -> CalibratedClassifierCV:
     trainer = pl.Trainer(
         logger=False,
         enable_checkpointing=False,
-        max_epochs=200,
+        max_epochs=50,
         enable_model_summary=False,
         callbacks=[],
         enable_progress_bar=False,
@@ -101,7 +101,7 @@ def define_chemprop_pipeline(n_jobs: int) -> CalibratedClassifierCV:
     )
     calibrated_pipeline = CalibratedClassifierCV(
         estimator=pipeline,
-        method="sigmoid",
+        method="isotonic",
         cv=5,
         n_jobs=1,
         ensemble=False,
