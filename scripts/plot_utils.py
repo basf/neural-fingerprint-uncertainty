@@ -3,19 +3,19 @@
 from pathlib import Path
 from typing import Any
 
-from loguru import logger
 import matplotlib.pyplot as plt
 import numpy as np
 import numpy.typing as npt
 import pandas as pd
 import seaborn as sns
 import yaml
+from loguru import logger
 from matplotlib.figure import SubFigure
 from molpipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
 from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.mol2any import MolToMorganFP
-from sklearn.metrics import balanced_accuracy_score, brier_score_loss
+from sklearn.metrics import balanced_accuracy_score, brier_score_loss, log_loss
 
 
 def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
@@ -75,8 +75,11 @@ def remove_ax_frame(ax: plt.Axes) -> None:
     ax.set_yticks([])
 
 
-def get_nx2_figure(  # pylint: disable=too-many-locals
-    figsize: tuple[int, int] | None = None, nrows: int = 1, share_y: bool = True
+def get_nxm_figure(  # pylint: disable=too-many-locals
+    figsize: tuple[int, int] | None = None,
+    nrows: int = 1,
+    ncols: int = 2,
+    share_y: bool = True,
 ) -> tuple[tuple[plt.Figure, list[SubFigure]], npt.NDArray[plt.Axes], plt.Axes]:  # type: ignore
     """Get a figure with n rows, 2 cols, and a legend axis.
 
@@ -112,13 +115,16 @@ def get_nx2_figure(  # pylint: disable=too-many-locals
         end_row = 9 * (i + 1) - 1
         sub_fig = fig.add_subfigure(gs[start_row:end_row, :])
         sub_fig_list.append(sub_fig)
-        sub_spec = sub_fig.add_gridspec(1, 2)
+        sub_spec = sub_fig.add_gridspec(1, ncols)
         ax_0 = sub_fig.add_subplot(sub_spec[0, 0])
-        if share_y:
-            ax_1 = sub_fig.add_subplot(sub_spec[0, 1], sharey=ax_0)
-        else:
-            ax_1 = sub_fig.add_subplot(sub_spec[0, 1])
-        ax_list.append([ax_0, ax_1])
+        row_ax_list = [ax_0]
+        for n in range(1, ncols):
+            if share_y:
+                ax_n = sub_fig.add_subplot(sub_spec[0, 1], sharey=ax_0)
+            else:
+                ax_n = sub_fig.add_subplot(sub_spec[0, 1])
+            row_ax_list.append(ax_n)
+        ax_list.append(row_ax_list)
     ax_legend = fig.add_subplot(gs[-1:, :])
     remove_ax_frame(ax_legend)
     return (fig, sub_fig_list), np.array(ax_list).squeeze(), ax_legend
@@ -387,7 +393,12 @@ def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
             "metric": "Brier score",
             "Performance": brier_score_loss(iter_df["label"], iter_df["proba"]),
         }
-        for perf_dict in [ba_dict, brier_dict]:
+        log_loss_dict = {
+            "metric": "Log loss",
+            "Performance": log_loss(iter_df["label"], iter_df["proba"]),
+        }
+        metric_list = [ba_dict, brier_dict, log_loss_dict]
+        for perf_dict in metric_list:
             perf_dict.update(iter_dict)
             performance_df_list.append(perf_dict)
     return pd.DataFrame(performance_df_list)

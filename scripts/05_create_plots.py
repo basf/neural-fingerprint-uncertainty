@@ -10,7 +10,7 @@ import pandas as pd
 import seaborn as sns
 from plot_utils import (
     get_model_order_and_color,
-    get_nx2_figure,
+    get_nxm_figure,
     get_performance_metrics,
     load_data,
     remove_ax_frame,
@@ -86,7 +86,7 @@ def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """
     model_order, color_dict = get_model_order_and_color()
     performance_df = get_performance_metrics(data_df)
-    _, axs, ax_legend = get_nx2_figure(
+    _, axs, ax_legend = get_nxm_figure(
         figsize=kwargs.get("figsize", None), nrows=1, share_y=False
     )
     for i, metric in enumerate(["Balanced accuracy", "Brier score"]):
@@ -123,7 +123,7 @@ def plot_calibration_curves(
         Additional keyword arguments.
     """
     model_color = get_model_order_and_color()[1]
-    _, axs, ax_legend = get_nx2_figure(figsize=kwargs.get("figsize", None), nrows=1)
+    _, axs, ax_legend = get_nxm_figure(figsize=kwargs.get("figsize", None), nrows=1)
     name2ax_dict = {"Random": axs[0], "Agglomerative clustering": axs[1]}
     for model, color in model_color.items():
         model_df = data_df.loc[data_df["Model name"] == model]
@@ -161,7 +161,7 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
     if "figsize" not in kwargs:
         kwargs["figsize"] = (10, 10)
 
-    _, axs, ax_legend = get_nx2_figure(figsize=kwargs["figsize"], nrows=2)
+    _, axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2)
     models = ["Cal. Chemprop", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
     row = 0
