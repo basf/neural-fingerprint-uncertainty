@@ -162,7 +162,7 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
         kwargs["figsize"] = (10, 10)
 
     _, axs, ax_legend = get_nx2_figure(figsize=kwargs["figsize"], nrows=2)
-    models = ["Chemprop", "Neural FP + RF"]
+    models = ["Cal. Chemprop", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
     row = 0
     for split_name, split_df in data_df.groupby("Split strategy"):
@@ -223,11 +223,11 @@ def create_figures(endpoint: str) -> None:
 
     save_path = base_path / "data" / "figures" / endpoint
     save_path.mkdir(parents=True, exist_ok=True)
-    plot_test_set_composition(data_df, save_path, **plot_kwargs)
-    plot_similarity_to_training(data_df, save_path, **plot_kwargs)
     plot_metrics(data_df, save_path)
     plot_calibration_curves(data_df, save_path)
     plot_proba_rf(data_df, save_path)
+    plot_test_set_composition(data_df, save_path, **plot_kwargs)
+    plot_similarity_to_training(data_df, save_path, **plot_kwargs)
 
 
 if __name__ == "__main__":
