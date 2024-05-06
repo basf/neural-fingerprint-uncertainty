@@ -1280,16 +1280,16 @@ stages:
       size: 75298
     - path: ./data/figures/final_figures/performance_metrics_all.png
       hash: md5
-      md5: 8d287fb2564419246988cd3640598367
-      size: 48118
+      md5: dcb6b22316905eec0a325cb84b5ebb1c
+      size: 48293
     - path: ./data/figures/final_figures/proba_distribution_rf.png
       hash: md5
       md5: fe0249dd51152c0ea2dddc2e6da5842a
       size: 90765
     - path: ./data/figures/final_figures/scatter_metrics.png
       hash: md5
-      md5: 5aa133f978573f00cec7e0015348266f
-      size: 58138
+      md5: 403229dc2f7706d80f469a1aef12e9b8
+      size: 59096
     - path: ./data/figures/final_figures/similarity_to_training.png
       hash: md5
       md5: 05e564152c4ea57fca3afa1ea9814ada
