@@ -31,7 +31,7 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     **kwargs
         Additional keyword arguments.
     """
-    _, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)))
+    fig, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)))
 
     handles, labels = test_set_composition2ax(data_df, axs[0])
     axs[0].legend(handles, labels, ncol=1)
@@ -44,7 +44,9 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     axs[1].legend()
     axs[1].set_xlabel("Similarity to training set")
     axs[1].set_ylabel("Count")
+    fig.tight_layout()
     plt.savefig(save_path / "data_report.png")
+
 
 def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """Plot the performance metrics for each model.
@@ -75,14 +77,14 @@ def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
         )
         axs[i].set_title(metric)
     handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=3)
+    ax_legend.legend(handles, labels, loc="center", ncol=4)
     axs[0].legend().remove()
     axs[1].legend().remove()
     axs[1].set_ylabel("")
     plt.savefig(save_path / "performance_metrics.png")
 
 
-def plot_calibration_curves(
+def plot_calibration_curves(  # pylint: disable=too-many-locals
     data_df: pd.DataFrame, save_path: Path, **kwargs: Any
 ) -> None:
     """Plot the calibration curves for each model.
@@ -98,7 +100,7 @@ def plot_calibration_curves(
     """
     model_color = get_model_order_and_color()[1]
     _, axs, ax_legend = get_nxm_figure(figsize=kwargs.get("figsize", None), nrows=1)
-    name2ax_dict = {"Random": axs[0], "Agglomerative clustering": axs[1]}
+    name2ax_dict = {"Random": axs[1], "Agglomerative clustering": axs[0]}
     for model, color in model_color.items():
         model_df = data_df.loc[data_df["Model name"] == model]
         for split in data_df["Split strategy"].unique():
@@ -135,13 +137,12 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
     if "figsize" not in kwargs:
         kwargs["figsize"] = (10, 10)
 
-    _, axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2)
+    (_, subfigs), axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2, share_y=False)
     models = ["Chemprop", "Cal. Chemprop"]
     splits = ["Random", "Agglomerative clustering"]
-    row = 0
-    for split_name, split_df in data_df.groupby("Split strategy"):
-        if split_name not in splits:
-            continue
+    for row, split_name in enumerate(splits):
+        split_df = data_df.loc[data_df["Split strategy"] == split_name]
+        subfigs[row].suptitle(f"{split_name} split")
         col = 0
         for model in models:
             model_df = split_df.loc[split_df["Model name"] == model]
@@ -156,7 +157,7 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
                 stat="density",
                 common_norm=False,
             )
-            axs[row, col].set_title(f"{model} - {split_name}")
+            axs[row, col].set_title(f"{model}")
             if row == 1:
                 axs[row, col].set_xlabel("Predicted probability")
             else:
@@ -191,13 +192,13 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
     if "figsize" not in kwargs:
         kwargs["figsize"] = (10, 10)
 
-    _, axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2)
+    (_, subfigs), axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2, share_y=False)
     models = ["Morgan FP + RF", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
     row = 0
-    for split_name, split_df in data_df.groupby("Split strategy"):
-        if split_name not in splits:
-            continue
+    for row, split_name in enumerate(splits):
+        split_df = data_df.loc[data_df["Split strategy"] == split_name]
+        subfigs[row].suptitle(f"{split_name} split")
         col = 0
         for model in models:
             model_df = split_df.loc[split_df["Model name"] == model]
@@ -212,7 +213,7 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
                 stat="density",
                 common_norm=False,
             )
-            axs[row, col].set_title(f"{model} - {split_name}")
+            axs[row, col].set_title(f"{model}")
             if row == 1:
                 axs[row, col].set_xlabel("Predicted probability")
             else:
@@ -248,7 +249,7 @@ def create_figures(endpoint: str) -> None:
     prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
     data_df = load_data(endpoint, prediction_folder)
 
-    plot_kwargs = {"figsize": (6, 4)}
+    plot_kwargs = {"figsize": (8, 3.5)}
 
     save_path = base_path / "data" / "figures" / endpoint
     save_path.mkdir(parents=True, exist_ok=True)
