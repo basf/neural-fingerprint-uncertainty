@@ -1764,8 +1764,8 @@ stages:
     - path: 
         ./data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
       hash: md5
-      md5: 0c47d232bbf7099f01b960812166b6e7
-      size: 236927
+      md5: 167e03f99ae589b155105d586babb84f
+      size: 229735
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py
     deps:
