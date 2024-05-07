@@ -195,7 +195,6 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
     (_, subfigs), axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2, share_y=False)
     models = ["Morgan FP + RF", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
-    row = 0
     for row, split_name in enumerate(splits):
         split_df = data_df.loc[data_df["Split strategy"] == split_name]
         subfigs[row].suptitle(f"{split_name} split")
