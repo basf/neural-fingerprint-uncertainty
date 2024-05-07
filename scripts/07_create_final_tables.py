@@ -73,12 +73,46 @@ def create_performance_table(base_path: Path) -> None:
     logger.info(f"\n{agg_performance_df.to_latex(index=False)}")
 
 
+def create_table_rf_calibrated_rf(base_path: Path) -> None:
+    """Create the performance table for the RF and Calibrated RF models."""
+    all_data_df = load_all_performances(base_path)
+    all_data_df["endpoint"] = all_data_df["endpoint"].str.replace("_", r"\_")
+    all_data_df["encoding"] = "Neural FP"
+    all_data_df.loc[all_data_df["model"].str.contains("Morgan FP"), "encoding"] = (
+        "Morgan FP"
+    )
+    all_data_df["base_model"] = all_data_df["model"]
+    all_data_df["base_model"] = all_data_df["base_model"].str.replace(
+        "Morgan FP + ", ""
+    )
+    all_data_df["base_model"] = all_data_df["base_model"].str.replace(
+        "Neural FP + ", ""
+    )
+    all_data_df.loc[all_data_df["metric"] == "Balanced accuracy", "metric"] = "BA"
+    all_data_df = all_data_df.loc[
+        all_data_df["base_model"].isin(["RF", "Calibrated RF"])
+    ]
+    all_data_df = all_data_df.query("encoding == 'Neural FP'")
+    for split in ["Random", "Agglomerative clustering"]:
+        split_df = all_data_df.loc[all_data_df["split"] == split]
+        agg_performance_df = split_df.pivot_table(
+            index=["endpoint", "metric"],
+            columns=["encoding", "base_model"],
+            values="Performance",
+            aggfunc=agg_mean_std,
+        )
+        agg_performance_df.reset_index(inplace=True)
+        logger.info(f"Creating performance table for {split}")
+        logger.info(f"\n{agg_performance_df.to_latex(index=False)}")
+
+
 def main() -> None:
     """Main function."""
     base_path = Path(__file__).parents[1]
     logger.add(base_path / "logs/07_create_final_tables.log")
     create_overview_table(base_path)
     create_performance_table(base_path)
+    create_table_rf_calibrated_rf(base_path)
 
 
 if __name__ == "__main__":
