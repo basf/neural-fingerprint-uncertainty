@@ -524,19 +524,7 @@ def plot_proba_rf(
 
 
 def create_figures() -> None:
-    """Create figures for the uncertainty estimation predictions.
-
-    Notes
-    -----
-    The figures are analog to 05_create_figures.py, but contain 2 endpoints.
-
-    Parameters
-    ----------
-    endpoint_a: str
-        Endpoint to create figures for.
-    endpoint_b: str
-        Endpoint to create figures for.
-    """
+    """Create figures for the uncertainty estimation predictions."""
     base_path = Path(__file__).parents[1]
 
     save_path = base_path / "data" / "figures" / "final_figures"
@@ -547,4 +535,4 @@ def create_figures() -> None:
 
 
 if __name__ == "__main__":
-    create_figures()  # pylint: disable=no-value-for-parameter
+    create_figures()
