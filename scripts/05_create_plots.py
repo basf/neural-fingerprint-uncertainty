@@ -169,9 +169,8 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
         if split_name not in splits:
             continue
         col = 0
-        for model, model_df in split_df.groupby("Model name"):
-            if model not in models:
-                continue
+        for model in models:
+            model_df = split_df.loc[split_df["Model name"] == model]
             sns.histplot(
                 data=model_df,
                 x="proba",
