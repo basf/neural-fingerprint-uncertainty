@@ -1267,8 +1267,8 @@ stages:
     deps:
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 0b6296b2f1c118acc1fe7711dcc66e1c
-      size: 15787
+      md5: 82c34784affd8c4a998410aafc9031da
+      size: 17087
     outs:
     - path: ./data/figures/final_figures/calibration_curves.png
       hash: md5

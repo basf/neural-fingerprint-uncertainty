@@ -12,10 +12,11 @@ import click
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy.stats import mannwhitneyu
 import seaborn as sns
 from plot_utils import (
     get_model_order_and_color,
-    get_nx2_figure,
+    get_nxm_figure,
     get_performance_metrics,
     load_all_data,
     load_data,
@@ -48,7 +49,7 @@ def plot_test_set_composition(
     figsize : tuple[int, int] | None, optional (default=None)
         Figure size.
     """
-    _, axs, ax_legend = get_nx2_figure(figsize=figsize, share_y=False)
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, share_y=False)
     legend = None
     handles = None
     for i, data_df in enumerate(data_df_list):
@@ -89,7 +90,7 @@ def plot_similarity_to_training(
     figsize : tuple[int, int] | None, optional (default=None)
         Figure size.
     """
-    _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1)
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1)
     handles = None
     labels = None
     for i, data_df in enumerate(data_df_list):
@@ -134,7 +135,7 @@ def plot_metrics(
         Figure size.
     """
     model_order, color_dict = get_model_order_and_color()
-    (_, subfig_list), axs, ax_legend = get_nx2_figure(
+    (_, subfig_list), axs, ax_legend = get_nxm_figure(
         figsize=figsize, nrows=2, share_y=False
     )
     handles = None
@@ -197,7 +198,7 @@ def plot_metrics_scatter(
         index=["endpoint", "metric", "model"], columns="split", values="Performance"
     ).reset_index()
     model_order, color_dict = get_model_order_and_color()
-    _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1, share_y=False)
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1, share_y=False)
     for i, metric in enumerate(
         [
             "Balanced accuracy",
@@ -250,9 +251,9 @@ def plot_metrics_all(
     """
     all_endpoint_df = load_all_data(base_path)
     model_order, color_dict = get_model_order_and_color()
-    _, axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=1, share_y=False)
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, ncols=1, nrows=3, share_y=False)
 
-    for i, metric in enumerate(["Balanced accuracy", "Brier score"]):
+    for i, metric in enumerate(["Balanced accuracy", "Brier score", "Log loss"]):
         sns.boxplot(
             data=all_endpoint_df.loc[all_endpoint_df["metric"] == metric],
             x="split",
@@ -269,10 +270,58 @@ def plot_metrics_all(
     ax_legend.legend(handles, labels, loc="center", ncol=4)
     axs[0].legend().remove()
     axs[1].legend().remove()
+    axs[2].legend().remove()
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "performance_metrics_all.png")
 
+
+def plot_significance_matrix(
+    base_path: Path,
+    save_path: Path | str | None = None,
+    figsize: tuple[int, int] | None = None,
+) -> None:
+    """Compare if metrics are significantly different between models.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    save_path : Path | str | None, optional (default=None)
+        Path to save the figure.
+    figsize : tuple[int, int] | None, optional (default=None)
+        Size of the figure.
+    """
+    all_endpoint_df = load_all_data(base_path)
+    model_order, _ = get_model_order_and_color()
+    (_, subfigures), axs, ax_legend = get_nxm_figure(figsize=figsize, ncols=2, nrows=3, share_y=True)
+
+    for i, metric in enumerate(["Balanced accuracy", "Brier score", "Log loss"]):
+        metric_df = all_endpoint_df.loc[all_endpoint_df["metric"] == metric]
+        significance_dict_list = []
+        for j, split in enumerate(["Random", "Agglomerative clustering"]):
+            split_df = metric_df.loc[metric_df["split"] == split]
+            for model1, model2 in product(model_order, model_order):
+                model1_df = split_df.loc[split_df["model"] == model1]
+                model2_df = split_df.loc[split_df["model"] == model2]
+                p_value = mannwhitneyu(model1_df["Performance"], model2_df["Performance"]).pvalue
+                significance_dict_list.append(
+                    {
+                        "model1": model1,
+                        "model2": model2,
+                        "p_value": p_value,
+                    }
+                )
+            significance_df = pd.DataFrame(significance_dict_list)
+            significance_df = significance_df.pivot_table(
+                index="model1", columns="model2", values="p_value"
+            )
+            sns.heatmap(data=significance_df, ax=axs[i, j], vmin=0, vmax=0.05, cmap="coolwarm")
+            axs[i, j].set_title(split)
+        subfigures[i].suptitle(metric)
+    if save_path:
+        save_path = Path(save_path)
+        plt.savefig(save_path / "significance_plot.png")
 
 def plot_calibration_curves(
     data_df_list: list[pd.DataFrame],
@@ -294,7 +343,7 @@ def plot_calibration_curves(
         Additional keyword arguments.
     """
     model_color = get_model_order_and_color()[1]
-    (_, subfig_list), axs, ax_legend = get_nx2_figure(
+    (_, subfig_list), axs, ax_legend = get_nxm_figure(
         figsize=kwargs.get("figsize", None), nrows=2
     )
     name2ax_dict = {"Random": 0, "Agglomerative clustering": 1}
@@ -354,7 +403,7 @@ def plot_proba_rf(
         Figure size.
     """
 
-    (_, subfig_list), axs, ax_legend = get_nx2_figure(figsize=figsize, nrows=4)
+    (_, subfig_list), axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=4)
 
     models = ["Chemprop", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
@@ -429,8 +478,9 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
+    plot_significance_matrix(base_path, save_path=save_path)
     plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4))
-    plot_metrics_all(base_path, save_path=save_path, figsize=(8, 4))
+    plot_metrics_all(base_path, save_path=save_path)
     plot_metrics(
         [data_a_df, data_b_df],
         data_name_list=[endpoint_a, endpoint_b],
