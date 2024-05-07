@@ -57,12 +57,8 @@ stages:
       - ./data/intermediate_data/model_predictions
       - ./scripts/06_create_final_figures.py
     outs:
-      - ./data/figures/final_figures/proba_distribution_rf.png
-      - ./data/figures/final_figures/calibration_curves.png
-      - ./data/figures/final_figures/performance_metrics.png
       - ./data/figures/final_figures/performance_metrics_all.png
-      - ./data/figures/final_figures/similarity_to_training.png
-      - ./data/figures/final_figures/test_set_composition.png
+      - ./data/figures/final_figures/significance_plot.png
       - ./data/figures/final_figures/scatter_metrics.png
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py

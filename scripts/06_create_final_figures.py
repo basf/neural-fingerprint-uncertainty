@@ -524,14 +524,7 @@ def plot_proba_rf(
     plt.savefig(save_path / "proba_distribution_rf.png")
 
 
-@click.command()
-@click.option(
-    "--endpoint_a", type=str, required=True, help="Endpoint to create figures for."
-)
-@click.option(
-    "--endpoint_b", type=str, required=True, help="Endpoint to create figures for."
-)
-def create_figures(endpoint_a: str, endpoint_b: str) -> None:
+def create_figures() -> None:
     """Create figures for the uncertainty estimation predictions.
 
     Notes
@@ -546,41 +539,12 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
         Endpoint to create figures for.
     """
     base_path = Path(__file__).parents[1]
-    prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
-    data_a_df = load_data(endpoint_a, prediction_folder)
-    data_b_df = load_data(endpoint_b, prediction_folder)
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
     plot_significance_matrix(base_path, save_path=save_path, figsize=(8, 12))
     plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4))
     plot_metrics_all(base_path, save_path=save_path)
-    plot_metrics(
-        [data_a_df, data_b_df],
-        data_name_list=[endpoint_a, endpoint_b],
-        save_path=save_path,
-    )
-    plot_test_set_composition(
-        [data_a_df, data_b_df],
-        data_name_list=[endpoint_a, endpoint_b],
-        save_path=save_path,
-    )
-    plot_similarity_to_training(
-        [data_a_df, data_b_df],
-        save_path,
-        col_tiles=[endpoint_a, endpoint_b],
-    )
-    plot_calibration_curves(
-        [data_a_df, data_b_df],
-        data_name_list=[endpoint_a, endpoint_b],
-        save_path=save_path,
-    )
-    plot_proba_rf(
-        [data_a_df, data_b_df],
-        data_titles=[endpoint_a, endpoint_b],
-        save_path=save_path,
-        figsize=(10, 15),
-    )
 
 
 if __name__ == "__main__":
