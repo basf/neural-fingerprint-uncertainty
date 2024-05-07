@@ -405,7 +405,9 @@ def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
         }
         precision_dict = {
             "metric": "Precision",
-            "Performance": precision_score(iter_df["label"], iter_df["prediction"], zero_division=0),
+            "Performance": precision_score(
+                iter_df["label"], iter_df["prediction"], zero_division=0
+            ),
         }
         recall_dict = {
             "metric": "Recall",
