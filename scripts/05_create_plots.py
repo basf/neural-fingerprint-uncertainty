@@ -141,8 +141,8 @@ def plot_calibration_curves(
     axs[0].set_xlabel("Mean predicted probability (Positive class: 1)")
     axs[1].set_xlabel("Mean predicted probability (Positive class: 1)")
     axs[0].set_ylabel("Fraction of positives (Positive class: 1)")
-    axs[0].set_title("Calibration plots for random split")
-    axs[1].set_title("Calibration plots for agglomerative clustering split")
+    axs[0].set_title("Random split")
+    axs[1].set_title("Agglomerative clustering split")
     plt.savefig(save_path / "calibration_curves.png")
 
 
