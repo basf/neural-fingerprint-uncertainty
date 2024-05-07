@@ -199,8 +199,7 @@ def create_figures(endpoint: str) -> None:
     plot_metrics(data_df, save_path)
     plot_calibration_curves(data_df, save_path)
     plot_proba_rf(data_df, save_path)
-    plot_test_set_composition(data_df, save_path, **plot_kwargs)
-    plot_similarity_to_training(data_df, save_path, **plot_kwargs)
+    plot_data_report(data_df, save_path, **plot_kwargs)
 
 
 if __name__ == "__main__":
