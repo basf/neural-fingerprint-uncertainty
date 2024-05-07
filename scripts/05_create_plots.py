@@ -137,7 +137,9 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
     if "figsize" not in kwargs:
         kwargs["figsize"] = (10, 10)
 
-    (_, subfigs), axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2, share_y=False)
+    (_, subfigs), axs, ax_legend = get_nxm_figure(
+        figsize=kwargs["figsize"], nrows=2, share_y=False
+    )
     models = ["Chemprop", "Cal. Chemprop"]
     splits = ["Random", "Agglomerative clustering"]
     for row, split_name in enumerate(splits):
@@ -192,7 +194,9 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
     if "figsize" not in kwargs:
         kwargs["figsize"] = (10, 10)
 
-    (_, subfigs), axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2, share_y=False)
+    (_, subfigs), axs, ax_legend = get_nxm_figure(
+        figsize=kwargs["figsize"], nrows=2, share_y=False
+    )
     models = ["Morgan FP + RF", "Neural FP + RF"]
     splits = ["Random", "Agglomerative clustering"]
     for row, split_name in enumerate(splits):
