@@ -9,10 +9,10 @@ from pathlib import Path
 from typing import Any
 
 import click
+import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.stats import mannwhitneyu
 import seaborn as sns
 from plot_utils import (
     get_model_order_and_color,
@@ -23,6 +23,7 @@ from plot_utils import (
     test_set_composition2ax,
     test_set_nn_similarity2ax,
 )
+from scipy.stats import mannwhitneyu
 from sklearn.calibration import calibration_curve
 
 
@@ -294,34 +295,107 @@ def plot_significance_matrix(
     """
     all_endpoint_df = load_all_data(base_path)
     model_order, _ = get_model_order_and_color()
-    (_, subfigures), axs, ax_legend = get_nxm_figure(figsize=figsize, ncols=2, nrows=3, share_y=True)
+    (_, subfigures), axs, ax_legend = get_nxm_figure(
+        figsize=figsize, ncols=2, nrows=3, share_y=False
+    )
 
     for i, metric in enumerate(["Balanced accuracy", "Brier score", "Log loss"]):
         metric_df = all_endpoint_df.loc[all_endpoint_df["metric"] == metric]
-        significance_dict_list = []
+        if metric == "Balanced accuracy":
+            better_site = "greater"
+        else:
+            better_site = "less"
         for j, split in enumerate(["Random", "Agglomerative clustering"]):
             split_df = metric_df.loc[metric_df["split"] == split]
-            for model1, model2 in product(model_order, model_order):
-                model1_df = split_df.loc[split_df["model"] == model1]
-                model2_df = split_df.loc[split_df["model"] == model2]
-                p_value = mannwhitneyu(model1_df["Performance"], model2_df["Performance"]).pvalue
-                significance_dict_list.append(
-                    {
-                        "model1": model1,
-                        "model2": model2,
-                        "p_value": p_value,
-                    }
-                )
-            significance_df = pd.DataFrame(significance_dict_list)
-            significance_df = significance_df.pivot_table(
-                index="model1", columns="model2", values="p_value"
+            significance_matrix = np.ones((len(model_order), len(model_order)))
+            for a, model_a in enumerate(model_order):
+                model_a_df = split_df.loc[split_df["model"] == model_a]
+                for b, model_b in enumerate(model_order):
+                    model_b_df = split_df.loc[split_df["model"] == model_b]
+                    p_value = mannwhitneyu(
+                        model_a_df["Performance"],
+                        model_b_df["Performance"],
+                        alternative=better_site,
+                    ).pvalue
+                    significance_matrix[a, b] = p_value
+
+            color_mating = np.zeros((len(model_order), len(model_order), 3))
+            for a, _ in enumerate(model_order):
+                for b, _ in enumerate(model_order):
+                    p_value = significance_matrix[a, b]
+                    reverse_p_value = significance_matrix[b, a]
+                    if p_value < 0.05 and reverse_p_value < 0.05:
+                        raise ValueError("Both p-values are significant.")
+                    if p_value < 0.01:
+                        # Add tuple with dark green rgb color
+                        color_mating[a, b, :] = (0, 121 / 255, 58 / 255)
+                    elif p_value < 0.05:
+                        # Add tuple with light green rgb color
+                        color_mating[a, b, :] = (166 / 255, 208 / 255, 186 / 255)
+                    elif reverse_p_value < 0.01:
+                        # Add tuple with dark red rgb color
+                        color_mating[a, b, :] = (197 / 255, 0, 34 / 255)
+                    elif reverse_p_value < 0.05:
+                        # Add tuple with light red rgb color
+                        color_mating[a, b, :] = (235 / 255, 166 / 255, 178 / 255)
+                    else:
+                        # Add tuple with white rgb color
+                        color_mating[a, b, :] = (1, 1, 1)
+            axs[i, j].imshow(
+                color_mating,
+                extent=[0, len(model_order), len(model_order), 0],
+                origin="upper",
             )
-            sns.heatmap(data=significance_df, ax=axs[i, j], vmin=0, vmax=0.05, cmap="coolwarm")
+            if j == 0:
+                axs[i, j].set_yticks(np.arange(len(model_order)) + 0.5)
+                y_labels = [f"{model} ({m})" for m, model in enumerate(model_order)]
+                axs[i, j].set_yticklabels(y_labels)
+            else:
+                axs[i, j].set_ylabel("")
+                axs[i, j].set_yticks([])
+            axs[i, j].set_xticks(np.arange(len(model_order)) + 0.5)
+            x_ticks = [f"({m})" for m, model in enumerate(model_order)]
+            axs[i, j].set_xticklabels(x_ticks)
             axs[i, j].set_title(split)
         subfigures[i].suptitle(metric)
+    row_strong_significant_better = mpatches.Patch(
+        color=(0, 121 / 255, 58 / 255),
+        label="Row model significantly better (p < 0.01)",
+    )
+    row_significant_better = mpatches.Patch(
+        color=(166 / 255, 208 / 255, 186 / 255),
+        label="Row model significantly better (p < 0.05)",
+    )
+    not_significant = mpatches.Patch(color=(1, 1, 1), label="Not significant")
+    row_significant_worse = mpatches.Patch(
+        color=(235 / 255, 166 / 255, 178 / 255),
+        label="Row model significantly worse (p < 0.05)",
+    )
+    row_strong_significant_worse = mpatches.Patch(
+        color=(197 / 255, 0, 34 / 255), label="Row model significantly worse (p < 0.01)"
+    )
+    ax_legend.legend(
+        [
+            row_strong_significant_better,
+            row_significant_better,
+            not_significant,
+            row_significant_worse,
+            row_strong_significant_worse,
+        ],
+        [
+            "Row model significantly better (p < 0.01)",
+            "Row model significantly better (p < 0.05)",
+            "Not significant",
+            "Row model significantly worse (p < 0.05)",
+            "Row model significantly worse (p < 0.01)",
+        ],
+        loc="center",
+        ncol=1,
+    )
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "significance_plot.png")
+
 
 def plot_calibration_curves(
     data_df_list: list[pd.DataFrame],
@@ -478,7 +552,7 @@ def create_figures(endpoint_a: str, endpoint_b: str) -> None:
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
-    plot_significance_matrix(base_path, save_path=save_path)
+    plot_significance_matrix(base_path, save_path=save_path, figsize=(8, 12))
     plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4))
     plot_metrics_all(base_path, save_path=save_path)
     plot_metrics(
