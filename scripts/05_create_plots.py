@@ -120,7 +120,7 @@ def plot_calibration_curves(
     plt.savefig(save_path / "calibration_curves.png")
 
 
-def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
+def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """Plot the probability distribution for RF models with Morgan and Neural fingerprints.
 
     Parameters
@@ -137,6 +137,62 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
 
     _, axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2)
     models = ["Chemprop", "Cal. Chemprop"]
+    splits = ["Random", "Agglomerative clustering"]
+    row = 0
+    for split_name, split_df in data_df.groupby("Split strategy"):
+        if split_name not in splits:
+            continue
+        col = 0
+        for model in models:
+            model_df = split_df.loc[split_df["Model name"] == model]
+            sns.histplot(
+                data=model_df,
+                x="proba",
+                ax=axs[row, col],
+                label=f"{model}",
+                alpha=0.5,
+                hue="label",
+                bins=np.linspace(0, 1, 20),
+                stat="density",
+                common_norm=False,
+            )
+            axs[row, col].set_title(f"{model} - {split_name}")
+            if row == 1:
+                axs[row, col].set_xlabel("Predicted probability")
+            else:
+                axs[row, col].set_xlabel("")
+            if col == 0:
+                axs[row, col].set_ylabel("Density")
+            else:
+                axs[row, col].set_ylabel("")
+            col += 1
+        row += 1
+    handles, _ = axs[0, 0].get_legend_handles_labels()
+    axs[0, 0].legend().remove()
+    axs[0, 1].legend().remove()
+    axs[1, 0].legend().remove()
+    axs[1, 1].legend().remove()
+    ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
+    plt.savefig(save_path / "proba_distribution_chemprop.png")
+
+
+def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
+    """Plot the probability distribution for RF models with Morgan and Neural fingerprints.
+
+    Parameters
+    ----------
+    data_df : pd.DataFrame
+        Predictions for the endpoint.
+    save_path : Path
+        Path to save the figure.
+    **kwargs
+        Additional keyword arguments.
+    """
+    if "figsize" not in kwargs:
+        kwargs["figsize"] = (10, 10)
+
+    _, axs, ax_legend = get_nxm_figure(figsize=kwargs["figsize"], nrows=2)
+    models = ["RF", "Cal. RF"]
     splits = ["Random", "Agglomerative clustering"]
     row = 0
     for split_name, split_df in data_df.groupby("Split strategy"):
@@ -198,6 +254,7 @@ def create_figures(endpoint: str) -> None:
     save_path.mkdir(parents=True, exist_ok=True)
     plot_metrics(data_df, save_path)
     plot_calibration_curves(data_df, save_path)
+    plot_proba_chemprop(data_df, save_path)
     plot_proba_rf(data_df, save_path)
     plot_data_report(data_df, save_path, **plot_kwargs)
 
