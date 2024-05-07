@@ -204,7 +204,7 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
     return endpoint_df
 
 
-def load_all_data(base_path: Path) -> pd.DataFrame:
+def load_all_performances(base_path: Path) -> pd.DataFrame:
     """Load all the data for all endpoints.
 
     Parameters

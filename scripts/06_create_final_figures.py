@@ -17,7 +17,7 @@ from plot_utils import (
     get_model_order_and_color,
     get_nxm_figure,
     get_performance_metrics,
-    load_all_data,
+    load_all_performances,
     load_data,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
@@ -193,7 +193,7 @@ def plot_metrics_scatter(
         Path to save the figure.
     figsize : tuple[int, int] | None, optional (default=None)
     """
-    final_performance_df = load_all_data(base_path)
+    final_performance_df = load_all_performances(base_path)
     final_performance_df = final_performance_df.pivot_table(
         index=["endpoint", "metric", "model"], columns="split", values="Performance"
     ).reset_index()
@@ -249,7 +249,7 @@ def plot_metrics_all(
     figsize : tuple[int, int] | None, optional (default=None)
         Size of the figure.
     """
-    all_endpoint_df = load_all_data(base_path)
+    all_endpoint_df = load_all_performances(base_path)
     model_order, color_dict = get_model_order_and_color()
     _, axs, ax_legend = get_nxm_figure(figsize=figsize, ncols=1, nrows=3, share_y=False)
 
@@ -292,7 +292,7 @@ def plot_significance_matrix(
     figsize : tuple[int, int] | None, optional (default=None)
         Size of the figure.
     """
-    all_endpoint_df = load_all_data(base_path)
+    all_endpoint_df = load_all_performances(base_path)
     model_order, _ = get_model_order_and_color()
     (_, subfigures), axs, ax_legend = get_nxm_figure(
         figsize=figsize, ncols=2, nrows=3, share_y=False
