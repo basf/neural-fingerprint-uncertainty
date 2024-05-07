@@ -15,7 +15,13 @@ from molpipeline import Pipeline
 from molpipeline.any2mol import SmilesToMol
 from molpipeline.estimators.similarity_transformation import TanimotoToTraining
 from molpipeline.mol2any import MolToMorganFP
-from sklearn.metrics import balanced_accuracy_score, brier_score_loss, log_loss
+from sklearn.metrics import (
+    balanced_accuracy_score,
+    brier_score_loss,
+    log_loss,
+    precision_score,
+    recall_score,
+)
 
 
 def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
@@ -397,7 +403,15 @@ def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
             "metric": "Log loss",
             "Performance": log_loss(iter_df["label"], iter_df["proba"]),
         }
-        metric_list = [ba_dict, brier_dict, log_loss_dict]
+        precision_dict = {
+            "metric": "Precision",
+            "Performance": precision_score(iter_df["label"], iter_df["prediction"]),
+        }
+        recall_dict = {
+            "metric": "Recall",
+            "Performance": recall_score(iter_df["label"], iter_df["prediction"]),
+        }
+        metric_list = [ba_dict, brier_dict, log_loss_dict, precision_dict, recall_dict]
         for perf_dict in metric_list:
             perf_dict.update(iter_dict)
             performance_df_list.append(perf_dict)
