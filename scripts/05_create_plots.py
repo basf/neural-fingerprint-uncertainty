@@ -13,20 +13,14 @@ from plot_utils import (
     get_nxm_figure,
     get_performance_metrics,
     load_data,
-    remove_ax_frame,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
 )
 from sklearn.calibration import calibration_curve
 
 
-def plot_test_set_composition(
-    data_df: pd.DataFrame, save_path: Path, **kwargs: Any
-) -> None:
-    """Plot the composition of the test set.
-
-    X axis: Number of negative compounds
-    Y axis: Number of positive compounds
+def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
+    """Plot the data report for the endpoint.
 
     Parameters
     ----------
@@ -37,40 +31,20 @@ def plot_test_set_composition(
     **kwargs
         Additional keyword arguments.
     """
-    if "figsize" not in kwargs:
-        kwargs["figsize"] = (8, 6)
-    _, ax = plt.subplots(figsize=kwargs["figsize"])
-    handles, labels = test_set_composition2ax(data_df, ax)
-    ax.legend(handles, labels, ncol=1)
+    _, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)))
 
-    ax.set_xlabel("Number of negative compounds")
-    ax.set_ylabel("Number of positive compounds")
-    plt.savefig(save_path / "test_set_composition.png")
+    handles, labels = test_set_composition2ax(data_df, axs[0])
+    axs[0].legend(handles, labels, ncol=1)
 
+    axs[0].set_xlabel("Number of negative compounds")
+    axs[0].set_ylabel("Number of positive compounds")
 
-def plot_similarity_to_training(
-    data_df: pd.DataFrame, save_path: Path, **kwargs: Any
-) -> None:
-    """Plot the similarity of the test set compounds to the training set.
-
-    Parameters
-    ----------
-    data_df : pd.DataFrame
-        Data for the endpoint.
-    save_path : Path
-        Path to save the figure.
-    **kwargs
-        Additional keyword arguments.
-    """
-    _, ax = plt.subplots(figsize=kwargs["figsize"])
     for split_strategy, iter_df in data_df.groupby("Split strategy"):
-        test_set_nn_similarity2ax(iter_df, ax, label=str(split_strategy))
-
-    ax.legend()
-    ax.set_xlabel("Similarity to training set")
-    ax.set_ylabel("Count")
-    plt.savefig(save_path / "similarity_to_training.png")
-
+        test_set_nn_similarity2ax(iter_df, axs[1], label=str(split_strategy))
+    axs[1].legend()
+    axs[1].set_xlabel("Similarity to training set")
+    axs[1].set_ylabel("Count")
+    plt.savefig(save_path / "data_report.png")
 
 def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """Plot the performance metrics for each model.

@@ -49,8 +49,7 @@ stages:
         - ./data/figures/${item}/proba_distribution_rf.png
         - ./data/figures/${item}/calibration_curves.png
         - ./data/figures/${item}/performance_metrics.png
-        - ./data/figures/${item}/similarity_to_training.png
-        - ./data/figures/${item}/test_set_composition.png
+        - ./data/figures/${item}/data_report.png
   create_final_plots:
     cmd: python scripts/06_create_final_figures.py --endpoint_a "ATG_PXRE_CIS_up" --endpoint_b "BSK_4H_Eotaxin3_down"
     deps:
