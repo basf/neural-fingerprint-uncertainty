@@ -47,7 +47,7 @@ The neural fingerprints are extracted from a pre-trained [Chemprop](https://gith
 In addition to the neural fingerprints, the GNN is also used to predict the target values.
 The details of the experiments are provided in the [04_neural_fingerprint_predictions.py](scripts%2F04_neural_fingerprint_predictions.py) script.
 ### Create plots for each endpoint
-The results of the experiments are visualized using matplotlib, where the plots are saved in the `[figures](data%2Ffigures)` folder.
+The results of the experiments are visualized using matplotlib, where the plots are saved in the [figures](data%2Ffigures) folder.
 Figures have to be loaded using the commands provided [above](#Commands to reproduce the results).
 Code for the plots is provided in the [05_create_plots.py](scripts%2F05_create_plots.py) script.
 ### Plots used in the paper
