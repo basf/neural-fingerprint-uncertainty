@@ -55,5 +55,5 @@ The plots used in the paper are saved in the [final_figures](data%2Ffigures%2Ffi
 The code for the plots is provided in the [06_create_final_figures.py](scripts%2F06_create_final_figures.py) script.
 ### Tables used in the paper
 The tables used in the paper were logged and directly extracted from the console.
-A copy of the console output is provided in the file [07_create_final_tables.log](logs%2F07_create_final_tables.log).
+A copy of the console output is provided in the file [07_create_final_tables.log](logs%2F07_create_final_tables.log) (again, only available after executing the commands [above](#Commands to reproduce the results)).
 
