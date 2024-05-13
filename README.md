@@ -6,7 +6,7 @@ For many standard machine learning models, uncertainty estimates are well studie
 In this study, we investigate whether the neural fingerprint extracted from a GNN can be used to improve the uncertainty estimates of classical machine learning models.
 ## Reproducing the results
 ### DVC
-The experiments are managed using [DVC](https://dvc.org/), where each step is specified in a  [`dvc.yaml`](https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#dvcyaml) file.
+The experiments are managed using [DVC](https://dvc.org/), where each step is specified in the [`dvc.yaml`](https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#dvcyaml) file.
 Running the pipeline will create a dvc.lock file, which contains the hashes of the scripts, input files, and output files, ensuring that the results originate from the provided code and data.
 Typically, the cache is stored in a remote, however, as no suitable remote is available, the cache is stored in a tarball, which requires manual extraction.
 The following sections describe how to set up the project and reproduce the results.
