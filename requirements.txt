@@ -1,0 +1,15 @@
+chemprop>=2.0.0
+click
+dvc
+joblib
+loguru
+lightning
+molpipeline
+matplotlib
+numpy
+pandas
+pyyaml
+scikit-learn
+seaborn
+tqdm
+scipy
