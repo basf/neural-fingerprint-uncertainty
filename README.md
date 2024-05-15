@@ -1,14 +1,14 @@
 # Analysis of Uncertainty of Neural Fingerprint-based Models
 This repository contains the code to reproduce the results of the paper "Analysis of Uncertainty of Neural Fingerprint-based Models" (under review).
 ## Abstract
-Estimating the uncertainty of a model prediction is crucial for the deployment of machine learning models in nearly all applications of cheminformatics.
-For many standard machine learning models, uncertainty estimates are well studied, however, their predictive performances are often inferior to those of graph neural networks (GNNs).
-In this study, we investigate whether the neural fingerprint extracted from a GNN can be used to improve the uncertainty estimates of classical machine learning models.
+Estimating the uncertainty of model predictions is crucial in a wide range of cheminformatics applications, not only to better understand machine learning models but also to establish trust in deployed models.
+Uncertainty estimates for many standard machine learning models, like Random Forest, are well studied. However, their predictive performances can be inferior to deep learning models, like graph neural networks (GNNs).
+We investigated whether the neural fingerprint extracted from a GNN can be combined with classical machine learning models to achieve good prediction performance and reliable uncertainty estimates.
 ## Reproducing the results
 ### DVC
 The experiments are managed using [DVC](https://dvc.org/), where each step is specified in the [`dvc.yaml`](https://dvc.org/doc/user-guide/project-structure/dvcyaml-files#dvcyaml) file.
 Running the pipeline will create a dvc.lock file, which contains the hashes of the scripts, input files, and output files, ensuring that the results originate from the provided code and data.
-Typically, the cache is stored in a remote, however, as no suitable remote is available, the cache is stored in a tarball, which requires manual extraction.
+The cache is available from this repository as a tarball.
 The following sections describe how to set up the project and reproduce the results.
 ### Commands to reproduce the results
 1. Clone the repository
@@ -32,6 +32,7 @@ dvc pull
 ```bash
 dvc repro
 ```
+The generated results, figures, etc are saved in the [data](data) folder.
 ## Workflow of the experiments
 ### Molecular standardization
 The molecular standardization is performed using [molpipeline](https://github.com/basf/molpipeline).
@@ -57,3 +58,6 @@ The code for the plots is provided in the [06_create_final_figures.py](scripts%2
 The tables used in the paper were logged and directly extracted from the console.
 A copy of the console output is provided in the file [07_create_final_tables.log](logs%2F07_create_final_tables.log) (again, only available after executing the commands [above](#Commands to reproduce the results)).
 
+## License
+
+This software is licensed under the MIT license. See the [LICENSE](LICENSE) file for details.
