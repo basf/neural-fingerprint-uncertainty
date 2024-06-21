@@ -208,7 +208,6 @@ def main() -> None:
     prediction_path.mkdir(parents=True, exist_ok=True)
 
     file_name = f"morgan_fingerprint_predictions_{args.endpoint}_{args.counted_fp}.tsv.gz"
-    print(file_name)
     save_path = prediction_path / file_name
 
     split_strategy_list = [
