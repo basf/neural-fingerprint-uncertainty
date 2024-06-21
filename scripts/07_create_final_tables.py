@@ -7,7 +7,12 @@ import numpy.typing as npt
 import pandas as pd
 import yaml
 from loguru import logger
-from plot_utils import get_performance_metrics, load_all_performances, load_data, get_model_order_and_color
+from plot_utils import (
+    get_model_order_and_color,
+    get_performance_metrics,
+    load_all_performances,
+    load_data,
+)
 
 
 def agg_mean_std(values: npt.NDArray[np.float_]) -> str:

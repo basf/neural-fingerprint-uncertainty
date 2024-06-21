@@ -187,7 +187,7 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
     )
     nnfp_prediction_df["encoding"] = "Neural FP"
     morganfp_prediction_df = pd.read_csv(
-        prediction_folder / f"morgan_fingerprint_predictions_{endpoint}.tsv.gz",
+        prediction_folder / f"morgan_fingerprint_predictions_{endpoint}_counted_false.tsv.gz",
         sep="\t",
     )
     morganfp_prediction_df["encoding"] = "Morgan FP"
