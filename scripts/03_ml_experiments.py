@@ -44,7 +44,7 @@ def parse_args() -> argparse.Namespace:
         help="Endpoint to train on.",
     )
     argument_parser.add_argument(
-        "--countedfp",
+        "--counted_fp",
         type=bool,
         default=False,
         help="Whether to use counted fingerprints.",
@@ -195,7 +195,7 @@ def main() -> None:
         #  "Generic scaffold",
     ]
 
-    model_dict = define_models(args.n_jobs, args.countedfp)
+    model_dict = define_models(args.n_jobs, args.counted_fp)
     splitter = LeavePGroupsOut(1)
     prediction_df_list = []
 
