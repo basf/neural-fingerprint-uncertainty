@@ -45,8 +45,8 @@ def parse_args() -> argparse.Namespace:
     )
     argument_parser.add_argument(
         "--counted_fp",
-        type=bool,
-        default=False,
+        type=str,
+        default="not_counted",
         help="Whether to use counted fingerprints.",
     )
     args = argument_parser.parse_args()
@@ -171,9 +171,30 @@ def define_models(
     return model_dict
 
 
+def parse_counted_fp(counted_fp: str) -> bool:
+    """Parse the counted_fp argument.
+
+    Parameters
+    ----------
+    counted_fp : str
+        Whether to use counted fingerprints.
+
+    Returns
+    -------
+    bool
+        Whether to use counted fingerprints.
+    """
+    if counted_fp == "not_counted":
+        return False
+    elif counted_fp == "counted":
+        return True
+    raise ValueError("counted_fp must be either 'counted' or 'not_counted'")
+
+
 def main() -> None:
     """Run ML experiments on the Tox21 dataset."""
     args = parse_args()
+    counted_fp = parse_counted_fp(args.counted_fp)
     data_path = Path(__file__).parents[1] / "data"
     endpoint_df = pd.read_csv(
         data_path
@@ -185,7 +206,9 @@ def main() -> None:
 
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
-    file_name = f"morgan_fingerprint_predictions_{args.endpoint}_counted_{str(args.counted_fp).lower()}.tsv.gz"
+
+    file_name = f"morgan_fingerprint_predictions_{args.endpoint}_{args.counted_fp}.tsv.gz"
+    print(file_name)
     save_path = prediction_path / file_name
 
     split_strategy_list = [
@@ -195,7 +218,7 @@ def main() -> None:
         #  "Generic scaffold",
     ]
 
-    model_dict = define_models(args.n_jobs, args.counted_fp)
+    model_dict = define_models(args.n_jobs, counted_fp)
     splitter = LeavePGroupsOut(1)
     prediction_df_list = []
 

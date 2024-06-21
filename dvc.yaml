@@ -22,7 +22,7 @@ stages:
   ml_experiments:
     matrix:
       endpoint: ${endpoint}
-      counted_fp: [true, false]
+      counted_fp: [not_counted, counted]
     cmd: python ./scripts/03_ml_experiments.py --endpoint ${item.endpoint} --counted_fp ${item.counted_fp}
     deps:
       - data/intermediate_data/presplit_data/presplit_data_${item.endpoint}.tsv
