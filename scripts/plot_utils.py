@@ -1,7 +1,7 @@
 """Utility functions for plotting the results of the benchmarking."""
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -24,7 +24,9 @@ from sklearn.metrics import (
 )
 
 
-def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
+def get_model_order_and_color(
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+) -> tuple[list[str], dict[str, str]]:
     """Get the model order and color mapping.
 
     Returns
@@ -34,16 +36,39 @@ def get_model_order_and_color() -> tuple[list[str], dict[str, str]]:
     dict[str, str]
         Model color mapping.
     """
-    model_order = [
-        "Morgan FP + KNN",
-        "Neural FP + KNN",
-        "Morgan FP + RF",
-        "Neural FP + RF",
-        "Morgan FP + SVC",
-        "Neural FP + SVC",
-        "Chemprop",
-        "Cal. Chemprop",
-    ]
+    if comparison == "morgan_vs_neural":
+        model_order = [
+            "Morgan FP + KNN",
+            "Neural FP + KNN",
+            "Morgan FP + RF",
+            "Neural FP + RF",
+            "Morgan FP + SVC",
+            "Neural FP + SVC",
+            "Chemprop",
+            "Cal. Chemprop",
+        ]
+    elif comparison == "morgan_vs_counted":
+        model_order = [
+            "Binary Morgan FP + KNN",
+            "Counted Morgan FP + KNN",
+            "Binary Morgan FP + RF",
+            "Counted Morgan FP + RF",
+            "Binary Morgan FP + SVC",
+            "Counted Morgan FP + SVC",
+        ]
+    elif comparison == "counted_vs_neural":
+        model_order = [
+            "Morgan FP + KNN",
+            "Neural FP + KNN",
+            "Morgan FP + RF",
+            "Neural FP + RF",
+            "Morgan FP + SVC",
+            "Neural FP + SVC",
+            "Chemprop",
+            "Cal. Chemprop",
+        ]
+    else:
+        raise ValueError(f"Invalid comparison type: {comparison}")
     model_color = {}
     for i, model in enumerate(model_order):
         model_color[model] = sns.color_palette("Paired")[i]
@@ -124,7 +149,7 @@ def get_nxm_figure(  # pylint: disable=too-many-locals
         sub_spec = sub_fig.add_gridspec(1, ncols)
         ax_0 = sub_fig.add_subplot(sub_spec[0, 0])
         row_ax_list = [ax_0]
-        for n in range(1, ncols):
+        for _ in range(1, ncols):
             if share_y:
                 ax_n = sub_fig.add_subplot(sub_spec[0, 1], sharey=ax_0)
             else:
@@ -150,7 +175,8 @@ def assert_same_smiles_set(data_df1: pd.DataFrame, data_df2: pd.DataFrame) -> No
 
     Raises
     ------
-
+    ValueError
+        If the smiles sets are not the same.
     """
     smiles_set1 = set(data_df1["smiles"].tolist())
     smiles_set2 = set(data_df2["smiles"].tolist())
@@ -166,7 +192,11 @@ def assert_same_smiles_set(data_df1: pd.DataFrame, data_df2: pd.DataFrame) -> No
         )
 
 
-def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
+def load_data(
+    endpoint: str,
+    prediction_folder: Path,
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+) -> pd.DataFrame:
     """Load the data for the endpoint.
 
     Parameters
@@ -175,31 +205,52 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
         Endpoint to load data for.
     prediction_folder : Path
         Folder with the predictions.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"], optional (default="morgan_vs_neural")
+        Defines the loaded data.
+        If "morgan_vs_neural", the data is loaded for the comparison of Morgan and Neural fingerprints.
+        If "morgan_vs_counted", the data is loaded for the comparison of Morgan fingerprints with and without counting.
 
     Returns
     -------
     pd.DataFrame
         Data for the endpoint.
     """
-    nnfp_prediction_df = pd.read_csv(
-        prediction_folder / f"neural_fingerprint_predictions_{endpoint}.tsv.gz",
+    if comparison == "counted_vs_neural":
+        base_file = f"morgan_fingerprint_predictions_{endpoint}_counted.tsv.gz"
+    else:
+        base_file = f"morgan_fingerprint_predictions_{endpoint}_not_counted.tsv.gz"
+    baseline_prediction_df = pd.read_csv(
+        prediction_folder / base_file,
         sep="\t",
     )
-    nnfp_prediction_df["encoding"] = "Neural FP"
-    morganfp_prediction_df = pd.read_csv(
-        prediction_folder / f"morgan_fingerprint_predictions_{endpoint}_not_counted.tsv.gz",
+    if comparison == "morgan_vs_counted":
+        comp_file = f"morgan_fingerprint_predictions_{endpoint}_counted.tsv.gz"
+    else:
+        comp_file = f"neural_fingerprint_predictions_{endpoint}.tsv.gz"
+    comp_prediction_df = pd.read_csv(
+        prediction_folder / comp_file,
         sep="\t",
     )
-    morganfp_prediction_df["encoding"] = "Morgan FP"
+    if comparison == "morgan_vs_neural":
+        baseline_prediction_df["encoding"] = "Morgan FP"
+        comp_prediction_df["encoding"] = "Neural FP"
+    elif comparison == "morgan_vs_counted":
+        baseline_prediction_df["encoding"] = "Binary Morgan FP"
+        comp_prediction_df["encoding"] = "Counted Morgan FP"
+    elif comparison == "counted_vs_neural":
+        baseline_prediction_df["encoding"] = "Morgan FP"
+        comp_prediction_df["encoding"] = "Neural FP"
+    else:
+        raise ValueError(f"Invalid comparison type: {comparison}")
+
     split_columns = ["endpoint", "model", "Split strategy", "trial"]
-    for idx_list, iter_df in nnfp_prediction_df.groupby(split_columns):
-        morgan_iter_df = morganfp_prediction_df
+    for idx_list, iter_df in comp_prediction_df.groupby(split_columns):
+        morgan_iter_df = baseline_prediction_df
         for col_name, col_value in zip(split_columns, idx_list):  # type: ignore
             morgan_iter_df = morgan_iter_df.loc[morgan_iter_df[col_name] == col_value]
-
         if "Chemprop" not in idx_list[1]:  # Chemprop has no corresponding Morgan model
             assert_same_smiles_set(iter_df, morgan_iter_df)
-    endpoint_df = pd.concat([nnfp_prediction_df, morganfp_prediction_df])
+    endpoint_df = pd.concat([comp_prediction_df, baseline_prediction_df])
     endpoint_df["Model name"] = endpoint_df[["encoding", "model"]].apply(
         " + ".join, axis=1
     )
@@ -210,13 +261,20 @@ def load_data(endpoint: str, prediction_folder: Path) -> pd.DataFrame:
     return endpoint_df
 
 
-def load_all_performances(base_path: Path) -> pd.DataFrame:
+def load_all_performances(
+    base_path: Path,
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+) -> pd.DataFrame:
     """Load all the data for all endpoints.
 
     Parameters
     ----------
     base_path : Path
         Base path of the project.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"], optional (default="morgan_vs_neural")
+        Defines the loaded data.
+        If "morgan_vs_neural", the data is loaded for the comparison of Morgan and Neural fingerprints.
+        If "morgan_vs_counted", the data is loaded for the comparison of Morgan fingerprints with and without counting.
 
     Returns
     -------
@@ -231,7 +289,7 @@ def load_all_performances(base_path: Path) -> pd.DataFrame:
     performance_df_list = []
     for endpoint in endpoint_list:
         try:
-            data_df = load_data(endpoint, prediction_folder)
+            data_df = load_data(endpoint, prediction_folder, comparison=comparison)
         except FileNotFoundError:
             logger.warning(f"No predictions found for {endpoint}.")
             continue
@@ -384,10 +442,18 @@ def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
     for (model, trial, split), iter_df in data_df.groupby(
         ["Model name", "trial", "Split strategy"]
     ):
+        encodings = iter_df["encoding"].unique()
+        if len(encodings) != 1:
+            raise ValueError("Multiple encodings found.")
+        base_models = iter_df["model"].unique()
+        if len(base_models) != 1:
+            raise ValueError("Multiple base models found.")
         iter_dict = {
             "model": model,
             "trial": trial,
             "split": split,
+            "encoding": encodings[0],
+            "base_model": base_models[0],
         }
         ba_dict = {
             "metric": "Balanced accuracy",

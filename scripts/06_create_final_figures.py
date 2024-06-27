@@ -232,6 +232,49 @@ def plot_metrics_scatter(
         save_path = Path(save_path)
         plt.savefig(save_path / "scatter_metrics.png")
 
+def plot_metrics_scatter_encoding(
+    base_path: Path,
+    save_path: Path | str | None = None,
+    figsize: tuple[int, int] | None = None,
+) -> None:
+
+    final_performance_df = load_all_performances(base_path, comparison="morgan_vs_counted")
+    final_performance_df = final_performance_df.loc[
+        final_performance_df["metric"] == "Balanced accuracy"
+    ]
+    final_performance_df = final_performance_df.pivot_table(
+        index=["endpoint", "split", "base_model"], columns="encoding", values="Performance"
+    ).reset_index()
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1, share_y=True)
+    for i, split in enumerate(
+        [
+            "Agglomerative clustering",
+            "Random",
+        ]
+    ):
+        sns.scatterplot(
+            data=final_performance_df.loc[final_performance_df["split"] == split],
+            x="Binary Morgan FP",
+            y="Counted Morgan FP",
+            hue="base_model",
+            ax=axs[i],
+        )
+        axs[i].set_title(split)
+        axs[i].set_xlabel("Binary Morgan FP")
+        axs[i].plot([0, 1], [0, 1], ls="--", color="gray")
+
+    axs[0].set_ylabel("Counted Morgan FP")
+    axs[1].set_ylabel("")
+    axs[0].set_xlim([0.5, 1])
+    axs[0].set_ylim([0.5, 1])
+    axs[1].set_xlim([0.5, 1])
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    axs[0].legend().remove()
+    axs[1].legend().remove()
+    if save_path:
+        save_path = Path(save_path)
+        plt.savefig(save_path / "scatter_counted_binary_fp.png")
 
 def plot_metrics_all(
     base_path: Path,
@@ -529,10 +572,14 @@ def create_figures() -> None:
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
+    plot_metrics_scatter_encoding(base_path, save_path=save_path, figsize=(8, 4))
     plot_significance_matrix(base_path, save_path=save_path, figsize=(8, 12))
     plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4))
     plot_metrics_all(base_path, save_path=save_path)
 
 
 if __name__ == "__main__":
+    pd.set_option("display.max_columns", None)
+    pd.set_option("display.max_rows", None)
+    pd.set_option("display.max_colwidth", None)
     create_figures()

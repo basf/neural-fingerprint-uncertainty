@@ -9,7 +9,6 @@ import yaml
 from loguru import logger
 from plot_utils import (
     get_model_order_and_color,
-    get_performance_metrics,
     load_all_performances,
     load_data,
 )

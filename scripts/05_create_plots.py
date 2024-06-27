@@ -1,7 +1,7 @@
 """Create figures for the uncertainty estimation predictions."""  # pylint: disable=invalid-name
 
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 import click
 import matplotlib.pyplot as plt
@@ -48,7 +48,12 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     plt.savefig(save_path / "data_report.png")
 
 
-def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
+def plot_metrics(
+    data_df: pd.DataFrame,
+    save_path: Path,
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"],
+    **kwargs: Any,
+) -> None:
     """Plot the performance metrics for each model.
 
     Parameters
@@ -57,10 +62,12 @@ def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
         Predictions for the endpoint.
     save_path : Path
         Path to save the figure.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"]
+        Comparison to create figures for.
     **kwargs
         Additional keyword arguments.
     """
-    model_order, color_dict = get_model_order_and_color()
+    model_order, color_dict = get_model_order_and_color(comparison=comparison)
     performance_df = get_performance_metrics(data_df)
     _, axs, ax_legend = get_nxm_figure(
         figsize=kwargs.get("figsize", None), nrows=1, share_y=False
@@ -77,15 +84,17 @@ def plot_metrics(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
         )
         axs[i].set_title(metric)
     handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    ax_legend.legend(handles, labels, loc="center", ncol=len(labels) // 2)
     axs[0].legend().remove()
     axs[1].legend().remove()
     axs[1].set_ylabel("")
-    plt.savefig(save_path / "performance_metrics.png")
+    plt.savefig(save_path / f"performance_metrics_{comparison}.png")
 
 
 def plot_calibration_curves(  # pylint: disable=too-many-locals
-    data_df: pd.DataFrame, save_path: Path, **kwargs: Any
+    data_df: pd.DataFrame, save_path: Path,
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+    **kwargs: Any
 ) -> None:
     """Plot the calibration curves for each model.
 
@@ -95,10 +104,12 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
         Predictions for the endpoint.
     save_path : Path
         Path to save the figure.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"], optional
+        Comparison to create figures for, by default "morgan_vs_neural".
     **kwargs
         Additional keyword arguments.
     """
-    model_color = get_model_order_and_color()[1]
+    model_color = get_model_order_and_color(comparison=comparison)[1]
     _, axs, ax_legend = get_nxm_figure(figsize=kwargs.get("figsize", None), nrows=1)
     name2ax_dict = {"Random": axs[1], "Agglomerative clustering": axs[0]}
     for model, color in model_color.items():
@@ -110,8 +121,8 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
             )
             ax = name2ax_dict[split]
             ax.plot(prob_pred, prob_true, label=f"{model}", marker=".", color=color)
-    legend, handles = axs[0].get_legend_handles_labels()
-    ax_legend.legend(legend, handles, loc="center", ncol=4)
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=len(handles) // 2)
     axs[0].plot((0, 1), (0, 1), ls="--", color="gray")
     axs[1].plot((0, 1), (0, 1), ls="--", color="gray")
     axs[0].set_xlabel("Mean predicted probability (Positive class: 1)")
@@ -119,7 +130,7 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     axs[0].set_ylabel("Fraction of positives (Positive class: 1)")
     axs[0].set_title("Random split")
     axs[1].set_title("Agglomerative clustering split")
-    plt.savefig(save_path / "calibration_curves.png")
+    plt.savefig(save_path / f"calibration_curves_{comparison}.png")
 
 
 def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
@@ -240,7 +251,15 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
 @click.option(
     "--endpoint", type=str, required=True, help="Endpoint to create figures for."
 )
-def create_figures(endpoint: str) -> None:
+@click.option(
+    "--comparison",
+    type=click.Choice(["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]),
+    required=True,
+    help="Comparison to create figures for.",
+)
+def create_figures(
+    endpoint: str, comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]
+) -> None:
     """Create figures for the uncertainty estimation predictions.
 
     Parameters
@@ -250,17 +269,22 @@ def create_figures(endpoint: str) -> None:
     """
     base_path = Path(__file__).parents[1]
     prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
-    data_df = load_data(endpoint, prediction_folder)
+
 
     plot_kwargs = {"figsize": (8, 3.5)}
 
     save_path = base_path / "data" / "figures" / endpoint
     save_path.mkdir(parents=True, exist_ok=True)
-    plot_metrics(data_df, save_path)
-    plot_calibration_curves(data_df, save_path)
-    plot_proba_chemprop(data_df, save_path)
-    plot_proba_rf(data_df, save_path)
-    plot_data_report(data_df, save_path, **plot_kwargs)
+    if comparison == "other":
+        data_df = load_data(endpoint, prediction_folder)
+        plot_proba_chemprop(data_df, save_path)
+        plot_proba_rf(data_df, save_path)
+        plot_data_report(data_df, save_path, **plot_kwargs)
+    else:
+        data_df = load_data(endpoint, prediction_folder, comparison=comparison)
+        plot_metrics(data_df, save_path, comparison=comparison)
+        plot_calibration_curves(data_df, save_path, comparison=comparison)
+
 
 
 if __name__ == "__main__":

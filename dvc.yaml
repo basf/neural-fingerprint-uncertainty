@@ -38,25 +38,39 @@ stages:
         - ./scripts/04_neural_fingerprint_predictions.py
       outs:
         - ./data/intermediate_data/model_predictions/neural_fingerprint_predictions_${item}.tsv.gz
-  create_plots:
+  create_comparison_plots:
+    matrix:
+      endpoint: ${endpoint}
+      comparison: [ morgan_vs_neural, morgan_vs_counted, counted_vs_neural]
+    cmd: python ./scripts/05_create_plots.py --endpoint ${item.endpoint}  --comparison ${item.comparison}
+    deps:
+      - data/intermediate_data/model_predictions/morgan_fingerprint_predictions_${item.endpoint}_not_counted.tsv.gz
+      - data/intermediate_data/model_predictions/morgan_fingerprint_predictions_${item.endpoint}_counted.tsv.gz
+      - data/intermediate_data/model_predictions/neural_fingerprint_predictions_${item.endpoint}.tsv.gz
+      - ./scripts/05_create_plots.py
+      - ./scripts/plot_utils.py
+    outs:
+      - ./data/figures/${item.endpoint}/calibration_curves_${item.comparison}.png
+      - ./data/figures/${item.endpoint}/performance_metrics_${item.comparison}.png
+  create_report_plots:
     foreach: ${endpoint}  # Specified in data_config.yaml
     do:
-      cmd: python ./scripts/05_create_plots.py --endpoint ${item}
+      cmd: python ./scripts/05_create_plots.py --endpoint ${item}  --comparison other
       deps:
         - data/intermediate_data/model_predictions/morgan_fingerprint_predictions_${item}_not_counted.tsv.gz
         - data/intermediate_data/model_predictions/neural_fingerprint_predictions_${item}.tsv.gz
         - ./scripts/05_create_plots.py
+        - ./scripts/plot_utils.py
       outs:
         - ./data/figures/${item}/proba_distribution_rf.png
         - ./data/figures/${item}/proba_distribution_chemprop.png
-        - ./data/figures/${item}/calibration_curves.png
-        - ./data/figures/${item}/performance_metrics.png
         - ./data/figures/${item}/data_report.png
   create_final_plots:
     cmd: python scripts/06_create_final_figures.py
     deps:
       - ./data/intermediate_data/model_predictions
       - ./scripts/06_create_final_figures.py
+      - ./scripts/plot_utils.py
     outs:
       - ./data/figures/final_figures/performance_metrics_all.png
       - ./data/figures/final_figures/significance_plot.png
