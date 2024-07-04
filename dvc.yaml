@@ -66,15 +66,17 @@ stages:
         - ./data/figures/${item}/proba_distribution_chemprop.png
         - ./data/figures/${item}/data_report.png
   create_final_plots:
-    cmd: python scripts/06_create_final_figures.py
+    matrix:
+      comparison: [morgan_vs_neural, morgan_vs_counted, counted_vs_neural]
+    cmd: python scripts/06_create_final_figures.py  --comparison ${item.comparison}
     deps:
       - ./data/intermediate_data/model_predictions
       - ./scripts/06_create_final_figures.py
       - ./scripts/plot_utils.py
     outs:
-      - ./data/figures/final_figures/performance_metrics_all.png
-      - ./data/figures/final_figures/significance_plot.png
-      - ./data/figures/final_figures/scatter_metrics.png
+      - ./data/figures/final_figures/performance_metrics_all_${item.comparison}.png
+      - ./data/figures/final_figures/significance_plot_${item.comparison}.png
+      - ./data/figures/final_figures/scatter_metrics_${item.comparison}.png
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py
     deps:
