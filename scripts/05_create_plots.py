@@ -276,7 +276,7 @@ def create_figures(
     save_path = base_path / "data" / "figures" / endpoint
     save_path.mkdir(parents=True, exist_ok=True)
     if comparison == "other":
-        data_df = load_data(endpoint, prediction_folder)
+        data_df = load_data(endpoint, prediction_folder, comparison="counted_vs_neural")
         plot_proba_chemprop(data_df, save_path)
         plot_proba_rf(data_df, save_path)
         plot_data_report(data_df, save_path, **plot_kwargs)
