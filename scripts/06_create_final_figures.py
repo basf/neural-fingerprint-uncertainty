@@ -227,7 +227,7 @@ def plot_metrics_scatter(
     axs[1].set_xlim([0, 0.5])
     axs[1].set_ylim([0, 0.5])
     handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    ax_legend.legend(handles, labels, loc="center", ncol=len(labels) // 2)
     axs[0].legend().remove()
     axs[1].legend().remove()
     if save_path:
@@ -313,13 +313,13 @@ def plot_metrics_all(
         axs[i].set_xlabel("")
         axs[i].set_ylabel("Metric value")
     handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
+    ax_legend.legend(handles, labels, loc="center", ncol=len(labels) // 2)
     axs[0].legend().remove()
     axs[1].legend().remove()
     axs[2].legend().remove()
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / "performance_metrics_all.png")
+        plt.savefig(save_path / f"performance_metrics_all_{comparison}.png")
 
 
 def plot_significance_matrix(
