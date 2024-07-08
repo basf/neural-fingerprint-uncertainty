@@ -24,6 +24,48 @@ from sklearn.metrics import (
 )
 
 
+def sliding_window_calibration_curve(
+    y_true: npt.NDArray[float],
+    y_prob: npt.NDArray[float],
+    window_size: float = 0.2,
+    step_size: float = 0.05,
+    min_samples: int = 10,
+) -> tuple[npt.NDArray[np.float64], npt.NDArray[np.float64]]:
+    """Calculate the sliding window calibration curve.
+
+    Parameters
+    ----------
+    y_true : npt.NDArray[float]
+        True labels.
+    y_prob : npt.NDArray[float]
+        Predicted probabilities.
+    window_size : float, optional (default=0.1)
+        Size of the window.
+    step_size : float, optional (default=0.01)
+        Step size of the window.
+    min_samples : int, optional (default=10)
+        Minimum number of samples in the window.
+
+    Returns
+    -------
+    npt.NDArray[np.float64]
+        Mean true probabilities.
+    npt.NDArray[np.float64]
+        Mean predicted probabilities.
+    """
+    thresholds = np.arange(0, 1, step_size)
+    mean_pred_prob = []
+    mean_true_prob = []
+    for threshold in thresholds:
+        mask = (y_prob >= threshold) & (y_prob < threshold + window_size)
+        if mask.sum() < min_samples:
+            continue
+        mean_pred_prob.append(y_prob[mask].mean())
+        mean_true_prob.append(y_true[mask].mean())
+    return np.array(mean_true_prob), np.array(mean_pred_prob)
+
+
+
 def get_model_order_and_color(
     comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
 ) -> tuple[list[str], dict[str, str]]:
@@ -424,7 +466,7 @@ def test_set_nn_similarity2ax(
 
     return ax.get_legend_handles_labels()
 
-
+# pylint: disable=too-many-locals
 def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
     """Get the performance metrics for each model.
 
