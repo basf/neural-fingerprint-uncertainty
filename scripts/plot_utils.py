@@ -176,7 +176,7 @@ def get_nxm_figure(  # pylint: disable=too-many-locals
     """
     if figsize is None:
         figsize = (8, 4 * nrows)
-    fig = plt.figure(layout="constrained", figsize=figsize)
+    fig = plt.figure(layout="constrained", figsize=figsize, dpi=600)
     row_height = 9 * nrows
     if nrows > 1:
         row_height += 1
