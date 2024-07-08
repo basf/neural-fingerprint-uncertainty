@@ -13,11 +13,10 @@ from plot_utils import (
     get_nxm_figure,
     get_performance_metrics,
     load_data,
+    sliding_window_calibration_curve,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
 )
-from sklearn.calibration import calibration_curve
-
 
 def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """Plot the data report for the endpoint.
@@ -116,11 +115,11 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
         model_df = data_df.loc[data_df["Model name"] == model]
         for split in data_df["Split strategy"].unique():
             split_df = model_df.loc[model_df["Split strategy"] == split]
-            prob_true, prob_pred = calibration_curve(
-                split_df["label"], split_df["proba"], n_bins=10, strategy="uniform"
+            prob_true, prob_pred = sliding_window_calibration_curve(
+                split_df["label"], split_df["proba"]
             )
             ax = name2ax_dict[split]
-            ax.plot(prob_pred, prob_true, label=f"{model}", marker=".", color=color)
+            ax.plot(prob_pred, prob_true, label=f"{model}", color=color)
     handles, labels = axs[0].get_legend_handles_labels()
     ax_legend.legend(handles, labels, loc="center", ncol=len(handles) // 2)
     axs[0].plot((0, 1), (0, 1), ls="--", color="gray")
@@ -128,8 +127,8 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     axs[0].set_xlabel("Mean predicted probability (Positive class: 1)")
     axs[1].set_xlabel("Mean predicted probability (Positive class: 1)")
     axs[0].set_ylabel("Fraction of positives (Positive class: 1)")
-    axs[0].set_title("Random split")
-    axs[1].set_title("Agglomerative clustering split")
+    axs[0].set_title("Agglomerative clustering split")
+    axs[1].set_title("Random split")
     plt.savefig(save_path / f"calibration_curves_{comparison}.png")
 
 
