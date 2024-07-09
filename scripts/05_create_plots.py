@@ -96,7 +96,7 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     save_path: Path,
     comparison: Literal[
         "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
-    ] = "morgan_vs_neural",
+    ] = "counted_vs_neural",
     **kwargs: Any,
 ) -> None:
     """Plot the calibration curves for each model.

@@ -68,7 +68,7 @@ def sliding_window_calibration_curve(
 def get_model_order_and_color(
     comparison: Literal[
         "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
-    ] = "morgan_vs_neural",
+    ] = "counted_vs_neural",
 ) -> tuple[list[str], dict[str, str]]:
     """Get the model order and color mapping.
 
@@ -310,7 +310,7 @@ def load_all_performances(
     base_path: Path,
     comparison: Literal[
         "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
-    ] = "morgan_vs_neural",
+    ] = "counted_vs_neural",
 ) -> pd.DataFrame:
     """Load all the data for all endpoints.
 
