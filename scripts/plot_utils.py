@@ -27,9 +27,9 @@ from sklearn.metrics import (
 def sliding_window_calibration_curve(
     y_true: npt.NDArray[float],
     y_prob: npt.NDArray[float],
-    window_size: float = 0.2,
+    window_size: float = 0.20,
     step_size: float = 0.05,
-    min_samples: int = 10,
+    min_samples: int = 5,
 ) -> tuple[npt.NDArray[np.float64], npt.NDArray[np.float64]]:
     """Calculate the sliding window calibration curve.
 
@@ -53,7 +53,7 @@ def sliding_window_calibration_curve(
     npt.NDArray[np.float64]
         Mean predicted probabilities.
     """
-    thresholds = np.arange(0, 1, step_size)
+    thresholds = np.arange(0 - step_size / 2, 1 + step_size / 2, step_size)
     mean_pred_prob = []
     mean_true_prob = []
     for threshold in thresholds:
@@ -465,6 +465,7 @@ def test_set_nn_similarity2ax(
     ax.set_ylabel("Count")
 
     return ax.get_legend_handles_labels()
+
 
 # pylint: disable=too-many-locals
 def get_performance_metrics(data_df: pd.DataFrame) -> pd.DataFrame:
