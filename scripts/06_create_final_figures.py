@@ -234,18 +234,23 @@ def plot_metrics_scatter(
         save_path = Path(save_path)
         plt.savefig(save_path / f"scatter_metrics_{comparison}.png")
 
+
 def plot_metrics_scatter_encoding(
     base_path: Path,
     save_path: Path | str | None = None,
     figsize: tuple[int, int] | None = None,
 ) -> None:
 
-    final_performance_df = load_all_performances(base_path, comparison="morgan_vs_counted")
+    final_performance_df = load_all_performances(
+        base_path, comparison="morgan_vs_counted"
+    )
     final_performance_df = final_performance_df.loc[
         final_performance_df["metric"] == "Balanced accuracy"
     ]
     final_performance_df = final_performance_df.pivot_table(
-        index=["endpoint", "split", "base_model"], columns="encoding", values="Performance"
+        index=["endpoint", "split", "base_model"],
+        columns="encoding",
+        values="Performance",
     ).reset_index()
     _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1, share_y=True)
     for i, split in enumerate(
@@ -277,6 +282,7 @@ def plot_metrics_scatter_encoding(
     if save_path:
         save_path = Path(save_path)
         plt.savefig(save_path / "scatter_counted_binary_fp.png")
+
 
 def plot_metrics_all(
     base_path: Path,
@@ -569,24 +575,36 @@ def plot_proba_rf(
     ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
     plt.savefig(save_path / "proba_distribution_rf.png")
 
+
 @click.command()
 @click.option(
     "--comparison",
-    type=click.Choice(["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]),
+    type=click.Choice(
+        ["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]
+    ),
     required=True,
     help="Comparison to create figures for.",
 )
-def create_figures(comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]
-                   ) -> None:
+def create_figures(
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"
+    ]
+) -> None:
     """Create figures for the uncertainty estimation predictions."""
     base_path = Path(__file__).parents[1]
 
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
-    plot_metrics_scatter_encoding(base_path, save_path=save_path, figsize=(8, 4))
-    plot_significance_matrix(base_path, save_path=save_path, figsize=(8, 12), comparison=comparison)
-    plot_metrics_scatter(base_path, save_path=save_path, figsize=(8, 4), comparison=comparison)
-    plot_metrics_all(base_path, save_path=save_path, comparison=comparison)
+    if comparison == "other":
+        plot_metrics_scatter_encoding(base_path, save_path=save_path, figsize=(8, 4))
+    else:
+        plot_significance_matrix(
+            base_path, save_path=save_path, figsize=(8, 12), comparison=comparison
+        )
+        plot_metrics_scatter(
+            base_path, save_path=save_path, figsize=(8, 4), comparison=comparison
+        )
+        plot_metrics_all(base_path, save_path=save_path, comparison=comparison)
 
 
 if __name__ == "__main__":
