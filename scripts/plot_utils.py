@@ -65,9 +65,10 @@ def sliding_window_calibration_curve(
     return np.array(mean_true_prob), np.array(mean_pred_prob)
 
 
-
 def get_model_order_and_color(
-    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
+    ] = "morgan_vs_neural",
 ) -> tuple[list[str], dict[str, str]]:
     """Get the model order and color mapping.
 
@@ -237,7 +238,9 @@ def assert_same_smiles_set(data_df1: pd.DataFrame, data_df2: pd.DataFrame) -> No
 def load_data(
     endpoint: str,
     prediction_folder: Path,
-    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
+    ] = "morgan_vs_neural",
 ) -> pd.DataFrame:
     """Load the data for the endpoint.
 
@@ -305,7 +308,9 @@ def load_data(
 
 def load_all_performances(
     base_path: Path,
-    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
+    ] = "morgan_vs_neural",
 ) -> pd.DataFrame:
     """Load all the data for all endpoints.
 
