@@ -42,10 +42,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
       hash: md5
-      md5: b2ea6cfa893da35684e74f8dc399ffe9
-      size: 151671
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
       hash: md5
@@ -54,24 +54,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/calibration_curves.png
       hash: md5
-      md5: c68890aad3777ce39fa5a3a33d2ae1d3
-      size: 97623
+      md5: 104f85c5b2046df4b525600f850c7a2b
+      size: 97368
     - path: ./data/figures/BSK_3C_Vis_down/data_report.png
       hash: md5
-      md5: c80c80fb908bd8ec643a184e48e8aada
+      md5: d31a39aa558310fbcad376265e53eb02
       size: 40472
     - path: ./data/figures/BSK_3C_Vis_down/performance_metrics.png
       hash: md5
-      md5: 0afac5bda212806a4f7b1d9589a1e46c
-      size: 41091
+      md5: b6cfa14c15e741bd978cee20c87e1e73
+      size: 40991
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 99f087de8ab84ee208665216d1920758
+      md5: b26992e1281e69e9bebd900e4789bf53
       size: 52598
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_rf.png
       hash: md5
-      md5: 3ca5631fcfbe810088f3eebf720b4a73
-      size: 54910
+      md5: 3e8d7e6e4ed4a7b92bbb39eb52ee8497
+      size: 54899
   ml_experiments@BSK_hDFCGF_Proliferation_down:
     cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_hDFCGF_Proliferation_down
     deps:
@@ -133,10 +133,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
       hash: md5
-      md5: f899a22dbad3af3f8b8a9bf78e1277f1
-      size: 419056
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
       hash: md5
@@ -145,24 +145,24 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves.png
       hash: md5
-      md5: f57e17a048373621911f0b1ef0463338
-      size: 90285
+      md5: 7b389c4cee214f24ebcd48d4e4ea8d12
+      size: 89679
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/data_report.png
       hash: md5
-      md5: baed13f5184590a12dfa4bb0c13229cf
+      md5: 50c067b7a3d8da98661843f4c45a6727
       size: 43907
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics.png
       hash: md5
-      md5: 0f2e49e332afae69ae7eb702adafccb8
-      size: 41014
+      md5: e4c6d5791eb6dfd1ee6d71afb7c0e08e
+      size: 40927
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_chemprop.png
       hash: md5
-      md5: d07a2f5e6ccad4f8f11204031d5749a5
+      md5: 5950a95da075dd6075ab28d08f4813ad
       size: 48120
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_rf.png
       hash: md5
-      md5: a6c2f913cf36ea2091a0c2baa34e4470
-      size: 51979
+      md5: 5d923163cea987e0263c54dbe2e73c14
+      size: 52390
   ml_experiments@BSK_3C_SRB_down:
     cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_SRB_down
     deps:
@@ -257,10 +257,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
       hash: md5
-      md5: 94c742974b094c55e54a996fc40a54ee
-      size: 158172
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
       hash: md5
@@ -269,24 +269,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Proliferation_down/calibration_curves.png
       hash: md5
-      md5: a16e8a60980b03dc9b29e191ec00f83c
-      size: 94459
+      md5: 399a1e6cf7b8e9a5a4f862101cff7fa1
+      size: 94478
     - path: ./data/figures/BSK_3C_Proliferation_down/data_report.png
       hash: md5
-      md5: 86089be00bafa82a15b5fb9c3766b9f0
+      md5: fa6fbce2757fb9c20e78050aeeea7825
       size: 46296
     - path: ./data/figures/BSK_3C_Proliferation_down/performance_metrics.png
       hash: md5
-      md5: c3f0919367122c149bb2d0d14b44a9b1
-      size: 39846
+      md5: 1f2b4f48320d1d175c9068e52c40ea19
+      size: 39332
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 150f8b032eb88435fdc1a25d347f6480
+      md5: e0cd638ae8b0ae9c17d3973a8669dfd2
       size: 48920
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 603d6bd8831a1e68a4622ce6f79feb52
-      size: 54377
+      md5: b79deee07a9b16b257b99cb2287580fc
+      size: 55011
   assign_groups@BSK_hDFCGF_Proliferation_down:
     cmd: python scripts/02_assign_groups.py  --endpoint BSK_hDFCGF_Proliferation_down  --n_groups
       5
@@ -330,10 +330,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
       hash: md5
-      md5: e641b6048c39b6820458c65b07852cc2
-      size: 945141
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
       hash: md5
@@ -342,24 +342,24 @@ stages:
     outs:
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves.png
       hash: md5
-      md5: a48ba678eed997595d70d7c5dd5f6e89
-      size: 96549
+      md5: 24733e5d9b9a095dc83917f7e0cb8293
+      size: 96343
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/data_report.png
       hash: md5
-      md5: acccf8aae11dfd252932b41b3d65e501
+      md5: ccbc06e9db04ae64c39d6e0b8aec3955
       size: 38236
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics.png
       hash: md5
-      md5: b6fd56e88bdd22080450e63b6f665e55
-      size: 39478
+      md5: c9006f89084eface3e8f7d273c3f028a
+      size: 39562
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_chemprop.png
       hash: md5
-      md5: 192ba9270cd0e4d34207f9ae2db27dc4
+      md5: e8e318ace9d5dab0f2c889c3b4235a82
       size: 48273
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_rf.png
       hash: md5
-      md5: 4b47700666113f868e2a8350b9752d19
-      size: 49033
+      md5: 0aafdbe9ebf316a2372bd0ee6c99ef39
+      size: 48758
   assign_groups@BSK_3C_Vis_down:
     cmd: python scripts/02_assign_groups.py  --endpoint BSK_3C_Vis_down  --n_groups
       5
@@ -402,10 +402,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
       hash: md5
-      md5: edcde8d982809b09eca07c4b97b18018
-      size: 156331
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
       hash: md5
@@ -414,24 +414,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves.png
       hash: md5
-      md5: b699fffc79d5011599e3c7e1a7541b7e
-      size: 99450
+      md5: 98c27ad41b37240d6387478151f1a5e9
+      size: 98511
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/data_report.png
       hash: md5
-      md5: 07d2ef0fb7b77162dc9d5ffd224ca494
+      md5: f1830222d5f785c046fad18be32ad462
       size: 38348
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics.png
       hash: md5
-      md5: 4966f02c536dabfecd3178e338a3fbf6
-      size: 38569
+      md5: 8d155128a44434b810cbea9760515ea4
+      size: 38804
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_chemprop.png
       hash: md5
-      md5: f22adfd64e831afed140ba496854d520
+      md5: baf59eb0a3313f3d7ec6d82672ca9163
       size: 47240
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_rf.png
       hash: md5
-      md5: 4ac95cd743a43c61cc11516d3b7e7fba
-      size: 52018
+      md5: fb51b64680e261db1f9108130e2d4c9f
+      size: 52136
   create_plots@BSK_CASM3C_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down
     deps:
@@ -440,10 +440,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
       hash: md5
-      md5: d573bcd1a056f9cc4676da5e38d0d611
-      size: 156851
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
       hash: md5
@@ -452,24 +452,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves.png
       hash: md5
-      md5: 4d7bec7a738b1ca8faecafdfe91bd7c7
-      size: 91681
+      md5: 7ebb92d13262271554d1a8758d298ca6
+      size: 93145
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/data_report.png
       hash: md5
-      md5: c0a2c140c9590f003ff1cb4eb5e6411d
+      md5: 0bf9bf297f7694c7dbcc4d47cd12ad41
       size: 44558
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics.png
       hash: md5
-      md5: bfa273237eb5e051734f859a7f6c4b7d
-      size: 43923
+      md5: 676185910ee0626d05008efa2aedd19a
+      size: 44158
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 126ccc65c193608e679f2b350b9ed4d5
+      md5: e2ce1639fe4bbebe5a1a48554e99f8f9
       size: 50072
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 2b1dc3246541b00a1827cf4f03a5bf01
-      size: 50716
+      md5: a39218dec09c85f9fbdf1deb9e15e8b9
+      size: 50069
   ml_experiments@BSK_3C_HLADR_down:
     cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_HLADR_down
     deps:
@@ -495,10 +495,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
       hash: md5
-      md5: 45df14bcf312b3cec2cb949c24ada923
-      size: 155313
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
       hash: md5
@@ -507,24 +507,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves.png
       hash: md5
-      md5: 9869b44059930d2032cd4d5d8104f40c
-      size: 100044
+      md5: ed2b76132ed0ae116ae5dcad224dc307
+      size: 99134
     - path: ./data/figures/BSK_3C_HLADR_down/data_report.png
       hash: md5
-      md5: ed4004eeaf5d18708bf92d63dfcfb05a
+      md5: dce63d31730cc725cc8f582a676d4e2c
       size: 44745
     - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics.png
       hash: md5
-      md5: fd3fdba454613a0e44544cc1c55716b7
-      size: 42175
+      md5: 803b218119974ba547e2498dcf8e7b73
+      size: 42256
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 266e4674ff4e0f6136233532105fbe4d
+      md5: ba9b4fa0d634b8001bd8b7f6f91ebc7d
       size: 47421
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_rf.png
       hash: md5
-      md5: 0f2912a2dab4632258e703cfbe0fc35b
-      size: 54138
+      md5: 0e96ece702dca9f1e8b44838e4031662
+      size: 52049
   assign_groups@BSK_SAg_CD40_down:
     cmd: python scripts/02_assign_groups.py  --endpoint BSK_SAg_CD40_down  --n_groups
       5
@@ -601,10 +601,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
       hash: md5
-      md5: f1a51dce26e0ff73bf56d4de19f49d79
-      size: 417830
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
       hash: md5
@@ -613,24 +613,24 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves.png
       hash: md5
-      md5: a62130da3b44dacd8b2090e27fd8c597
-      size: 91499
+      md5: 2f1b700c8fa99445e0c0ae26ac21d0ef
+      size: 90780
     - path: ./data/figures/ATG_PXRE_CIS_up/data_report.png
       hash: md5
-      md5: 0c83569b4b6b3aeaab08eb4b08415d2a
+      md5: 7b0fbf15aefaf48ca2a826ca7f036def
       size: 45015
     - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics.png
       hash: md5
-      md5: 3f9e0544a902a6403482f53e04bc1522
-      size: 42236
+      md5: 696edf8427c96551ee72ab8a56e50f2e
+      size: 42228
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_chemprop.png
       hash: md5
-      md5: e31f79e53d1874ae8fbc3088c5fa52b9
+      md5: 5f5b97026ee87d24ab6ceaa38b3f33df
       size: 47851
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_rf.png
       hash: md5
-      md5: e067b8203e4656a650e1558350a8f799
-      size: 62083
+      md5: 06ae28d885d7bb414f57e154e2d3d7a6
+      size: 59449
   ml_experiments@TOX21_ARE_BLA_agonist_ratio:
     cmd: python ./scripts/03_ml_experiments.py --endpoint TOX21_ARE_BLA_agonist_ratio
     deps:
@@ -780,10 +780,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
       hash: md5
-      md5: e0ce860331bfd14d2fd47fb1d95e0a83
-      size: 156634
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
       hash: md5
@@ -792,24 +792,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_Proliferation_down/calibration_curves.png
       hash: md5
-      md5: 1e767daf54927d24912dc41a0174661d
-      size: 92790
+      md5: 0a847f11c1446dcd56137f33f4295ee7
+      size: 93111
     - path: ./data/figures/BSK_SAg_Proliferation_down/data_report.png
       hash: md5
-      md5: 7cf07914bcf16bb379007b6167978c14
+      md5: 3697e29f3f8e7f3f1cd9a3ba589422a9
       size: 45430
     - path: ./data/figures/BSK_SAg_Proliferation_down/performance_metrics.png
       hash: md5
-      md5: d956a74a7367a1a977b7cac2cc7fe5d2
-      size: 41011
+      md5: 15f22cb14c62503923b486b540973535
+      size: 41569
     - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 85d2540e67711f39e3d480f29d9b3261
+      md5: 4c98391cbc0630e325112e7be36b1b0f
       size: 54844
     - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 31137599274a92ba071f4eadaed8d132
-      size: 55762
+      md5: 9428dcabefa6c9500554f6bf5c411c4c
+      size: 49878
   neural_fingerprint_predictions@BSK_LPS_VCAM1_down:
     cmd: python ./scripts/04_neural_fingerprint_predictions.py  --endpoint BSK_LPS_VCAM1_down
     deps:
@@ -1006,10 +1006,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
       hash: md5
-      md5: 035d64e8f5c6c47d087fed881c1fa6bb
-      size: 50779
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
       hash: md5
@@ -1018,24 +1018,24 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves.png
       hash: md5
-      md5: 1981f72ddd287f863d03295cb90d05ca
-      size: 105293
+      md5: 353fadcd44fb8aef468b33b2d53c9e96
+      size: 106213
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/data_report.png
       hash: md5
-      md5: 1024b71d18fc34aba8a99178339f0cf4
+      md5: 2f95c6078081fe5df17c5a7c4855511a
       size: 45251
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics.png
       hash: md5
-      md5: 178284d6f45fec2965837255ed169d18
-      size: 42283
+      md5: 5013e98d7b910269250210be7d9c7b29
+      size: 42585
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: d09f5a63103381e328380e7faa4b87a4
+      md5: ac575ca713dac9b8737b26999b6bde87
       size: 46453
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_rf.png
       hash: md5
-      md5: 81f04ec06f7f45a176cdd4d0a1fb34a2
-      size: 54095
+      md5: 63647d61afff624dac8202f1195a9ee7
+      size: 53144
   create_plots@BSK_SAg_CD38_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down
     deps:
@@ -1044,10 +1044,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
       hash: md5
-      md5: 86030c0987ba3f6aa268c09fdc71726c
-      size: 153452
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
       hash: md5
@@ -1056,24 +1056,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves.png
       hash: md5
-      md5: 7e7437a0c5322001a13a65a990509d67
-      size: 97399
+      md5: 4eea0a2e10ab9851d026f3580531477e
+      size: 97337
     - path: ./data/figures/BSK_SAg_CD38_down/data_report.png
       hash: md5
-      md5: 2ea5c948c919b53d332152ad8293e974
+      md5: aef4863638ec60496c0f1a5806663e6c
       size: 39544
     - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics.png
       hash: md5
-      md5: 8397886e868e7ee6ac4c8646e9feb891
-      size: 39377
+      md5: 604b18e88321fbf4e7026ddaf2135be3
+      size: 39391
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 2e716fb40e00e8e1957d89644ed3d01e
+      md5: a1ef0d45ff69038abee5eac15c8d7891
       size: 47478
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_rf.png
       hash: md5
-      md5: a2f6d6d58decb1dde30c14e29f61f33e
-      size: 54090
+      md5: 49c54f18c8a37c07f43b1cffa97b092a
+      size: 52677
   neural_fingerprint_predictions@BSK_SAg_CD40_down:
     cmd: python ./scripts/04_neural_fingerprint_predictions.py  --endpoint BSK_SAg_CD40_down
     deps:
@@ -1117,10 +1117,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
       hash: md5
-      md5: 243b45f5f2e4192b36d50f2f3acd565a
-      size: 154904
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
       hash: md5
@@ -1129,24 +1129,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/calibration_curves.png
       hash: md5
-      md5: d8b9e4064487a618b5fed6f7a15f9ac3
-      size: 94607
+      md5: c13980f25189d0a8673108243b1a4607
+      size: 94004
     - path: ./data/figures/BSK_3C_SRB_down/data_report.png
       hash: md5
-      md5: 63b7d3e54e05e9be241f82bce8835383
+      md5: 5ea8b0dd3ac3d02b65da3100df8b2aec
       size: 44708
     - path: ./data/figures/BSK_3C_SRB_down/performance_metrics.png
       hash: md5
-      md5: 477c5edf0cddbb1b357f625df7e607f4
-      size: 40315
+      md5: 59e7405061b35b8586f1cd42758bff2f
+      size: 40320
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_chemprop.png
       hash: md5
-      md5: c8e00c0bb962a573d3320277c8c74840
+      md5: 3294faf2b31e24b240e160beacf36fa7
       size: 50593
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_rf.png
       hash: md5
-      md5: b5c2a684df5c4e7345972415b12308e1
-      size: 53989
+      md5: 25ecea30253320c571bad2fa61075d14
+      size: 53471
   create_plots@BSK_LPS_VCAM1_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down
     deps:
@@ -1155,10 +1155,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
       hash: md5
-      md5: 9233aaad736bfe6650834c87a67ccc1f
-      size: 154799
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
       hash: md5
@@ -1167,24 +1167,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves.png
       hash: md5
-      md5: dbe74a505da28692385519d1fc533dfb
-      size: 99198
+      md5: 4180f745396daba21d2c8d09ac6ad6e0
+      size: 99244
     - path: ./data/figures/BSK_LPS_VCAM1_down/data_report.png
       hash: md5
-      md5: 46bda46a02502ea8e228ad28493cabff
+      md5: c795aa1ad091e904fdba38ad2f7b9acb
       size: 44116
     - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics.png
       hash: md5
-      md5: c7367e6ff0db73a576cdf26ec5ffe6d1
-      size: 42505
+      md5: 028369912afe551f1ea3c6dde022df28
+      size: 42226
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 336515034b5b9d387284907687d406d9
+      md5: d7d97cdb97a67d1f1ee8e9ecdc44c045
       size: 50720
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_rf.png
       hash: md5
-      md5: a758c88fa92030841ccb693e92ec482e
-      size: 52077
+      md5: 9f620a133135e1e21075f983eaee175e
+      size: 52978
   create_plots@APR_HepG2_CellLoss_72h_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn
     deps:
@@ -1193,10 +1193,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
       hash: md5
-      md5: 9d61d37b530a38f541ad8c4c3533aea2
-      size: 107055
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
       hash: md5
@@ -1205,24 +1205,24 @@ stages:
     outs:
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves.png
       hash: md5
-      md5: b424e820caae560b7a6107f5e419d934
-      size: 96324
+      md5: 18bc8752bf46b3a4eedd3f19147bd4d0
+      size: 95046
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/data_report.png
       hash: md5
-      md5: f43e30ae684c2dc69d90f9e834ef971a
+      md5: 480b77b9284d46bc4c41e6e44b60159c
       size: 45946
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics.png
       hash: md5
-      md5: 5e95f7410cca9ea46ffff0525dd5cf83
-      size: 40702
+      md5: 6d1a59dfcb1ad33d47339118ef429648
+      size: 41001
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: 43addf1162e5259e136e782b8426ea96
+      md5: f4b6e621e7adf506ee88355209612c8f
       size: 48895
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_rf.png
       hash: md5
-      md5: 6c6e19dd3ac4bc8c0c32ce329e34ed3e
-      size: 54682
+      md5: e6c909b0286080191af6d62036bb5919
+      size: 54907
   create_plots@BSK_SAg_CD40_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down
     deps:
@@ -1231,10 +1231,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
       hash: md5
-      md5: e7e5add4afae2ba95b56b1e11370ab6b
-      size: 154265
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
       hash: md5
@@ -1243,32 +1243,32 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves.png
       hash: md5
-      md5: b71aff8971bf97f6032ecc53e9edad44
-      size: 100721
+      md5: 2bc255134023a9d6fb26d3158c93e9dd
+      size: 100130
     - path: ./data/figures/BSK_SAg_CD40_down/data_report.png
       hash: md5
-      md5: 4e74aaad29975d14086811dd41f4f8f7
+      md5: 5c8574e522ebf8a1d5ce7f51ed6f979e
       size: 38459
     - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics.png
       hash: md5
-      md5: ebb0baee87de9ba20a7e364722dcee86
-      size: 40097
+      md5: 32a53d5d4ba77d7b4217efccc0fffdf9
+      size: 39748
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 8e4b43e0d3d9e52339d83a3bb87ede9e
+      md5: 9de7927bb5bdb15cee74608357556257
       size: 50265
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_rf.png
       hash: md5
-      md5: ed52c4a51352c3f1611b4829418226d8
-      size: 54008
+      md5: 8cc63f2d2ae4b8e1246efe38983a89de
+      size: 54118
   create_final_plots:
     cmd: python scripts/06_create_final_figures.py
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: 3830bb5b0370573d4f704dc40086af7f.dir
-      size: 11967350
-      nfiles: 39
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
     - path: ./scripts/06_create_final_figures.py
       hash: md5
       md5: 0162c5dd330bf3aa6ec1c56041f806aa
@@ -1276,16 +1276,16 @@ stages:
     outs:
     - path: ./data/figures/final_figures/performance_metrics_all.png
       hash: md5
-      md5: 3d3ca6915d1cff17562c692ab6d87631
-      size: 86616
+      md5: d6c235bbf225d1d9d8542b3aa76fe76f
+      size: 86490
     - path: ./data/figures/final_figures/scatter_metrics.png
       hash: md5
-      md5: 4c2aec58c603742d90217f551bd98530
-      size: 58993
+      md5: 9a5b8aa13efddb5f4a7fec5810cc8784
+      size: 59025
     - path: ./data/figures/final_figures/significance_plot.png
       hash: md5
-      md5: ba5d27aaa607a5d714cee21cfb6dd32a
-      size: 111746
+      md5: fa2d0a4d0685b317ab4848a6aa145cf9
+      size: 111823
   neural_fingerprint_predictions@BSK_CASM3C_Proliferation_down:
     cmd: python ./scripts/04_neural_fingerprint_predictions.py  --endpoint BSK_CASM3C_Proliferation_down
     deps:
@@ -1399,10 +1399,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
       hash: md5
-      md5: 8aff0fb09edf343b6201c5311be22119
-      size: 160196
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
       hash: md5
@@ -1411,24 +1411,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves.png
       hash: md5
-      md5: d49439e1179cd8010c8bc071413cbb71
-      size: 96851
+      md5: 44cb29fdd1530d47bea2050b97e8d7b9
+      size: 96085
     - path: ./data/figures/BSK_4H_Eotaxin3_down/data_report.png
       hash: md5
-      md5: f66702045db57b9c79607254075d44a2
+      md5: c921c7421b7f9dd02929d015813d1f5e
       size: 44626
     - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics.png
       hash: md5
-      md5: ad0d9e79a907912d5ff72d60126cbf4e
-      size: 43402
+      md5: 485d46265dc5905d05210dab909e444e
+      size: 42530
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 70e50e2e27fd4053808a006f00e02d45
+      md5: 35a2d136574e7b9d5aaf51060bf24776
       size: 50308
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_rf.png
       hash: md5
-      md5: ddfb9d8952694246e328ae7e67a7c273
-      size: 51420
+      md5: 096a6f9fa5a5c45b7a95dce184d7ad56
+      size: 53637
   ml_experiments@BSK_SAg_CD40_down:
     cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD40_down
     deps:
@@ -1524,10 +1524,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
       hash: md5
-      md5: bae6aefae487c54ce0a66bffbaca6ce6
-      size: 52604
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
       hash: md5
@@ -1536,24 +1536,24 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves.png
       hash: md5
-      md5: b2356184cef1583187ee5e80a30d967e
-      size: 104247
+      md5: 59c7fcf6959d45b89760f66b57e27a44
+      size: 104025
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/data_report.png
       hash: md5
-      md5: 8e9e7b0e7dc8e0f98bf0b063977843f1
+      md5: e7a7f07e0f981c873ed36a2044111ff8
       size: 41377
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics.png
       hash: md5
-      md5: ca19115c6a57daf568903dc9a5497ce3
-      size: 43751
+      md5: 953f4c72554ae9be136b583257d26554
+      size: 43182
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: 6979b1e8951de3422ba8566ca58fd518
+      md5: ac028e2215b43cd7f744ee370888651b
       size: 48197
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_rf.png
       hash: md5
-      md5: 096d0a449555d01698c7df71dd0e426e
-      size: 52330
+      md5: 941dd59625cea3a2809a34f860fa4694
+      size: 54677
   assign_groups@APR_HepG2_CellLoss_72h_dn:
     cmd: python scripts/02_assign_groups.py  --endpoint APR_HepG2_CellLoss_72h_dn  --n_groups
       5
@@ -1634,10 +1634,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
       hash: md5
-      md5: 8c196f303cc59691d7144e680767cd9c
-      size: 162464
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
       hash: md5
@@ -1646,24 +1646,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves.png
       hash: md5
-      md5: e5ce60b5b0fca1aa7c268c9321167d8f
-      size: 95599
+      md5: fc15ac7e186cacce2d810a08441e0619
+      size: 95614
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/data_report.png
       hash: md5
-      md5: 0bac5c677d3ceaafffa520f6522f518f
+      md5: b40c40e431e2e15727856fe3f89a2cd7
       size: 45274
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics.png
       hash: md5
-      md5: fa5d113b0643ff1d4e057ee2a728f9d4
-      size: 41996
+      md5: 9f4d38d85032701fe02b625b8dbb73d3
+      size: 41916
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: a556cd4f522f031a0480356fdfa5f584
+      md5: 9d7e85f164128cf77be03fe2c1c818e2
       size: 48784
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: ed644e7abfe4d7cb44f60045a6b588a6
-      size: 54900
+      md5: dd4918026ebf51686d26907117e49188
+      size: 57972
   assign_groups@TOX21_ARE_BLA_agonist_ratio:
     cmd: python scripts/02_assign_groups.py  --endpoint TOX21_ARE_BLA_agonist_ratio  --n_groups
       5
@@ -1690,10 +1690,10 @@ stages:
       md5: 423fa557db8b4f70fedf3a89bc724389
       size: 9279
     - path: 
-        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
       hash: md5
-      md5: 80d0a6bddde3e0d7b436fcaa759d94df
-      size: 854196
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
     - path: 
         data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
       hash: md5
@@ -1702,24 +1702,24 @@ stages:
     outs:
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves.png
       hash: md5
-      md5: 33029f311777c9247345c70ad09dbd1b
-      size: 92171
+      md5: 3605ba43fdb11c8da8ab6c9962839375
+      size: 92984
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/data_report.png
       hash: md5
-      md5: 1f7f11246569617852e6d9bc2945f15f
+      md5: 550819ea93d945019326edad2279e984
       size: 37841
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics.png
       hash: md5
-      md5: b22198fe41eb07758b02ccc73944053a
-      size: 43178
+      md5: 35c0cb6863ffedfecc02d9b22a246809
+      size: 43220
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_chemprop.png
       hash: md5
-      md5: e488e760382a502cb5944393d582bc2c
+      md5: f42e000de65d3dc2cea96713b444db78
       size: 46821
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_rf.png
       hash: md5
-      md5: b6d91898f5ce868e6a29323e0d221cf5
-      size: 55203
+      md5: 9dda249c449685440e4b195263e9afe2
+      size: 55147
   ml_experiments@BSK_SAg_CD38_down:
     cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD38_down
     deps:
@@ -1759,15 +1759,3600 @@ stages:
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: 3830bb5b0370573d4f704dc40086af7f.dir
-      size: 11967350
-      nfiles: 39
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
     - path: ./scripts/07_create_final_tables.py
       hash: md5
-      md5: 0ab9d6df1e53b5734dddc84bd017f20f
-      size: 6060
+      md5: af7957077acfa3c7a32dd536e9d1c19f
+      size: 6035
     outs:
     - path: ./logs/07_create_final_tables.log
       hash: md5
-      md5: e556a2e897acdc3ba45b2e46038c67a4
+      md5: 5e2f7345a084f647551146d7d0807c34
       size: 35885
+  ml_experiments@APR_HepG2_CellLoss_72h_dn-true:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
+      --counted_fp true
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 5d13cb0382e8a7e12f5105d9061d5464
+      size: 7706
+    - path: data/intermediate_data/presplit_data/presplit_data_APR_HepG2_CellLoss_72h_dn.tsv
+      hash: md5
+      md5: f76a151f71762e7d04f5a334e761deda
+      size: 69040
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_counted_true.tsv.gz
+      hash: md5
+      md5: 52603b9693ecff52668ccb64998e4c71
+      size: 107378
+  ml_experiments@APR_HepG2_CellLoss_72h_dn-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_APR_HepG2_CellLoss_72h_dn.tsv
+      hash: md5
+      md5: f76a151f71762e7d04f5a334e761deda
+      size: 69040
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
+      hash: md5
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
+  ml_experiments@APR_HepG2_CellLoss_72h_dn-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_APR_HepG2_CellLoss_72h_dn.tsv
+      hash: md5
+      md5: f76a151f71762e7d04f5a334e761deda
+      size: 69040
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_counted.tsv.gz
+      hash: md5
+      md5: 1e92ccf48872009c0abbbfeb0690f21e
+      size: 108184
+  ml_experiments@ATG_NRF2_ARE_CIS_up-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint ATG_NRF2_ARE_CIS_up --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_ATG_NRF2_ARE_CIS_up.tsv
+      hash: md5
+      md5: c8ac706e499925cc4fa43e7b6bfe4b10
+      size: 185667
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
+  ml_experiments@ATG_NRF2_ARE_CIS_up-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint ATG_NRF2_ARE_CIS_up --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_ATG_NRF2_ARE_CIS_up.tsv
+      hash: md5
+      md5: c8ac706e499925cc4fa43e7b6bfe4b10
+      size: 185667
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: fb66b0643114b4eba393a854b68eb4ff
+      size: 405588
+  ml_experiments@ATG_PXRE_CIS_up-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint ATG_PXRE_CIS_up --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_ATG_PXRE_CIS_up.tsv
+      hash: md5
+      md5: 9c7ed2fa1f2e09c65ff1542bf8257516
+      size: 172748
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
+  ml_experiments@ATG_PXRE_CIS_up-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint ATG_PXRE_CIS_up --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_ATG_PXRE_CIS_up.tsv
+      hash: md5
+      md5: 9c7ed2fa1f2e09c65ff1542bf8257516
+      size: 172748
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: b4f2115fd29dc6761e5ee42e5c1b3301
+      size: 419589
+  ml_experiments@BSK_3C_HLADR_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_HLADR_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_HLADR_down.tsv
+      hash: md5
+      md5: 18760e63340d387a2ad3f69e13dd8f60
+      size: 83815
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
+      hash: md5
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
+  ml_experiments@BSK_3C_HLADR_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_HLADR_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_HLADR_down.tsv
+      hash: md5
+      md5: 18760e63340d387a2ad3f69e13dd8f60
+      size: 83815
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_counted.tsv.gz
+      hash: md5
+      md5: 45b112d37b04f7bb4aa870744c603513
+      size: 149362
+  ml_experiments@BSK_3C_Proliferation_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_Proliferation_down
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_Proliferation_down.tsv
+      hash: md5
+      md5: 1fae1f5a1375bcb891bf6b7c58af1f72
+      size: 94875
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
+  ml_experiments@BSK_3C_Proliferation_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_Proliferation_down
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_Proliferation_down.tsv
+      hash: md5
+      md5: 1fae1f5a1375bcb891bf6b7c58af1f72
+      size: 94875
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 785d376fb27e1d1ec8af7567ec0203da
+      size: 151807
+  ml_experiments@BSK_3C_SRB_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_SRB_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_SRB_down.tsv
+      hash: md5
+      md5: a8bbece4e62d3b9358fb1b01388720c8
+      size: 80988
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
+  ml_experiments@BSK_3C_SRB_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_SRB_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_SRB_down.tsv
+      hash: md5
+      md5: a8bbece4e62d3b9358fb1b01388720c8
+      size: 80988
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_counted.tsv.gz
+      hash: md5
+      md5: 5d42d0c542dce92a16e4685b0167db0b
+      size: 148642
+  ml_experiments@BSK_3C_Vis_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_Vis_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_Vis_down.tsv
+      hash: md5
+      md5: 636305e358ba57d38374112e7f69438c
+      size: 80792
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
+  ml_experiments@BSK_3C_Vis_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_3C_Vis_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_3C_Vis_down.tsv
+      hash: md5
+      md5: 636305e358ba57d38374112e7f69438c
+      size: 80792
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_counted.tsv.gz
+      hash: md5
+      md5: 263edf136178d395d6dffd3c3029ebbd
+      size: 145050
+  ml_experiments@BSK_4H_Eotaxin3_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_4H_Eotaxin3_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_4H_Eotaxin3_down.tsv
+      hash: md5
+      md5: 0d98f94cdfc509195244633a0ca04d91
+      size: 88069
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
+      hash: md5
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
+  ml_experiments@BSK_4H_Eotaxin3_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_4H_Eotaxin3_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_4H_Eotaxin3_down.tsv
+      hash: md5
+      md5: 0d98f94cdfc509195244633a0ca04d91
+      size: 88069
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_counted.tsv.gz
+      hash: md5
+      md5: bc695b87a0b67b3d89db884cd520a790
+      size: 153659
+  ml_experiments@BSK_CASM3C_Proliferation_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_CASM3C_Proliferation_down
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_CASM3C_Proliferation_down.tsv
+      hash: md5
+      md5: dabc352e7b78b817feead274f43e31ec
+      size: 100366
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
+  ml_experiments@BSK_CASM3C_Proliferation_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_CASM3C_Proliferation_down
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_CASM3C_Proliferation_down.tsv
+      hash: md5
+      md5: dabc352e7b78b817feead274f43e31ec
+      size: 100366
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 7832b84b09eccfd2ab5db5ca77a3a16c
+      size: 152704
+  ml_experiments@BSK_LPS_VCAM1_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_LPS_VCAM1_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_LPS_VCAM1_down.tsv
+      hash: md5
+      md5: 1aa80981088f167989b3b53274057229
+      size: 85195
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
+  ml_experiments@BSK_LPS_VCAM1_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_LPS_VCAM1_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_LPS_VCAM1_down.tsv
+      hash: md5
+      md5: 1aa80981088f167989b3b53274057229
+      size: 85195
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_counted.tsv.gz
+      hash: md5
+      md5: 36e109efcb3496e75bf65e93cca16317
+      size: 148300
+  ml_experiments@BSK_SAg_CD38_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD38_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_SAg_CD38_down.tsv
+      hash: md5
+      md5: e363b5cf54c637da3b6e453c53e1968d
+      size: 84052
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
+      hash: md5
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
+  ml_experiments@BSK_SAg_CD38_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD38_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_SAg_CD38_down.tsv
+      hash: md5
+      md5: e363b5cf54c637da3b6e453c53e1968d
+      size: 84052
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_counted.tsv.gz
+      hash: md5
+      md5: 1c30a2fed92426dfa78778b8eaef9978
+      size: 145599
+  ml_experiments@BSK_SAg_CD40_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD40_down --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_SAg_CD40_down.tsv
+      hash: md5
+      md5: 8e0de12e3573509b5025069dee411079
+      size: 83898
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
+      hash: md5
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
+  ml_experiments@BSK_SAg_CD40_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_CD40_down --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_BSK_SAg_CD40_down.tsv
+      hash: md5
+      md5: 8e0de12e3573509b5025069dee411079
+      size: 83898
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_counted.tsv.gz
+      hash: md5
+      md5: 120c38e173e86a3e267b9ac702ae7964
+      size: 148935
+  ml_experiments@BSK_SAg_Proliferation_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_Proliferation_down
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_SAg_Proliferation_down.tsv
+      hash: md5
+      md5: 4c651c1311e9d52c33071fabe6a8d598
+      size: 96235
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
+  ml_experiments@BSK_SAg_Proliferation_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_SAg_Proliferation_down
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_SAg_Proliferation_down.tsv
+      hash: md5
+      md5: 4c651c1311e9d52c33071fabe6a8d598
+      size: 96235
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 26bd14ba743ec6d2dfb33efe05c27ae1
+      size: 151809
+  ml_experiments@BSK_hDFCGF_CollagenIII_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_hDFCGF_CollagenIII_down
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_hDFCGF_CollagenIII_down.tsv
+      hash: md5
+      md5: f5ffc2393ae6493baf054bfb0746ea2d
+      size: 97463
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
+  ml_experiments@BSK_hDFCGF_CollagenIII_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_hDFCGF_CollagenIII_down
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_hDFCGF_CollagenIII_down.tsv
+      hash: md5
+      md5: f5ffc2393ae6493baf054bfb0746ea2d
+      size: 97463
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_counted.tsv.gz
+      hash: md5
+      md5: 138bdb14ff9ed3fff1dd082b22b8acdb
+      size: 149732
+  ml_experiments@BSK_hDFCGF_Proliferation_down-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_hDFCGF_Proliferation_down
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_hDFCGF_Proliferation_down.tsv
+      hash: md5
+      md5: 9cab3d7d92aa6c44877561ced6de5f0f
+      size: 100252
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
+  ml_experiments@BSK_hDFCGF_Proliferation_down-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint BSK_hDFCGF_Proliferation_down
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_BSK_hDFCGF_Proliferation_down.tsv
+      hash: md5
+      md5: 9cab3d7d92aa6c44877561ced6de5f0f
+      size: 100252
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: b8544ba0e66f2b8db272c8d248bc7580
+      size: 157796
+  ml_experiments@CEETOX_H295R_11DCORT_dn-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint CEETOX_H295R_11DCORT_dn
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_CEETOX_H295R_11DCORT_dn.tsv
+      hash: md5
+      md5: e8104899a97f1b5cabba87eb7cfa9876
+      size: 32994
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
+  ml_experiments@CEETOX_H295R_11DCORT_dn-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint CEETOX_H295R_11DCORT_dn
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_CEETOX_H295R_11DCORT_dn.tsv
+      hash: md5
+      md5: e8104899a97f1b5cabba87eb7cfa9876
+      size: 32994
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_counted.tsv.gz
+      hash: md5
+      md5: a3790b7e085e92ae8a961567aee64b38
+      size: 52542
+  ml_experiments@CEETOX_H295R_ANDR_dn-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint CEETOX_H295R_ANDR_dn --counted_fp
+      not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_CEETOX_H295R_ANDR_dn.tsv
+      hash: md5
+      md5: a00a7522720704898b199490046c1327
+      size: 31665
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
+  ml_experiments@CEETOX_H295R_ANDR_dn-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint CEETOX_H295R_ANDR_dn --counted_fp
+      counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: data/intermediate_data/presplit_data/presplit_data_CEETOX_H295R_ANDR_dn.tsv
+      hash: md5
+      md5: a00a7522720704898b199490046c1327
+      size: 31665
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_counted.tsv.gz
+      hash: md5
+      md5: fd7961a662d3c68aa485ef3681128b87
+      size: 50885
+  ml_experiments@TOX21_ARE_BLA_agonist_ratio-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint TOX21_ARE_BLA_agonist_ratio
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_TOX21_ARE_BLA_agonist_ratio.tsv
+      hash: md5
+      md5: cd0ab094c6c5a7658495e457abc7d67f
+      size: 442437
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
+      hash: md5
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
+  ml_experiments@TOX21_ARE_BLA_agonist_ratio-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint TOX21_ARE_BLA_agonist_ratio
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_TOX21_ARE_BLA_agonist_ratio.tsv
+      hash: md5
+      md5: cd0ab094c6c5a7658495e457abc7d67f
+      size: 442437
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_counted.tsv.gz
+      hash: md5
+      md5: 77c515992878baa2370ba6ca0fc543d1
+      size: 828587
+  ml_experiments@TOX21_TR_LUC_GH3_Antagonist-not_counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint TOX21_TR_LUC_GH3_Antagonist
+      --counted_fp not_counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_TOX21_TR_LUC_GH3_Antagonist.tsv
+      hash: md5
+      md5: e4492fc35a30ccf700ab1b92992de917
+      size: 497988
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
+      hash: md5
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
+  ml_experiments@TOX21_TR_LUC_GH3_Antagonist-counted:
+    cmd: python ./scripts/03_ml_experiments.py --endpoint TOX21_TR_LUC_GH3_Antagonist
+      --counted_fp counted
+    deps:
+    - path: ./scripts/03_ml_experiments.py
+      hash: md5
+      md5: 912b841eee98bf219e5872bea8033d3d
+      size: 8198
+    - path: 
+        data/intermediate_data/presplit_data/presplit_data_TOX21_TR_LUC_GH3_Antagonist.tsv
+      hash: md5
+      md5: e4492fc35a30ccf700ab1b92992de917
+      size: 497988
+    outs:
+    - path: 
+        ./data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_counted.tsv.gz
+      hash: md5
+      md5: 9d77b907c0adde579af86c05707af898
+      size: 923914
+  create_comparison_plots@APR_HepG2_CellLoss_72h_dn-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_counted.tsv.gz
+      hash: md5
+      md5: 1e92ccf48872009c0abbbfeb0690f21e
+      size: 108184
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
+      hash: md5
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+      hash: md5
+      md5: 722583b0f7f419e8c56b06350c983009
+      size: 158328
+    outs:
+    - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 18fcca485295ff889ea0d21e206bc269
+      size: 729724
+    - path: 
+        ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 06c387aa2719e1930e7b134e91eeaa8b
+      size: 325554
+  create_comparison_plots@APR_HepG2_CellLoss_72h_dn-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_counted.tsv.gz
+      hash: md5
+      md5: 1e92ccf48872009c0abbbfeb0690f21e
+      size: 108184
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
+      hash: md5
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+      hash: md5
+      md5: 722583b0f7f419e8c56b06350c983009
+      size: 158328
+    outs:
+    - path: 
+        ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 7cde73ce77701f199cc6b045d7e9e3c2
+      size: 630637
+    - path: 
+        ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: a826fb50ff8a24f0e39c495dd7575e76
+      size: 306039
+  create_comparison_plots@ATG_NRF2_ARE_CIS_up-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: fb66b0643114b4eba393a854b68eb4ff
+      size: 405588
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
+      hash: md5
+      md5: eb2bba8bafa9287c4cd49705c71862ca
+      size: 646275
+    outs:
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 4500331903483e52ab813cdb60d11ca2
+      size: 709421
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 679f2037acc1885735ead5f07904ec3c
+      size: 331133
+  create_comparison_plots@ATG_NRF2_ARE_CIS_up-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: fb66b0643114b4eba393a854b68eb4ff
+      size: 405588
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
+      hash: md5
+      md5: eb2bba8bafa9287c4cd49705c71862ca
+      size: 646275
+    outs:
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 0e09f55b12124579b9221f5dd1d482b7
+      size: 616055
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 8e807484996a0864a85343f11dee6bf3
+      size: 321550
+  create_comparison_plots@ATG_PXRE_CIS_up-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: b4f2115fd29dc6761e5ee42e5c1b3301
+      size: 419589
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
+      hash: md5
+      md5: dc7d049f51f9c323d14a9c5e04d96137
+      size: 618999
+    outs:
+    - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: b2ffc082f703f996444557bb523ac317
+      size: 727192
+    - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 8e2e0178022dbf3f98b5d0cb0af9b55a
+      size: 334763
+  create_comparison_plots@ATG_PXRE_CIS_up-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: b4f2115fd29dc6761e5ee42e5c1b3301
+      size: 419589
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
+      hash: md5
+      md5: dc7d049f51f9c323d14a9c5e04d96137
+      size: 618999
+    outs:
+    - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 43a0d817a0570d92b6805d67fa49e3f7
+      size: 627029
+    - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 1e5a54559d2c13f9e09b626ccd113fd0
+      size: 322859
+  create_comparison_plots@BSK_3C_HLADR_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_counted.tsv.gz
+      hash: md5
+      md5: 45b112d37b04f7bb4aa870744c603513
+      size: 149362
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
+      hash: md5
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
+      hash: md5
+      md5: 78cd270ca57419c459cfd10127e3755b
+      size: 235036
+    outs:
+    - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: cee612846a3915fd7b8e216a7a931a0a
+      size: 713413
+    - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 31b06ddf1c17abe0e85a8c327a9e7fcf
+      size: 335982
+  create_comparison_plots@BSK_3C_HLADR_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_counted.tsv.gz
+      hash: md5
+      md5: 45b112d37b04f7bb4aa870744c603513
+      size: 149362
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
+      hash: md5
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
+      hash: md5
+      md5: 78cd270ca57419c459cfd10127e3755b
+      size: 235036
+    outs:
+    - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 4216482eda440955576c66d6f506c00f
+      size: 628759
+    - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 54b8206315e1683070eed8cbd582647c
+      size: 294476
+  create_comparison_plots@BSK_3C_Proliferation_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 785d376fb27e1d1ec8af7567ec0203da
+      size: 151807
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 53b7358e457270e2e360e57f44a9008f
+      size: 254730
+    outs:
+    - path: ./data/figures/BSK_3C_Proliferation_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 0e293084ee27105d37b297e1d7e66c87
+      size: 714781
+    - path: 
+        ./data/figures/BSK_3C_Proliferation_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 3138a4c1d9e1f4149c0f143e4351d61d
+      size: 328260
+  create_comparison_plots@BSK_3C_Proliferation_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 785d376fb27e1d1ec8af7567ec0203da
+      size: 151807
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 53b7358e457270e2e360e57f44a9008f
+      size: 254730
+    outs:
+    - path: 
+        ./data/figures/BSK_3C_Proliferation_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 883765dadf4de3feedffbf58c482717c
+      size: 625861
+    - path: 
+        ./data/figures/BSK_3C_Proliferation_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 6c4c2c364038664b707f8f71b47db3b0
+      size: 327982
+  create_comparison_plots@BSK_3C_SRB_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_counted.tsv.gz
+      hash: md5
+      md5: 5d42d0c542dce92a16e4685b0167db0b
+      size: 148642
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
+      hash: md5
+      md5: 49480671fc0e4513daa075b32225ed93
+      size: 232475
+    outs:
+    - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 3af02ceea822c350829c5698108326d0
+      size: 730864
+    - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: fe9a89db0096cfefd107f671f1ae57fe
+      size: 320092
+  create_comparison_plots@BSK_3C_SRB_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_counted.tsv.gz
+      hash: md5
+      md5: 5d42d0c542dce92a16e4685b0167db0b
+      size: 148642
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
+      hash: md5
+      md5: 49480671fc0e4513daa075b32225ed93
+      size: 232475
+    outs:
+    - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 44b2ab2e1d78197937dcb5bcb5025ff2
+      size: 631033
+    - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: f65bbff1e0327c5c518aab95918197f3
+      size: 330313
+  create_comparison_plots@BSK_3C_Vis_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_counted.tsv.gz
+      hash: md5
+      md5: 263edf136178d395d6dffd3c3029ebbd
+      size: 145050
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
+      hash: md5
+      md5: cd119439e90ee04ec6860f08c7f23b25
+      size: 233828
+    outs:
+    - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 3c9c8e75c40016c57276584883f1ac16
+      size: 731677
+    - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: cb9c4ff839c58220d607572505cfb74a
+      size: 331920
+  create_comparison_plots@BSK_3C_Vis_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_counted.tsv.gz
+      hash: md5
+      md5: 263edf136178d395d6dffd3c3029ebbd
+      size: 145050
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
+      hash: md5
+      md5: cd119439e90ee04ec6860f08c7f23b25
+      size: 233828
+    outs:
+    - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: e40ed75168943989aa363b1fbb84860f
+      size: 633102
+    - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 5b24e677d5b249e5f8bd4b0dc674711d
+      size: 321040
+  create_comparison_plots@BSK_4H_Eotaxin3_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_counted.tsv.gz
+      hash: md5
+      md5: bc695b87a0b67b3d89db884cd520a790
+      size: 153659
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
+      hash: md5
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
+      hash: md5
+      md5: c3432ba7983dc98937f78053ce3c1af5
+      size: 238528
+    outs:
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 6a594849c461ba87e66cadb42f9990af
+      size: 683982
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: c05566f86160f6d6dbaec7595e0ca5e2
+      size: 334170
+  create_comparison_plots@BSK_4H_Eotaxin3_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_counted.tsv.gz
+      hash: md5
+      md5: bc695b87a0b67b3d89db884cd520a790
+      size: 153659
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
+      hash: md5
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
+      hash: md5
+      md5: c3432ba7983dc98937f78053ce3c1af5
+      size: 238528
+    outs:
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 31348da7eb5931d2f3c1c102c2851de8
+      size: 599478
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 13280d06286ac2e9b8253aa21344b033
+      size: 338137
+  create_comparison_plots@BSK_CASM3C_Proliferation_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 7832b84b09eccfd2ab5db5ca77a3a16c
+      size: 152704
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 2e27d1ea9437883f5c2105764926825a
+      size: 250669
+    outs:
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 00d658ef120dc330df267b004bf7cddf
+      size: 677133
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 4b55ba25a5d559637c042ac868473825
+      size: 351156
+  create_comparison_plots@BSK_CASM3C_Proliferation_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 7832b84b09eccfd2ab5db5ca77a3a16c
+      size: 152704
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 2e27d1ea9437883f5c2105764926825a
+      size: 250669
+    outs:
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: d2dc3b6ddc8c84209a7e5935a8bea50d
+      size: 609704
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 7db5d41ba9e733be03dbea6f13111bcf
+      size: 318647
+  create_comparison_plots@BSK_LPS_VCAM1_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_counted.tsv.gz
+      hash: md5
+      md5: 36e109efcb3496e75bf65e93cca16317
+      size: 148300
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
+      hash: md5
+      md5: ab2a4c8916b57dc83beb75ae82498b44
+      size: 234896
+    outs:
+    - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 5d2cd1083b5165626160f6c7a18001d8
+      size: 731743
+    - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: e54eb4d22bd1292370ad32a3ca4ebe06
+      size: 319456
+  create_comparison_plots@BSK_LPS_VCAM1_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_counted.tsv.gz
+      hash: md5
+      md5: 36e109efcb3496e75bf65e93cca16317
+      size: 148300
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
+      hash: md5
+      md5: ab2a4c8916b57dc83beb75ae82498b44
+      size: 234896
+    outs:
+    - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 9630c8722bbd3fecff26ec346d69b8ea
+      size: 622022
+    - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 968691fb0d02817654ea0e324eb7911f
+      size: 324938
+  create_comparison_plots@BSK_SAg_CD38_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_counted.tsv.gz
+      hash: md5
+      md5: 1c30a2fed92426dfa78778b8eaef9978
+      size: 145599
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
+      hash: md5
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
+      hash: md5
+      md5: 167e03f99ae589b155105d586babb84f
+      size: 229735
+    outs:
+    - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: b3df82a272147813115a569fb1a6ff32
+      size: 703682
+    - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: f630550fb9d6df90fe5d75632c535e76
+      size: 305750
+  create_comparison_plots@BSK_SAg_CD38_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_counted.tsv.gz
+      hash: md5
+      md5: 1c30a2fed92426dfa78778b8eaef9978
+      size: 145599
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
+      hash: md5
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
+      hash: md5
+      md5: 167e03f99ae589b155105d586babb84f
+      size: 229735
+    outs:
+    - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 88f4b03a56671572b14c44afbe4fcbe6
+      size: 625675
+    - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 2ece4b9f19555eec3d5193155987c0f0
+      size: 303027
+  create_comparison_plots@BSK_SAg_CD40_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_counted.tsv.gz
+      hash: md5
+      md5: 120c38e173e86a3e267b9ac702ae7964
+      size: 148935
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
+      hash: md5
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
+      hash: md5
+      md5: b9282c255ad8e23c65ac3583544253a9
+      size: 239373
+    outs:
+    - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: fbad99774df7fe0c294b74b0ddd1988e
+      size: 699154
+    - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: a46fe590d9ebedc50a2861c8649d06c8
+      size: 309631
+  create_comparison_plots@BSK_SAg_CD40_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_counted.tsv.gz
+      hash: md5
+      md5: 120c38e173e86a3e267b9ac702ae7964
+      size: 148935
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
+      hash: md5
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
+      hash: md5
+      md5: b9282c255ad8e23c65ac3583544253a9
+      size: 239373
+    outs:
+    - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: dbe61860b346bed10df0c998bb7ba3ed
+      size: 594539
+    - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 3fe920fc48aa1747f4ba72d166f14bc7
+      size: 338049
+  create_comparison_plots@BSK_SAg_Proliferation_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 26bd14ba743ec6d2dfb33efe05c27ae1
+      size: 151809
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 3607ec98fbee58a6069bc7528405a504
+      size: 249446
+    outs:
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 9721035865f68243236db39e4be61b71
+      size: 705028
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 87f0cc3166433c945b0c81945b5c9a9a
+      size: 328260
+  create_comparison_plots@BSK_SAg_Proliferation_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 26bd14ba743ec6d2dfb33efe05c27ae1
+      size: 151809
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 3607ec98fbee58a6069bc7528405a504
+      size: 249446
+    outs:
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: eb466dbb48f8468a71d1629a15eed42b
+      size: 620365
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 43360f8461c72c713061f5d2d66e4c37
+      size: 302117
+  create_comparison_plots@BSK_hDFCGF_CollagenIII_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_counted.tsv.gz
+      hash: md5
+      md5: 138bdb14ff9ed3fff1dd082b22b8acdb
+      size: 149732
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
+      hash: md5
+      md5: 6de5ceb520c1b163361528de4bfd65bd
+      size: 240165
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: ce2cb0d619af77d67a77ce7054e80b62
+      size: 709020
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: b9f18f594bd7f4f2ad68d778d34bf6a5
+      size: 304742
+  create_comparison_plots@BSK_hDFCGF_CollagenIII_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_counted.tsv.gz
+      hash: md5
+      md5: 138bdb14ff9ed3fff1dd082b22b8acdb
+      size: 149732
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
+      hash: md5
+      md5: 6de5ceb520c1b163361528de4bfd65bd
+      size: 240165
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 505ebfec738ffdea6867c4687fa1daca
+      size: 610513
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: f6f514f006c3c2a25da1c14e77d2c7f1
+      size: 296866
+  create_comparison_plots@BSK_hDFCGF_Proliferation_down-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: b8544ba0e66f2b8db272c8d248bc7580
+      size: 157796
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 90122a33d0d51f0cbc525373ed113b1a
+      size: 253232
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: a434736f3d2784b1a23f1f316196ced0
+      size: 712605
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 78539b7fedb1cede06894234da5ca38f
+      size: 328979
+  create_comparison_plots@BSK_hDFCGF_Proliferation_down-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: b8544ba0e66f2b8db272c8d248bc7580
+      size: 157796
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 90122a33d0d51f0cbc525373ed113b1a
+      size: 253232
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: e69eb81d62bc3f0aae93b13cb8a243b7
+      size: 635825
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 47ba43cbb98a39c90fece68da8f27647
+      size: 289131
+  create_comparison_plots@CEETOX_H295R_11DCORT_dn-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_counted.tsv.gz
+      hash: md5
+      md5: a3790b7e085e92ae8a961567aee64b38
+      size: 52542
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
+      hash: md5
+      md5: d1e3d3b0fdc9ff5dc3437376422f1f5e
+      size: 77406
+    outs:
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: a6ede4f46797c922c9e305a36603df23
+      size: 698887
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 103b9c202871ba18d535227c77108295
+      size: 347127
+  create_comparison_plots@CEETOX_H295R_11DCORT_dn-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_counted.tsv.gz
+      hash: md5
+      md5: a3790b7e085e92ae8a961567aee64b38
+      size: 52542
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
+      hash: md5
+      md5: d1e3d3b0fdc9ff5dc3437376422f1f5e
+      size: 77406
+    outs:
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 8514bcc3bd6a9a2915283ad822e59fb3
+      size: 627720
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: c5884a92c18d12720c78012f940673eb
+      size: 321552
+  create_comparison_plots@CEETOX_H295R_ANDR_dn-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_counted.tsv.gz
+      hash: md5
+      md5: fd7961a662d3c68aa485ef3681128b87
+      size: 50885
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
+      hash: md5
+      md5: d25684716f000e19bad6b2f56115c009
+      size: 72935
+    outs:
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: 3ba06ee3831d73e96daf0424bea581f2
+      size: 699700
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: a144db529c152bb0e4db295b170104d5
+      size: 338668
+  create_comparison_plots@CEETOX_H295R_ANDR_dn-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_counted.tsv.gz
+      hash: md5
+      md5: fd7961a662d3c68aa485ef3681128b87
+      size: 50885
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
+      hash: md5
+      md5: d25684716f000e19bad6b2f56115c009
+      size: 72935
+    outs:
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 30c896592eab361e4af79b7bb899ce89
+      size: 598155
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 776e7d4463632d00ac3d65fdd9b402e1
+      size: 301658
+  create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_counted.tsv.gz
+      hash: md5
+      md5: 77c515992878baa2370ba6ca0fc543d1
+      size: 828587
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
+      hash: md5
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
+      hash: md5
+      md5: bb624ec5f4861e33de0724553d652ce7
+      size: 1289359
+    outs:
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: e4eb492696da5e6ebb42523ddd45d29a
+      size: 722871
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: d3fc5182a70f70ae29a2e25f3e66dcc4
+      size: 332166
+  create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_counted.tsv.gz
+      hash: md5
+      md5: 77c515992878baa2370ba6ca0fc543d1
+      size: 828587
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
+      hash: md5
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
+      hash: md5
+      md5: bb624ec5f4861e33de0724553d652ce7
+      size: 1289359
+    outs:
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: 13740ed036ae8b57382c90073b807844
+      size: 621626
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: 11a338b54f2c379f84b2b6bf78f7f052
+      size: 309499
+  create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-morgan_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
+      morgan_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_counted.tsv.gz
+      hash: md5
+      md5: 9d77b907c0adde579af86c05707af898
+      size: 923914
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
+      hash: md5
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+      hash: md5
+      md5: 910d430b9ee76cd0d971ec1472ea86c8
+      size: 1487880
+    outs:
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_morgan_vs_neural.png
+      hash: md5
+      md5: fa2a03f7cd5b14d780559c0e490268bc
+      size: 767223
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: c4c018387acbcced8ed51bce1a05e838
+      size: 294738
+  create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-morgan_vs_counted:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
+      morgan_vs_counted
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_counted.tsv.gz
+      hash: md5
+      md5: 9d77b907c0adde579af86c05707af898
+      size: 923914
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
+      hash: md5
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+      hash: md5
+      md5: 910d430b9ee76cd0d971ec1472ea86c8
+      size: 1487880
+    outs:
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_morgan_vs_counted.png
+      hash: md5
+      md5: f13f79c388ccafa25ff17f82f488d0f8
+      size: 651470
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: dd3d494d47f89b275b3fa116dce83560
+      size: 279255
+  create_report_plots@APR_HepG2_CellLoss_72h_dn:
+    cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
+      hash: md5
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+      hash: md5
+      md5: 722583b0f7f419e8c56b06350c983009
+      size: 158328
+    outs:
+    - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/data_report.png
+      hash: md5
+      md5: 13a1f11af7b89dbc65203c886a48e95b
+      size: 45946
+    - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_chemprop.png
+      hash: md5
+      md5: 923da38610e7ecae2ec91c24ee406598
+      size: 407078
+    - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_rf.png
+      hash: md5
+      md5: 2ae3d1bfae0ea425de7e208742f12192
+      size: 439927
+  create_report_plots@ATG_NRF2_ARE_CIS_up:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
+      hash: md5
+      md5: eb2bba8bafa9287c4cd49705c71862ca
+      size: 646275
+    outs:
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/data_report.png
+      hash: md5
+      md5: 8546889c454b875e709af2aaced21394
+      size: 43907
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_chemprop.png
+      hash: md5
+      md5: bdd1daa77baff63add26fe4b104003bf
+      size: 403796
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_rf.png
+      hash: md5
+      md5: 01f3e6d439a45c385736002fdd68b023
+      size: 415231
+  create_report_plots@ATG_PXRE_CIS_up:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
+      hash: md5
+      md5: dc7d049f51f9c323d14a9c5e04d96137
+      size: 618999
+    outs:
+    - path: ./data/figures/ATG_PXRE_CIS_up/data_report.png
+      hash: md5
+      md5: 07b0360b32020533b0a4d4263e244dbe
+      size: 45015
+    - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_chemprop.png
+      hash: md5
+      md5: 35a923bae2fcf43c8b99b74365ceb82c
+      size: 403815
+    - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_rf.png
+      hash: md5
+      md5: 2a9fa690b9927bf836c3a04a747e6533
+      size: 480916
+  create_report_plots@BSK_3C_HLADR_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
+      hash: md5
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
+      hash: md5
+      md5: 78cd270ca57419c459cfd10127e3755b
+      size: 235036
+    outs:
+    - path: ./data/figures/BSK_3C_HLADR_down/data_report.png
+      hash: md5
+      md5: 1a1a8a7c05320dbda552e15f6a2cf089
+      size: 44745
+    - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 8e05ee76c54cf3cd21914500d346f574
+      size: 400803
+    - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_rf.png
+      hash: md5
+      md5: e61d930f9531601f283ef5d861cf4915
+      size: 421366
+  create_report_plots@BSK_3C_Proliferation_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 53b7358e457270e2e360e57f44a9008f
+      size: 254730
+    outs:
+    - path: ./data/figures/BSK_3C_Proliferation_down/data_report.png
+      hash: md5
+      md5: 145a9d7b8bdd576857502203b6e4b164
+      size: 46296
+    - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: c75244b9aca18846d9650eeb94e7488e
+      size: 406684
+    - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_rf.png
+      hash: md5
+      md5: 718de02f46eaa7221dc0347251beedc3
+      size: 428465
+  create_report_plots@BSK_3C_SRB_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
+      hash: md5
+      md5: 49480671fc0e4513daa075b32225ed93
+      size: 232475
+    outs:
+    - path: ./data/figures/BSK_3C_SRB_down/data_report.png
+      hash: md5
+      md5: 45ef815aaabe7573c983b01fb33ec0fd
+      size: 44708
+    - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: dbd8e5a6b89ae44d047df7481d1ad618
+      size: 419813
+    - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_rf.png
+      hash: md5
+      md5: ac96076492d1dac37bd82aa83ab6108c
+      size: 427809
+  create_report_plots@BSK_3C_Vis_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
+      hash: md5
+      md5: cd119439e90ee04ec6860f08c7f23b25
+      size: 233828
+    outs:
+    - path: ./data/figures/BSK_3C_Vis_down/data_report.png
+      hash: md5
+      md5: 41c36b7cc31160254253cc9913cf9c5c
+      size: 40472
+    - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 7e40d0808d26a1dedaa1db2b271d12ba
+      size: 436711
+    - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_rf.png
+      hash: md5
+      md5: fc98741fc90c795d5aeb1839fb754275
+      size: 435770
+  create_report_plots@BSK_4H_Eotaxin3_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
+      hash: md5
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
+      hash: md5
+      md5: c3432ba7983dc98937f78053ce3c1af5
+      size: 238528
+    outs:
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/data_report.png
+      hash: md5
+      md5: ed7e74df4e30893a92d59b595d634d06
+      size: 44626
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: ebf2f1af6dd7a00504fcc06b23fc6859
+      size: 421012
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_rf.png
+      hash: md5
+      md5: 73f284c8854c18bd7bef932149c2b407
+      size: 425410
+  create_report_plots@BSK_CASM3C_Proliferation_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 2e27d1ea9437883f5c2105764926825a
+      size: 250669
+    outs:
+    - path: ./data/figures/BSK_CASM3C_Proliferation_down/data_report.png
+      hash: md5
+      md5: a29034b09ff84af2ef17572b6411c738
+      size: 44558
+    - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: c3e3a333c6c44f9d71504e596a726fea
+      size: 420087
+    - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_rf.png
+      hash: md5
+      md5: 80694fb9b2fd35c828a3b25e4a663489
+      size: 423976
+  create_report_plots@BSK_LPS_VCAM1_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
+      hash: md5
+      md5: ab2a4c8916b57dc83beb75ae82498b44
+      size: 234896
+    outs:
+    - path: ./data/figures/BSK_LPS_VCAM1_down/data_report.png
+      hash: md5
+      md5: 4d0b07173f2481d50d529a48c5718249
+      size: 44116
+    - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 6ea3f5258abb1d3aa1a7e8cd75473453
+      size: 423355
+    - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_rf.png
+      hash: md5
+      md5: e5ac894221722f9314c4a6fb01962d1f
+      size: 428488
+  create_report_plots@BSK_SAg_CD38_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
+      hash: md5
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
+      hash: md5
+      md5: 167e03f99ae589b155105d586babb84f
+      size: 229735
+    outs:
+    - path: ./data/figures/BSK_SAg_CD38_down/data_report.png
+      hash: md5
+      md5: 065d1ce72eab68553f10c6aed3241064
+      size: 39544
+    - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: df9cb10b517e793dbe74fea539098e32
+      size: 400848
+    - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_rf.png
+      hash: md5
+      md5: bd12870e7e54cfce6357651777b67162
+      size: 432905
+  create_report_plots@BSK_SAg_CD40_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
+      hash: md5
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
+      hash: md5
+      md5: b9282c255ad8e23c65ac3583544253a9
+      size: 239373
+    outs:
+    - path: ./data/figures/BSK_SAg_CD40_down/data_report.png
+      hash: md5
+      md5: 951990ee8bc5230f9fe91f2191c49039
+      size: 38459
+    - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: da6ecc72b436398b8a05ce7de7a7d3f2
+      size: 419195
+    - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_rf.png
+      hash: md5
+      md5: 4af0b8375ff2fb72182f8c6d3b93897b
+      size: 436956
+  create_report_plots@BSK_SAg_Proliferation_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 3607ec98fbee58a6069bc7528405a504
+      size: 249446
+    outs:
+    - path: ./data/figures/BSK_SAg_Proliferation_down/data_report.png
+      hash: md5
+      md5: 84e03b38493d3e3067f3bd7ac1dedb0f
+      size: 45430
+    - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 40a12c99fbbaddad142150e39a29afc5
+      size: 445823
+    - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_rf.png
+      hash: md5
+      md5: 8ce79ec33ecc021c2f327435acc8a81a
+      size: 418078
+  create_report_plots@BSK_hDFCGF_CollagenIII_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
+      hash: md5
+      md5: 6de5ceb520c1b163361528de4bfd65bd
+      size: 240165
+    outs:
+    - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/data_report.png
+      hash: md5
+      md5: fbdb50f42e636d2d76c9376c28ce7473
+      size: 38348
+    - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 5519bce9e04b09f416c4fb0ff6f528d1
+      size: 406430
+    - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_rf.png
+      hash: md5
+      md5: c08ac780e33f99b44a6c27018a42e573
+      size: 432950
+  create_report_plots@BSK_hDFCGF_Proliferation_down:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 90122a33d0d51f0cbc525373ed113b1a
+      size: 253232
+    outs:
+    - path: ./data/figures/BSK_hDFCGF_Proliferation_down/data_report.png
+      hash: md5
+      md5: 582eef8b8e43d7fcc47a82b72522693a
+      size: 45274
+    - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_chemprop.png
+      hash: md5
+      md5: 041149d418e83b2c5824d8df5c5c4a04
+      size: 406460
+    - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_rf.png
+      hash: md5
+      md5: c838726d0440da066955e9a168e054be
+      size: 422701
+  create_report_plots@CEETOX_H295R_11DCORT_dn:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
+      hash: md5
+      md5: d1e3d3b0fdc9ff5dc3437376422f1f5e
+      size: 77406
+    outs:
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/data_report.png
+      hash: md5
+      md5: d7210e05e05065f6f966e4261254dbca
+      size: 41377
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_chemprop.png
+      hash: md5
+      md5: 197d34f6dad7be3274dae7be69bd9f09
+      size: 401474
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_rf.png
+      hash: md5
+      md5: c14d02c117064188b654ed160d111051
+      size: 399705
+  create_report_plots@CEETOX_H295R_ANDR_dn:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
+      hash: md5
+      md5: d25684716f000e19bad6b2f56115c009
+      size: 72935
+    outs:
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/data_report.png
+      hash: md5
+      md5: ba191c3e0fe7036808f6e68b3a0a4b5d
+      size: 45251
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_chemprop.png
+      hash: md5
+      md5: c8e5517aa18ee957f9c044739b5e35c7
+      size: 394863
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_rf.png
+      hash: md5
+      md5: 1490468c3fc1a4e8814ae4e3e049ea7a
+      size: 428303
+  create_report_plots@TOX21_ARE_BLA_agonist_ratio:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
+      hash: md5
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
+      hash: md5
+      md5: bb624ec5f4861e33de0724553d652ce7
+      size: 1289359
+    outs:
+    - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/data_report.png
+      hash: md5
+      md5: 839524f1683e33cc76ef46684ac26076
+      size: 37841
+    - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_chemprop.png
+      hash: md5
+      md5: f070ca358b28397c66eeba7eab69ba66
+      size: 413276
+    - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_rf.png
+      hash: md5
+      md5: 7bfc26c70df2a2f690ddfded5f4577df
+      size: 429902
+  create_comparison_plots@APR_HepG2_CellLoss_72h_dn-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_counted.tsv.gz
+      hash: md5
+      md5: 1e92ccf48872009c0abbbfeb0690f21e
+      size: 108184
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn_not_counted.tsv.gz
+      hash: md5
+      md5: acb6cbd126e3b47c7c1f4b42d4037d0e
+      size: 106767
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_APR_HepG2_CellLoss_72h_dn.tsv.gz
+      hash: md5
+      md5: 722583b0f7f419e8c56b06350c983009
+      size: 158328
+    outs:
+    - path: 
+        ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 1e0d7a608bf73350410ffc99ac64d598
+      size: 742131
+    - path: 
+        ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 02bc95cbe09aecdbb87a2d38311e6e09
+      size: 322283
+  create_comparison_plots@ATG_NRF2_ARE_CIS_up-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: fb66b0643114b4eba393a854b68eb4ff
+      size: 405588
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_NRF2_ARE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: ef18cbc801c839d862d3818b5bc387ab
+      size: 419136
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_NRF2_ARE_CIS_up.tsv.gz
+      hash: md5
+      md5: eb2bba8bafa9287c4cd49705c71862ca
+      size: 646275
+    outs:
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 82f1788891b4f45f50272215c9301cd8
+      size: 715615
+    - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 080b63d9370b089c09a1133ac12ce53f
+      size: 351893
+  create_comparison_plots@ATG_PXRE_CIS_up-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_counted.tsv.gz
+      hash: md5
+      md5: b4f2115fd29dc6761e5ee42e5c1b3301
+      size: 419589
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_ATG_PXRE_CIS_up_not_counted.tsv.gz
+      hash: md5
+      md5: 31219bf4d7058e59bec46dfcc1968b28
+      size: 421393
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_ATG_PXRE_CIS_up.tsv.gz
+      hash: md5
+      md5: dc7d049f51f9c323d14a9c5e04d96137
+      size: 618999
+    outs:
+    - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: f98a66ef84b4063a5c7ddd7f2c41884a
+      size: 744888
+    - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 3cc43fed63a1de88441b4f8d2d0e60b5
+      size: 340828
+  create_comparison_plots@BSK_3C_HLADR_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_counted.tsv.gz
+      hash: md5
+      md5: 45b112d37b04f7bb4aa870744c603513
+      size: 149362
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_HLADR_down_not_counted.tsv.gz
+      hash: md5
+      md5: cbacbcf62959c5a04bf4b5dd77865ce7
+      size: 155385
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_HLADR_down.tsv.gz
+      hash: md5
+      md5: 78cd270ca57419c459cfd10127e3755b
+      size: 235036
+    outs:
+    - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 541b86bdfe39a46e0342e55938d986c5
+      size: 735684
+    - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 9786c73224975592a323e36a02260867
+      size: 348987
+  create_comparison_plots@BSK_3C_Proliferation_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 785d376fb27e1d1ec8af7567ec0203da
+      size: 151807
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: c2bbeee9c97e4aaa2aac14275ca89b2c
+      size: 157831
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 53b7358e457270e2e360e57f44a9008f
+      size: 254730
+    outs:
+    - path: 
+        ./data/figures/BSK_3C_Proliferation_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 6cb1856b00f642de64640d6a50cc977f
+      size: 733837
+    - path: 
+        ./data/figures/BSK_3C_Proliferation_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: de66825f7326479a7d482bba4cb31a1a
+      size: 360516
+  create_comparison_plots@BSK_3C_SRB_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_counted.tsv.gz
+      hash: md5
+      md5: 5d42d0c542dce92a16e4685b0167db0b
+      size: 148642
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_SRB_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7b93d05eaabb6b86fcbc04982a202f08
+      size: 154493
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_SRB_down.tsv.gz
+      hash: md5
+      md5: 49480671fc0e4513daa075b32225ed93
+      size: 232475
+    outs:
+    - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 748e3680225883cfe537e936ea99a72e
+      size: 747736
+    - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: f1678e48234d2b2f4d61f0ac223954bd
+      size: 328622
+  create_comparison_plots@BSK_3C_Vis_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_counted.tsv.gz
+      hash: md5
+      md5: 263edf136178d395d6dffd3c3029ebbd
+      size: 145050
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_3C_Vis_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8ee277b0dd104a7564bb5aa2f9c72058
+      size: 151256
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_3C_Vis_down.tsv.gz
+      hash: md5
+      md5: cd119439e90ee04ec6860f08c7f23b25
+      size: 233828
+    outs:
+    - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 2152958299f1fdd4fae201a99b350ec0
+      size: 743516
+    - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 1f0f305c4b7c167295f78d75d148fc04
+      size: 338179
+  create_comparison_plots@BSK_4H_Eotaxin3_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_counted.tsv.gz
+      hash: md5
+      md5: bc695b87a0b67b3d89db884cd520a790
+      size: 153659
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_4H_Eotaxin3_down_not_counted.tsv.gz
+      hash: md5
+      md5: 6c728c1aeea278cb3a896bc3e6805d71
+      size: 159176
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_4H_Eotaxin3_down.tsv.gz
+      hash: md5
+      md5: c3432ba7983dc98937f78053ce3c1af5
+      size: 238528
+    outs:
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: a450fc33982b18994b0eafec33aedf15
+      size: 697622
+    - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: b577d823f90bc453f217f7fe15e995fc
+      size: 296158
+  create_comparison_plots@BSK_CASM3C_Proliferation_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 7832b84b09eccfd2ab5db5ca77a3a16c
+      size: 152704
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_CASM3C_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 3bb424c7366c022ad60047e32494f8b4
+      size: 156793
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_CASM3C_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 2e27d1ea9437883f5c2105764926825a
+      size: 250669
+    outs:
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: dac5adcf49406ee0348ddf23df39e660
+      size: 684665
+    - path: 
+        ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 4178ddb0fe4fa54093f898a8f64cbe78
+      size: 339602
+  create_comparison_plots@BSK_LPS_VCAM1_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_counted.tsv.gz
+      hash: md5
+      md5: 36e109efcb3496e75bf65e93cca16317
+      size: 148300
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_LPS_VCAM1_down_not_counted.tsv.gz
+      hash: md5
+      md5: 7ec02838586ff872ead107e4d7ca54cd
+      size: 155010
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_LPS_VCAM1_down.tsv.gz
+      hash: md5
+      md5: ab2a4c8916b57dc83beb75ae82498b44
+      size: 234896
+    outs:
+    - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: cae730773510ba0f7801c7140efdf96c
+      size: 733043
+    - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 09dbb5f439b7065fd2c11f4aa36e0e9c
+      size: 315929
+  create_comparison_plots@BSK_SAg_CD38_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_counted.tsv.gz
+      hash: md5
+      md5: 1c30a2fed92426dfa78778b8eaef9978
+      size: 145599
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD38_down_not_counted.tsv.gz
+      hash: md5
+      md5: 982b51e14746cf78576b195cea6f39f4
+      size: 153884
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD38_down.tsv.gz
+      hash: md5
+      md5: 167e03f99ae589b155105d586babb84f
+      size: 229735
+    outs:
+    - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 579fdbc89c4ac62be9fe679ad2673547
+      size: 731881
+    - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: a70049a0d05285b6b6295ccea747918c
+      size: 297745
+  create_comparison_plots@BSK_SAg_CD40_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_counted.tsv.gz
+      hash: md5
+      md5: 120c38e173e86a3e267b9ac702ae7964
+      size: 148935
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_CD40_down_not_counted.tsv.gz
+      hash: md5
+      md5: ef683848248c9a766b784df15cb7b16b
+      size: 154182
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_CD40_down.tsv.gz
+      hash: md5
+      md5: b9282c255ad8e23c65ac3583544253a9
+      size: 239373
+    outs:
+    - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: c0d0ff9027da75162fd3048b82f091c9
+      size: 737043
+    - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 1286cafe3a475579d931b93164da5e9e
+      size: 314686
+  create_comparison_plots@BSK_SAg_Proliferation_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: 26bd14ba743ec6d2dfb33efe05c27ae1
+      size: 151809
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_SAg_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: 4b16e2fa300c814aa418c616a379681f
+      size: 156840
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_SAg_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 3607ec98fbee58a6069bc7528405a504
+      size: 249446
+    outs:
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: d86f7a3ac9f1ff4246d0949a4dfb4680
+      size: 716870
+    - path: 
+        ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: f8ae865b5333075a90e6c2675b3113ca
+      size: 340730
+  create_comparison_plots@BSK_hDFCGF_CollagenIII_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_counted.tsv.gz
+      hash: md5
+      md5: 138bdb14ff9ed3fff1dd082b22b8acdb
+      size: 149732
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down_not_counted.tsv.gz
+      hash: md5
+      md5: 8fd0a965265558c00a4e5504b8d666cf
+      size: 155009
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_CollagenIII_down.tsv.gz
+      hash: md5
+      md5: 6de5ceb520c1b163361528de4bfd65bd
+      size: 240165
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 9ebdeea6b41b42946e7246cf98a9b878
+      size: 728633
+    - path: 
+        ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 9784c5ee9c1a941e7fed83518e118a39
+      size: 308463
+  create_comparison_plots@BSK_hDFCGF_Proliferation_down-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_counted.tsv.gz
+      hash: md5
+      md5: b8544ba0e66f2b8db272c8d248bc7580
+      size: 157796
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_BSK_hDFCGF_Proliferation_down_not_counted.tsv.gz
+      hash: md5
+      md5: d19e4be54525323f1cd487c938d7623a
+      size: 162604
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_BSK_hDFCGF_Proliferation_down.tsv.gz
+      hash: md5
+      md5: 90122a33d0d51f0cbc525373ed113b1a
+      size: 253232
+    outs:
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 35f9e5a3cbb9dd016505a9be0570b3e8
+      size: 722865
+    - path: 
+        ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 0d133bf23c941ad6745370defb32c101
+      size: 313719
+  create_comparison_plots@CEETOX_H295R_11DCORT_dn-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_counted.tsv.gz
+      hash: md5
+      md5: a3790b7e085e92ae8a961567aee64b38
+      size: 52542
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_11DCORT_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 10cf5c77ff72a9cd9978acbcb5d62f44
+      size: 52395
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_11DCORT_dn.tsv.gz
+      hash: md5
+      md5: d1e3d3b0fdc9ff5dc3437376422f1f5e
+      size: 77406
+    outs:
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: a81419fe610e81c195607e8b2c65c368
+      size: 729290
+    - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 96db69ccedcdd2c38e9daffd8e62a6d7
+      size: 345111
+  create_comparison_plots@CEETOX_H295R_ANDR_dn-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_counted.tsv.gz
+      hash: md5
+      md5: fd7961a662d3c68aa485ef3681128b87
+      size: 50885
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_CEETOX_H295R_ANDR_dn_not_counted.tsv.gz
+      hash: md5
+      md5: 09abe2e769098c64955ce85cbceeebb0
+      size: 51084
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_CEETOX_H295R_ANDR_dn.tsv.gz
+      hash: md5
+      md5: d25684716f000e19bad6b2f56115c009
+      size: 72935
+    outs:
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 74fcf9f7975fa50290074668bd870dbb
+      size: 701196
+    - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 60494a0660cb1febc0f2d6d6374e369f
+      size: 335166
+  create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_counted.tsv.gz
+      hash: md5
+      md5: 77c515992878baa2370ba6ca0fc543d1
+      size: 828587
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio_not_counted.tsv.gz
+      hash: md5
+      md5: 291aba67f444a50242a327c42dc2ab09
+      size: 856713
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_ARE_BLA_agonist_ratio.tsv.gz
+      hash: md5
+      md5: bb624ec5f4861e33de0724553d652ce7
+      size: 1289359
+    outs:
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 942728b50b8c69aa23ac172a9f76a034
+      size: 729543
+    - path: 
+        ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: 67c385cebf3ccb5c7265ba404f47031a
+      size: 309247
+  create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-counted_vs_neural:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
+      counted_vs_neural
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_counted.tsv.gz
+      hash: md5
+      md5: 9d77b907c0adde579af86c05707af898
+      size: 923914
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
+      hash: md5
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+      hash: md5
+      md5: 910d430b9ee76cd0d971ec1472ea86c8
+      size: 1487880
+    outs:
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_counted_vs_neural.png
+      hash: md5
+      md5: 4153f9564600c71a52e3ae8027dc08c2
+      size: 786451
+    - path: 
+        ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_counted_vs_neural.png
+      hash: md5
+      md5: acf4e5750a4a0e6ae85c20297498b878
+      size: 291961
+  create_final_plots@morgan_vs_neural:
+    cmd: python scripts/06_create_final_figures.py  --comparison morgan_vs_neural
+    deps:
+    - path: ./data/intermediate_data/model_predictions
+      hash: md5
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
+    - path: ./scripts/06_create_final_figures.py
+      hash: md5
+      md5: 7f19914d48ccb26e452a3701bb19eb32
+      size: 22534
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    outs:
+    - path: ./data/figures/final_figures/performance_metrics_all_morgan_vs_neural.png
+      hash: md5
+      md5: ee052ff84d8fe453430f629bd9bfa12a
+      size: 765514
+    - path: ./data/figures/final_figures/scatter_metrics_morgan_vs_neural.png
+      hash: md5
+      md5: 125911766169d2560bc6f4e0667c3498
+      size: 522212
+    - path: ./data/figures/final_figures/significance_plot_morgan_vs_neural.png
+      hash: md5
+      md5: a186b4f262ecd8cf9c38e86c0ee8805c
+      size: 925479
+  create_final_plots@morgan_vs_counted:
+    cmd: python scripts/06_create_final_figures.py  --comparison morgan_vs_counted
+    deps:
+    - path: ./data/intermediate_data/model_predictions
+      hash: md5
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
+    - path: ./scripts/06_create_final_figures.py
+      hash: md5
+      md5: 7f19914d48ccb26e452a3701bb19eb32
+      size: 22534
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    outs:
+    - path: ./data/figures/final_figures/performance_metrics_all_morgan_vs_counted.png
+      hash: md5
+      md5: 296d54d5dcf363f6083f28532c6bad2a
+      size: 736425
+    - path: ./data/figures/final_figures/scatter_metrics_morgan_vs_counted.png
+      hash: md5
+      md5: df60a977aafa13ff05370b1d05f00bae
+      size: 479443
+    - path: ./data/figures/final_figures/significance_plot_morgan_vs_counted.png
+      hash: md5
+      md5: ef3eb7c61386d8a365db630e8d4626d9
+      size: 965003
+  create_final_plots@counted_vs_neural:
+    cmd: python scripts/06_create_final_figures.py  --comparison counted_vs_neural
+    deps:
+    - path: ./data/intermediate_data/model_predictions
+      hash: md5
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
+    - path: ./scripts/06_create_final_figures.py
+      hash: md5
+      md5: 7f19914d48ccb26e452a3701bb19eb32
+      size: 22534
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    outs:
+    - path: ./data/figures/final_figures/performance_metrics_all_counted_vs_neural.png
+      hash: md5
+      md5: 515d778d1b3f29bf36e7ec635532c71c
+      size: 780645
+    - path: ./data/figures/final_figures/scatter_metrics_counted_vs_neural.png
+      hash: md5
+      md5: e5a1a731792afd2520ce458155a04225
+      size: 513765
+    - path: ./data/figures/final_figures/significance_plot_counted_vs_neural.png
+      hash: md5
+      md5: f108d15f1bb2df3ced326b7e8705642f
+      size: 925180
+  create_report_plots@TOX21_TR_LUC_GH3_Antagonist:
+    cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
+      other
+    deps:
+    - path: ./scripts/05_create_plots.py
+      hash: md5
+      md5: a80b6ed2f23d63d6916b37ed36ea5914
+      size: 10433
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    - path: 
+        data/intermediate_data/model_predictions/morgan_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist_not_counted.tsv.gz
+      hash: md5
+      md5: 4a4ce030153728ab345742a0d7515702
+      size: 944246
+    - path: 
+        data/intermediate_data/model_predictions/neural_fingerprint_predictions_TOX21_TR_LUC_GH3_Antagonist.tsv.gz
+      hash: md5
+      md5: 910d430b9ee76cd0d971ec1472ea86c8
+      size: 1487880
+    outs:
+    - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/data_report.png
+      hash: md5
+      md5: f41458e902ba9cb450a762e3e78c5b6b
+      size: 38236
+    - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_chemprop.png
+      hash: md5
+      md5: ed178b459fcd490695d66fcac884deec
+      size: 409205
+    - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_rf.png
+      hash: md5
+      md5: 2a07acb9dd8168f610f932b6e7265000
+      size: 386270
+  create_final_plots_other:
+    cmd: python scripts/06_create_final_figures.py  --comparison other
+    deps:
+    - path: ./data/intermediate_data/model_predictions
+      hash: md5
+      md5: 03a766ab4e86df39a16585704488303a.dir
+      size: 16561347
+      nfiles: 58
+    - path: ./scripts/06_create_final_figures.py
+      hash: md5
+      md5: 7f19914d48ccb26e452a3701bb19eb32
+      size: 22534
+    - path: ./scripts/plot_utils.py
+      hash: md5
+      md5: 66fc075fc8abd0dddb74cae770737291
+      size: 17341
+    outs:
+    - path: ./data/figures/final_figures/scatter_counted_binary_fp.png
+      hash: md5
+      md5: 78335292098fe878d55f15a918b525b7
+      size: 416384
