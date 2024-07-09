@@ -18,6 +18,7 @@ from plot_utils import (
     test_set_nn_similarity2ax,
 )
 
+
 def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
     """Plot the data report for the endpoint.
 
@@ -91,9 +92,12 @@ def plot_metrics(
 
 
 def plot_calibration_curves(  # pylint: disable=too-many-locals
-    data_df: pd.DataFrame, save_path: Path,
-    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"] = "morgan_vs_neural",
-    **kwargs: Any
+    data_df: pd.DataFrame,
+    save_path: Path,
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
+    ] = "morgan_vs_neural",
+    **kwargs: Any,
 ) -> None:
     """Plot the calibration curves for each model.
 
@@ -252,12 +256,17 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
 )
 @click.option(
     "--comparison",
-    type=click.Choice(["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]),
+    type=click.Choice(
+        ["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]
+    ),
     required=True,
     help="Comparison to create figures for.",
 )
 def create_figures(
-    endpoint: str, comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"]
+    endpoint: str,
+    comparison: Literal[
+        "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural", "other"
+    ],
 ) -> None:
     """Create figures for the uncertainty estimation predictions.
 
@@ -268,7 +277,6 @@ def create_figures(
     """
     base_path = Path(__file__).parents[1]
     prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
-
 
     plot_kwargs = {"figsize": (8, 3.5)}
 
@@ -283,7 +291,6 @@ def create_figures(
         data_df = load_data(endpoint, prediction_folder, comparison=comparison)
         plot_metrics(data_df, save_path, comparison=comparison)
         plot_calibration_curves(data_df, save_path, comparison=comparison)
-
 
 
 if __name__ == "__main__":
