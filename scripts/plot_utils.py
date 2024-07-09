@@ -240,7 +240,7 @@ def load_data(
     prediction_folder: Path,
     comparison: Literal[
         "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
-    ] = "morgan_vs_neural",
+    ] = "counted_vs_neural",
 ) -> pd.DataFrame:
     """Load the data for the endpoint.
 
