@@ -19,7 +19,6 @@ from plot_utils import (
     get_nxm_figure,
     get_performance_metrics,
     load_all_performances,
-    load_data,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
 )
@@ -363,7 +362,7 @@ def plot_significance_matrix(
             better_site = "greater"
         else:
             better_site = "less"
-        for j, split in enumerate(["Random", "Agglomerative clustering"]):
+        for j, split in enumerate(["Agglomerative clustering", "Random"]):
             split_df = metric_df.loc[metric_df["split"] == split]
             significance_matrix = np.ones((len(model_order), len(model_order)))
             for a, model_a in enumerate(model_order):
