@@ -1764,12 +1764,12 @@ stages:
       nfiles: 58
     - path: ./scripts/07_create_final_tables.py
       hash: md5
-      md5: af7957077acfa3c7a32dd536e9d1c19f
+      md5: b5a448945a42c85f1f9906929ff72dc4
       size: 6035
     outs:
     - path: ./logs/07_create_final_tables.log
       hash: md5
-      md5: 5e2f7345a084f647551146d7d0807c34
+      md5: 8a6047ae1ada984227ff6b93873c8a55
       size: 35885
   ml_experiments@APR_HepG2_CellLoss_72h_dn-true:
     cmd: python ./scripts/03_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
@@ -2491,8 +2491,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2528,8 +2528,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2566,8 +2566,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2602,8 +2602,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2638,8 +2638,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2674,8 +2674,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2710,8 +2710,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2746,8 +2746,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2782,8 +2782,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2819,8 +2819,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2857,8 +2857,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2893,8 +2893,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2929,8 +2929,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -2965,8 +2965,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3001,8 +3001,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3037,8 +3037,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3073,8 +3073,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3111,8 +3111,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3149,8 +3149,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3185,8 +3185,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3221,8 +3221,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3257,8 +3257,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3293,8 +3293,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3329,8 +3329,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3365,8 +3365,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3403,8 +3403,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3441,8 +3441,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3479,8 +3479,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3517,8 +3517,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3555,8 +3555,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3593,8 +3593,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3629,8 +3629,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3665,8 +3665,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3701,8 +3701,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3737,8 +3737,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3775,8 +3775,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3813,8 +3813,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3851,8 +3851,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3889,8 +3889,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3908,24 +3908,24 @@ stages:
     outs:
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/data_report.png
       hash: md5
-      md5: 13a1f11af7b89dbc65203c886a48e95b
-      size: 45946
+      md5: 4468c6e6c6d71d5e04b94495258d03ad
+      size: 333104
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: 923da38610e7ecae2ec91c24ee406598
-      size: 407078
+      md5: 21eab330ca0665d92b2970b24179a9ea
+      size: 406295
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_rf.png
       hash: md5
-      md5: 2ae3d1bfae0ea425de7e208742f12192
-      size: 439927
+      md5: 2a9b31a08c9af25df459590e8d354d50
+      size: 439067
   create_report_plots@ATG_NRF2_ARE_CIS_up:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3943,24 +3943,24 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/data_report.png
       hash: md5
-      md5: 8546889c454b875e709af2aaced21394
-      size: 43907
+      md5: 20528bbfb4304e4abc5c5b8855ec0215
+      size: 313920
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_chemprop.png
       hash: md5
-      md5: bdd1daa77baff63add26fe4b104003bf
-      size: 403796
+      md5: 139059c17604ef3f8b4de178594acc91
+      size: 402996
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_rf.png
       hash: md5
-      md5: 01f3e6d439a45c385736002fdd68b023
-      size: 415231
+      md5: 8271de77e6a73d51da6af45c7eefa995
+      size: 414115
   create_report_plots@ATG_PXRE_CIS_up:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -3978,24 +3978,24 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/data_report.png
       hash: md5
-      md5: 07b0360b32020533b0a4d4263e244dbe
-      size: 45015
+      md5: 99ea779940852782487274841657ff60
+      size: 319662
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_chemprop.png
       hash: md5
-      md5: 35a923bae2fcf43c8b99b74365ceb82c
-      size: 403815
+      md5: 30e8f30182e5bea717446af6e3f75f7b
+      size: 403035
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_rf.png
       hash: md5
-      md5: 2a9fa690b9927bf836c3a04a747e6533
-      size: 480916
+      md5: 70de22df7a5e18fab9e77181dbe32d5b
+      size: 474970
   create_report_plots@BSK_3C_HLADR_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4013,24 +4013,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/data_report.png
       hash: md5
-      md5: 1a1a8a7c05320dbda552e15f6a2cf089
-      size: 44745
+      md5: 2392a4628d12793c9641cfc632ac1880
+      size: 322841
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 8e05ee76c54cf3cd21914500d346f574
-      size: 400803
+      md5: 9838ae87f65774da9c744f9e8c9817d1
+      size: 400296
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_rf.png
       hash: md5
-      md5: e61d930f9531601f283ef5d861cf4915
-      size: 421366
+      md5: 8bf4da0a3d17f06fa888e9b7421a797d
+      size: 420133
   create_report_plots@BSK_3C_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4048,24 +4048,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Proliferation_down/data_report.png
       hash: md5
-      md5: 145a9d7b8bdd576857502203b6e4b164
-      size: 46296
+      md5: d6f462d11f24c9906ae0fbb6cf7b68e8
+      size: 333564
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: c75244b9aca18846d9650eeb94e7488e
-      size: 406684
+      md5: 38dc66e69dca7189923637dc78dc1806
+      size: 405894
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 718de02f46eaa7221dc0347251beedc3
-      size: 428465
+      md5: 67d44e1352c87158bfc5658917521fb2
+      size: 427482
   create_report_plots@BSK_3C_SRB_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4083,24 +4083,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/data_report.png
       hash: md5
-      md5: 45ef815aaabe7573c983b01fb33ec0fd
-      size: 44708
+      md5: af6a02b83ce93f4bb829941213e5c22b
+      size: 324456
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_chemprop.png
       hash: md5
-      md5: dbd8e5a6b89ae44d047df7481d1ad618
-      size: 419813
+      md5: 7ae81e48bebdf062f7b7a5b2354cf832
+      size: 418771
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_rf.png
       hash: md5
-      md5: ac96076492d1dac37bd82aa83ab6108c
-      size: 427809
+      md5: 35bfc9dff6d07c2371a5a83c5508eb07
+      size: 426874
   create_report_plots@BSK_3C_Vis_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4118,24 +4118,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/data_report.png
       hash: md5
-      md5: 41c36b7cc31160254253cc9913cf9c5c
-      size: 40472
+      md5: 4848a7cca544dc9bbfa6d3d417697d0b
+      size: 295940
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 7e40d0808d26a1dedaa1db2b271d12ba
-      size: 436711
+      md5: 2841b648beb5d6c4f4dcef76923dd5d6
+      size: 436445
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_rf.png
       hash: md5
-      md5: fc98741fc90c795d5aeb1839fb754275
-      size: 435770
+      md5: c2e253fa20dd6238df6fcde4884e02da
+      size: 434978
   create_report_plots@BSK_4H_Eotaxin3_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4153,24 +4153,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/data_report.png
       hash: md5
-      md5: ed7e74df4e30893a92d59b595d634d06
-      size: 44626
+      md5: 9ef404cf14002a41230e52494594249f
+      size: 324100
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_chemprop.png
       hash: md5
-      md5: ebf2f1af6dd7a00504fcc06b23fc6859
-      size: 421012
+      md5: bf691819c098d8968749920f01120554
+      size: 420254
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_rf.png
       hash: md5
-      md5: 73f284c8854c18bd7bef932149c2b407
-      size: 425410
+      md5: a52f19ec4f740672fdf3355e7a0a0245
+      size: 424092
   create_report_plots@BSK_CASM3C_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4188,24 +4188,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/data_report.png
       hash: md5
-      md5: a29034b09ff84af2ef17572b6411c738
-      size: 44558
+      md5: e3db18bec3bc0df31497add8c739e45f
+      size: 325644
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: c3e3a333c6c44f9d71504e596a726fea
-      size: 420087
+      md5: b59863f02026cebf73c63cfdbe17fdbd
+      size: 419762
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 80694fb9b2fd35c828a3b25e4a663489
-      size: 423976
+      md5: ec44be8fb750f21760d3bb19d3b2a9b9
+      size: 423016
   create_report_plots@BSK_LPS_VCAM1_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4223,24 +4223,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/data_report.png
       hash: md5
-      md5: 4d0b07173f2481d50d529a48c5718249
-      size: 44116
+      md5: 2e3a83efa856ce781ac6d80d46f2eb5d
+      size: 319621
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 6ea3f5258abb1d3aa1a7e8cd75473453
-      size: 423355
+      md5: f3dad7dd6ad2132c5e76c8895c9c3543
+      size: 423235
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_rf.png
       hash: md5
-      md5: e5ac894221722f9314c4a6fb01962d1f
-      size: 428488
+      md5: 5a79e3880db00a263e98d9a31a2a947c
+      size: 427367
   create_report_plots@BSK_SAg_CD38_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4258,24 +4258,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/data_report.png
       hash: md5
-      md5: 065d1ce72eab68553f10c6aed3241064
-      size: 39544
+      md5: c16dd13df26cf7db38d1bccd8d85efbb
+      size: 291736
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_chemprop.png
       hash: md5
-      md5: df9cb10b517e793dbe74fea539098e32
-      size: 400848
+      md5: 6757d8e453aa5c8068821cc6bcba930a
+      size: 400114
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_rf.png
       hash: md5
-      md5: bd12870e7e54cfce6357651777b67162
-      size: 432905
+      md5: cdb9e6d1aadc3719084d4bdc4459ae53
+      size: 431869
   create_report_plots@BSK_SAg_CD40_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4293,24 +4293,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/data_report.png
       hash: md5
-      md5: 951990ee8bc5230f9fe91f2191c49039
-      size: 38459
+      md5: bfa8a03239d6717271b1fec748d58f3e
+      size: 284135
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_chemprop.png
       hash: md5
-      md5: da6ecc72b436398b8a05ce7de7a7d3f2
-      size: 419195
+      md5: cbf95a149f1d2c8ee990e16442e3a89e
+      size: 418268
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_rf.png
       hash: md5
-      md5: 4af0b8375ff2fb72182f8c6d3b93897b
-      size: 436956
+      md5: b95ce8fec15304e341cf6d3d21b67edf
+      size: 435795
   create_report_plots@BSK_SAg_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4328,24 +4328,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_Proliferation_down/data_report.png
       hash: md5
-      md5: 84e03b38493d3e3067f3bd7ac1dedb0f
-      size: 45430
+      md5: b1b5cd69a73772ff897ced8c7ecbbcd0
+      size: 321851
     - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 40a12c99fbbaddad142150e39a29afc5
-      size: 445823
+      md5: 5df0c1f57de631ae0b3fb0d4d29a383d
+      size: 445550
     - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: 8ce79ec33ecc021c2f327435acc8a81a
-      size: 418078
+      md5: d255aa3f08837aab5d137686ddca23e9
+      size: 416829
   create_report_plots@BSK_hDFCGF_CollagenIII_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4363,24 +4363,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/data_report.png
       hash: md5
-      md5: fbdb50f42e636d2d76c9376c28ce7473
-      size: 38348
+      md5: a53d7bbc710e5410919f2719f08d45e1
+      size: 284232
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 5519bce9e04b09f416c4fb0ff6f528d1
-      size: 406430
+      md5: 66cd97a64393ca7d9cc69593cffa54b9
+      size: 405597
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_rf.png
       hash: md5
-      md5: c08ac780e33f99b44a6c27018a42e573
-      size: 432950
+      md5: 1e3998b9f3488f9a2319535c5ece341e
+      size: 431867
   create_report_plots@BSK_hDFCGF_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4398,24 +4398,24 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/data_report.png
       hash: md5
-      md5: 582eef8b8e43d7fcc47a82b72522693a
-      size: 45274
+      md5: a2a747edf5ef0a09a470472720a17c9e
+      size: 321453
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_chemprop.png
       hash: md5
-      md5: 041149d418e83b2c5824d8df5c5c4a04
-      size: 406460
+      md5: 79801c5de0d67f7cc1cc2af0832d33c8
+      size: 405715
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_rf.png
       hash: md5
-      md5: c838726d0440da066955e9a168e054be
-      size: 422701
+      md5: f23b04ad62d57ea2e97dae98564ec53e
+      size: 421360
   create_report_plots@CEETOX_H295R_11DCORT_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4433,24 +4433,24 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/data_report.png
       hash: md5
-      md5: d7210e05e05065f6f966e4261254dbca
-      size: 41377
+      md5: 6fd7d515410b2fabca6d99ec85371b19
+      size: 308920
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: 197d34f6dad7be3274dae7be69bd9f09
-      size: 401474
+      md5: db954699beaaad2924b82625e68e8d0f
+      size: 400965
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_rf.png
       hash: md5
-      md5: c14d02c117064188b654ed160d111051
-      size: 399705
+      md5: 1c22dc1065f94e2fa7c935b653927271
+      size: 398699
   create_report_plots@CEETOX_H295R_ANDR_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4468,24 +4468,24 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/data_report.png
       hash: md5
-      md5: ba191c3e0fe7036808f6e68b3a0a4b5d
-      size: 45251
+      md5: 06976a71d68eb20c3daeccdbac257c4d
+      size: 337863
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_chemprop.png
       hash: md5
-      md5: c8e5517aa18ee957f9c044739b5e35c7
-      size: 394863
+      md5: a0f156ef1f2d728ce7bd4c69f63bb23c
+      size: 394077
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_rf.png
       hash: md5
-      md5: 1490468c3fc1a4e8814ae4e3e049ea7a
-      size: 428303
+      md5: 418456e25b158bf64f7c51dde6804327
+      size: 427156
   create_report_plots@TOX21_ARE_BLA_agonist_ratio:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4503,24 +4503,24 @@ stages:
     outs:
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/data_report.png
       hash: md5
-      md5: 839524f1683e33cc76ef46684ac26076
-      size: 37841
+      md5: 7dcdfea1da6678dfc5fda282c12d1d22
+      size: 268267
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_chemprop.png
       hash: md5
-      md5: f070ca358b28397c66eeba7eab69ba66
-      size: 413276
+      md5: fcd29ae276bbb9ba87ed909cc71df50e
+      size: 412595
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_rf.png
       hash: md5
-      md5: 7bfc26c70df2a2f690ddfded5f4577df
-      size: 429902
+      md5: 70667fee8662737762e8befe35adc1d7
+      size: 428818
   create_comparison_plots@APR_HepG2_CellLoss_72h_dn-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4557,8 +4557,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4593,8 +4593,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4629,8 +4629,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4665,8 +4665,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4703,8 +4703,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4739,8 +4739,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4775,8 +4775,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4811,8 +4811,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4849,8 +4849,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4885,8 +4885,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4921,8 +4921,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4957,8 +4957,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -4995,8 +4995,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5033,8 +5033,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5071,8 +5071,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5107,8 +5107,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5143,8 +5143,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5181,8 +5181,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5223,8 +5223,8 @@ stages:
       nfiles: 58
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 7f19914d48ccb26e452a3701bb19eb32
-      size: 22534
+      md5: 7d40b2196593ae7c5aee31071769283a
+      size: 22890
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5240,8 +5240,8 @@ stages:
       size: 522212
     - path: ./data/figures/final_figures/significance_plot_morgan_vs_neural.png
       hash: md5
-      md5: a186b4f262ecd8cf9c38e86c0ee8805c
-      size: 925479
+      md5: 5509511bcc1b8f12c8191b24ac18b731
+      size: 925641
   create_final_plots@morgan_vs_counted:
     cmd: python scripts/06_create_final_figures.py  --comparison morgan_vs_counted
     deps:
@@ -5252,8 +5252,8 @@ stages:
       nfiles: 58
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 7f19914d48ccb26e452a3701bb19eb32
-      size: 22534
+      md5: 7d40b2196593ae7c5aee31071769283a
+      size: 22890
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5269,8 +5269,8 @@ stages:
       size: 479443
     - path: ./data/figures/final_figures/significance_plot_morgan_vs_counted.png
       hash: md5
-      md5: ef3eb7c61386d8a365db630e8d4626d9
-      size: 965003
+      md5: 0919eb5a524988e83314c78eba4946e2
+      size: 965085
   create_final_plots@counted_vs_neural:
     cmd: python scripts/06_create_final_figures.py  --comparison counted_vs_neural
     deps:
@@ -5281,8 +5281,8 @@ stages:
       nfiles: 58
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 7f19914d48ccb26e452a3701bb19eb32
-      size: 22534
+      md5: 7d40b2196593ae7c5aee31071769283a
+      size: 22890
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5298,16 +5298,16 @@ stages:
       size: 513765
     - path: ./data/figures/final_figures/significance_plot_counted_vs_neural.png
       hash: md5
-      md5: f108d15f1bb2df3ced326b7e8705642f
-      size: 925180
+      md5: 0b9be852a80891321cd50bd2ea3feae1
+      size: 925319
   create_report_plots@TOX21_TR_LUC_GH3_Antagonist:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: a80b6ed2f23d63d6916b37ed36ea5914
-      size: 10433
+      md5: c79a69fe97e18ef6ed63397932605e1c
+      size: 10442
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
@@ -5325,16 +5325,16 @@ stages:
     outs:
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/data_report.png
       hash: md5
-      md5: f41458e902ba9cb450a762e3e78c5b6b
-      size: 38236
+      md5: 71d4a162b30419d4cc08254d0afa9517
+      size: 268099
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_chemprop.png
       hash: md5
-      md5: ed178b459fcd490695d66fcac884deec
-      size: 409205
+      md5: a7888e8f9e94a8e421f7b9a6bb5911f1
+      size: 408498
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_rf.png
       hash: md5
-      md5: 2a07acb9dd8168f610f932b6e7265000
-      size: 386270
+      md5: 9eb9152054253998e25a0925dda6eb3b
+      size: 385552
   create_final_plots_other:
     cmd: python scripts/06_create_final_figures.py  --comparison other
     deps:
@@ -5345,14 +5345,18 @@ stages:
       nfiles: 58
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 7f19914d48ccb26e452a3701bb19eb32
-      size: 22534
+      md5: 7d40b2196593ae7c5aee31071769283a
+      size: 22890
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 66fc075fc8abd0dddb74cae770737291
       size: 17341
     outs:
-    - path: ./data/figures/final_figures/scatter_counted_binary_fp.png
+    - path: ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.png
       hash: md5
       md5: 78335292098fe878d55f15a918b525b7
       size: 416384
+    - path: ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.png
+      hash: md5
+      md5: 0bb41b35cd349f213c6200a1df35a56f
+      size: 338490

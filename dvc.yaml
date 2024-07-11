@@ -84,7 +84,8 @@ stages:
       - ./scripts/06_create_final_figures.py
       - ./scripts/plot_utils.py
     outs:
-      - ./data/figures/final_figures/scatter_counted_binary_fp.png
+      - ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.png
+      - ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.png
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py
     deps:

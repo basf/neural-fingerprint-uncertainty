@@ -7,4 +7,5 @@
 /performance_metrics_all_counted_vs_neural.png
 /significance_plot_counted_vs_neural.png
 /scatter_metrics_counted_vs_neural.png
-/scatter_counted_binary_fp.png
+/balanced_accuracy_scatter_counted_binary_fp.png
+/brier_score_scatter_counted_binary_fp.png
