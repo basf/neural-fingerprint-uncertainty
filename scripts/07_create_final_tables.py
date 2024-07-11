@@ -96,7 +96,7 @@ def create_table_rf_calibrated_rf(base_path: Path) -> None:
         all_data_df["base_model"].isin(["RF", "Calibrated RF"])
     ]
     all_data_df = all_data_df.query("encoding == 'Neural FP'")
-    for split in ["Random", "Agglomerative clustering"]:
+    for split in ["Agglomerative clustering", "Random"]:
         split_df = all_data_df.loc[all_data_df["split"] == split]
         agg_performance_df = split_df.pivot_table(
             index=["endpoint", "metric"],

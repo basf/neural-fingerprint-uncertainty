@@ -477,7 +477,7 @@ def plot_calibration_curves(
     (_, subfig_list), axs, ax_legend = get_nxm_figure(
         figsize=kwargs.get("figsize", None), nrows=2
     )
-    name2ax_dict = {"Random": 0, "Agglomerative clustering": 1}
+    name2ax_dict = {"Agglomerative clustering": 0, "Random": 1}
     legend = None
     handles = None
     for row, data_df in enumerate(data_df_list):
@@ -537,7 +537,7 @@ def plot_proba_rf(
     (_, subfig_list), axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=4)
 
     models = ["Chemprop", "Neural FP + RF"]
-    splits = ["Random", "Agglomerative clustering"]
+    splits = ["Agglomerative clustering", "Random"]
     if data_titles:
         row_titles = [
             f"{name} - {split} split" for name, split in product(data_titles, splits)

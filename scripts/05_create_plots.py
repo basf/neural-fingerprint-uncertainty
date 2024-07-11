@@ -31,7 +31,7 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     **kwargs
         Additional keyword arguments.
     """
-    fig, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)))
+    fig, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)), dpi=600)
 
     handles, labels = test_set_composition2ax(data_df, axs[0])
     axs[0].legend(handles, labels, ncol=1)
@@ -114,7 +114,7 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     """
     model_color = get_model_order_and_color(comparison=comparison)[1]
     _, axs, ax_legend = get_nxm_figure(figsize=kwargs.get("figsize", None), nrows=1)
-    name2ax_dict = {"Random": axs[1], "Agglomerative clustering": axs[0]}
+    name2ax_dict = {"Agglomerative clustering": axs[0], "Random": axs[1]}
     for model, color in model_color.items():
         model_df = data_df.loc[data_df["Model name"] == model]
         for split in data_df["Split strategy"].unique():
@@ -155,7 +155,7 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
         figsize=kwargs["figsize"], nrows=2, share_y=False
     )
     models = ["Chemprop", "Cal. Chemprop"]
-    splits = ["Random", "Agglomerative clustering"]
+    splits = ["Agglomerative clustering", "Random"]
     for row, split_name in enumerate(splits):
         split_df = data_df.loc[data_df["Split strategy"] == split_name]
         subfigs[row].suptitle(f"{split_name} split")
@@ -212,7 +212,7 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
         figsize=kwargs["figsize"], nrows=2, share_y=False
     )
     models = ["Morgan FP + RF", "Neural FP + RF"]
-    splits = ["Random", "Agglomerative clustering"]
+    splits = ["Agglomerative clustering", "Random"]
     for row, split_name in enumerate(splits):
         split_df = data_df.loc[data_df["Split strategy"] == split_name]
         subfigs[row].suptitle(f"{split_name} split")
