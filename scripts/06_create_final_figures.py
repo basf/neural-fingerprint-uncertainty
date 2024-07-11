@@ -241,47 +241,53 @@ def plot_metrics_scatter_encoding(
     figsize: tuple[int, int] | None = None,
 ) -> None:
 
-    final_performance_df = load_all_performances(
+    full_performance_df = load_all_performances(
         base_path, comparison="morgan_vs_counted"
     )
-    final_performance_df = final_performance_df.loc[
-        final_performance_df["metric"] == "Balanced accuracy"
-    ]
-    final_performance_df = final_performance_df.pivot_table(
-        index=["endpoint", "split", "base_model"],
-        columns="encoding",
-        values="Performance",
-    ).reset_index()
-    _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1, share_y=True)
-    for i, split in enumerate(
-        [
-            "Agglomerative clustering",
-            "Random",
-        ]
-    ):
-        sns.scatterplot(
-            data=final_performance_df.loc[final_performance_df["split"] == split],
-            x="Binary Morgan FP",
-            y="Counted Morgan FP",
-            hue="base_model",
-            ax=axs[i],
-        )
-        axs[i].set_title(split)
-        axs[i].set_xlabel("Binary Morgan FP")
-        axs[i].plot([0, 1], [0, 1], ls="--", color="gray")
+    for metric in ["Balanced accuracy", "Brier score"]:
+        metric_df = full_performance_df.loc[full_performance_df["metric"] == metric]
+        metric_df = metric_df.pivot_table(
+            index=["endpoint", "split", "base_model"],
+            columns="encoding",
+            values="Performance",
+        ).reset_index()
+        _, axs, ax_legend = get_nxm_figure(figsize=figsize, nrows=1, share_y=True)
+        for i, split in enumerate(
+            [
+                "Agglomerative clustering",
+                "Random",
+            ]
+        ):
+            sns.scatterplot(
+                data=metric_df.loc[metric_df["split"] == split],
+                x="Binary Morgan FP",
+                y="Counted Morgan FP",
+                hue="base_model",
+                ax=axs[i],
+            )
+            axs[i].set_title(split)
+            axs[i].set_xlabel("Binary Morgan FP")
+            axs[i].plot([0, 1], [0, 1], ls="--", color="gray")
 
-    axs[0].set_ylabel("Counted Morgan FP")
-    axs[1].set_ylabel("")
-    axs[0].set_xlim([0.5, 1])
-    axs[0].set_ylim([0.5, 1])
-    axs[1].set_xlim([0.5, 1])
-    handles, labels = axs[0].get_legend_handles_labels()
-    ax_legend.legend(handles, labels, loc="center", ncol=4)
-    axs[0].legend().remove()
-    axs[1].legend().remove()
-    if save_path:
-        save_path = Path(save_path)
-        plt.savefig(save_path / "scatter_counted_binary_fp.png")
+        axs[0].set_ylabel("Counted Morgan FP")
+        axs[1].set_ylabel("")
+        if metric == "Balanced accuracy":
+            lim = [0.5, 1]
+        elif metric == "Brier score":
+            lim = [0, 0.5]
+        else:
+            raise ValueError("Metric not recognized.")
+        axs[0].set_xlim(lim)
+        axs[0].set_ylim(lim)
+        axs[1].set_xlim(lim)
+        handles, labels = axs[0].get_legend_handles_labels()
+        ax_legend.legend(handles, labels, loc="center", ncol=4)
+        axs[0].legend().remove()
+        axs[1].legend().remove()
+        if save_path:
+            save_path = Path(save_path)
+            metric_str = metric.lower().replace(" ", "_")
+            plt.savefig(save_path / f"{metric_str}_scatter_counted_binary_fp.png")
 
 
 def plot_metrics_all(
