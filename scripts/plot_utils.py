@@ -23,6 +23,10 @@ from sklearn.metrics import (
     recall_score,
 )
 
+# constants for image generation
+DEFAULT_IMAGE_FORMAT: str = "pdf"
+DEFAULT_DPI: int = 600
+
 
 def sliding_window_calibration_curve(
     y_true: npt.NDArray[float],
@@ -177,7 +181,7 @@ def get_nxm_figure(  # pylint: disable=too-many-locals
     """
     if figsize is None:
         figsize = (8, 4 * nrows)
-    fig = plt.figure(layout="constrained", figsize=figsize, dpi=600)
+    fig = plt.figure(layout="constrained", figsize=figsize, dpi=DEFAULT_DPI)
     row_height = 9 * nrows
     if nrows > 1:
         row_height += 1

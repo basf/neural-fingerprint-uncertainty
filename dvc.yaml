@@ -50,8 +50,8 @@ stages:
       - ./scripts/05_create_plots.py
       - ./scripts/plot_utils.py
     outs:
-      - ./data/figures/${item.endpoint}/calibration_curves_${item.comparison}.png
-      - ./data/figures/${item.endpoint}/performance_metrics_${item.comparison}.png
+      - ./data/figures/${item.endpoint}/calibration_curves_${item.comparison}.pdf
+      - ./data/figures/${item.endpoint}/performance_metrics_${item.comparison}.pdf
   create_report_plots:
     foreach: ${endpoint}  # Specified in data_config.yaml
     do:
@@ -62,9 +62,9 @@ stages:
         - ./scripts/05_create_plots.py
         - ./scripts/plot_utils.py
       outs:
-        - ./data/figures/${item}/proba_distribution_rf.png
-        - ./data/figures/${item}/proba_distribution_chemprop.png
-        - ./data/figures/${item}/data_report.png
+        - ./data/figures/${item}/proba_distribution_rf.pdf
+        - ./data/figures/${item}/proba_distribution_chemprop.pdf
+        - ./data/figures/${item}/data_report.pdf
   create_final_plots:
     matrix:
       comparison: [morgan_vs_neural, morgan_vs_counted, counted_vs_neural]
@@ -74,9 +74,9 @@ stages:
       - ./scripts/06_create_final_figures.py
       - ./scripts/plot_utils.py
     outs:
-      - ./data/figures/final_figures/performance_metrics_all_${item.comparison}.png
-      - ./data/figures/final_figures/significance_plot_${item.comparison}.png
-      - ./data/figures/final_figures/scatter_metrics_${item.comparison}.png
+      - ./data/figures/final_figures/performance_metrics_all_${item.comparison}.pdf
+      - ./data/figures/final_figures/significance_plot_${item.comparison}.pdf
+      - ./data/figures/final_figures/scatter_metrics_${item.comparison}.pdf
   create_final_plots_other:
     cmd: python scripts/06_create_final_figures.py  --comparison other
     deps:
@@ -84,8 +84,8 @@ stages:
       - ./scripts/06_create_final_figures.py
       - ./scripts/plot_utils.py
     outs:
-      - ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.png
-      - ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.png
+      - ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.pdf
+      - ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.pdf
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py
     deps:

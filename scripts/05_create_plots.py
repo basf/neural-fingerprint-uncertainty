@@ -16,6 +16,8 @@ from plot_utils import (
     sliding_window_calibration_curve,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
+    DEFAULT_IMAGE_FORMAT,
+    DEFAULT_DPI,
 )
 
 
@@ -31,7 +33,9 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     **kwargs
         Additional keyword arguments.
     """
-    fig, axs = plt.subplots(1, 2, figsize=kwargs.get("figsize", (12, 6)), dpi=600)
+    fig, axs = plt.subplots(
+        1, 2, figsize=kwargs.get("figsize", (12, 6)), dpi=DEFAULT_DPI
+    )
 
     handles, labels = test_set_composition2ax(data_df, axs[0])
     axs[0].legend(handles, labels, ncol=1)
@@ -45,7 +49,7 @@ def plot_data_report(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> N
     axs[1].set_xlabel("Similarity to training set")
     axs[1].set_ylabel("Count")
     fig.tight_layout()
-    plt.savefig(save_path / "data_report.png")
+    plt.savefig(save_path / f"data_report.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_metrics(
@@ -88,7 +92,7 @@ def plot_metrics(
     axs[0].legend().remove()
     axs[1].legend().remove()
     axs[1].set_ylabel("")
-    plt.savefig(save_path / f"performance_metrics_{comparison}.png")
+    plt.savefig(save_path / f"performance_metrics_{comparison}.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_calibration_curves(  # pylint: disable=too-many-locals
@@ -133,7 +137,7 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     axs[0].set_ylabel("Fraction of positives (Positive class: 1)")
     axs[0].set_title("Agglomerative clustering split")
     axs[1].set_title("Random split")
-    plt.savefig(save_path / f"calibration_curves_{comparison}.png")
+    plt.savefig(save_path / f"calibration_curves_{comparison}.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
@@ -190,7 +194,7 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
     axs[1, 0].legend().remove()
     axs[1, 1].legend().remove()
     ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
-    plt.savefig(save_path / "proba_distribution_chemprop.png")
+    plt.savefig(save_path / f"proba_distribution_chemprop.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
@@ -247,7 +251,7 @@ def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None
     axs[1, 0].legend().remove()
     axs[1, 1].legend().remove()
     ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
-    plt.savefig(save_path / "proba_distribution_rf.png")
+    plt.savefig(save_path / f"proba_distribution_rf.{DEFAULT_IMAGE_FORMAT}")
 
 
 @click.command()

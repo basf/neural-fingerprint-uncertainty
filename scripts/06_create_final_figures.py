@@ -21,6 +21,7 @@ from plot_utils import (
     load_all_performances,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
+    DEFAULT_IMAGE_FORMAT,
 )
 from scipy.stats import mannwhitneyu
 from sklearn.calibration import calibration_curve
@@ -67,7 +68,7 @@ def plot_test_set_composition(
     ax_legend.legend(handles, legend, loc="center", ncol=4)
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / "test_set_composition.png")
+        plt.savefig(save_path / f"test_set_composition.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_similarity_to_training(
@@ -112,7 +113,7 @@ def plot_similarity_to_training(
         raise ValueError("No handles and labels found.")
     ax_legend.legend(handles, labels, loc="center", ncol=4)
 
-    plt.savefig(save_path / "similarity_to_training.png")
+    plt.savefig(save_path / f"similarity_to_training.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_metrics(
@@ -172,7 +173,7 @@ def plot_metrics(
     ax_legend.legend(handles, labels, loc="center", ncol=4)
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / "performance_metrics.png")
+        plt.savefig(save_path / f"performance_metrics.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_metrics_scatter(
@@ -231,7 +232,7 @@ def plot_metrics_scatter(
     axs[1].legend().remove()
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / f"scatter_metrics_{comparison}.png")
+        plt.savefig(save_path / f"scatter_metrics_{comparison}.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_metrics_scatter_encoding(
@@ -286,7 +287,10 @@ def plot_metrics_scatter_encoding(
         if save_path:
             save_path = Path(save_path)
             metric_str = metric.lower().replace(" ", "_")
-            plt.savefig(save_path / f"{metric_str}_scatter_counted_binary_fp.png")
+            plt.savefig(
+                save_path
+                / f"{metric_str}_scatter_counted_binary_fp.{DEFAULT_IMAGE_FORMAT}"
+            )
 
 
 def plot_metrics_all(
@@ -330,7 +334,9 @@ def plot_metrics_all(
     axs[2].legend().remove()
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / f"performance_metrics_all_{comparison}.png")
+        plt.savefig(
+            save_path / f"performance_metrics_all_{comparison}.{DEFAULT_IMAGE_FORMAT}"
+        )
 
 
 def plot_significance_matrix(
@@ -451,7 +457,9 @@ def plot_significance_matrix(
     )
     if save_path:
         save_path = Path(save_path)
-        plt.savefig(save_path / f"significance_plot_{comparison}.png")
+        plt.savefig(
+            save_path / f"significance_plot_{comparison}.{DEFAULT_IMAGE_FORMAT}"
+        )
 
 
 def plot_calibration_curves(
@@ -511,7 +519,7 @@ def plot_calibration_curves(
     if not legend or not handles:
         raise ValueError("No legend and handles found.")
     ax_legend.legend(legend, handles, loc="center", ncol=4)
-    plt.savefig(save_path / "calibration_curves.png")
+    plt.savefig(save_path / f"calibration_curves.{DEFAULT_IMAGE_FORMAT}")
 
 
 def plot_proba_rf(
@@ -578,7 +586,7 @@ def plot_proba_rf(
     if not handles:
         raise ValueError("No handles and labels found.")
     ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
-    plt.savefig(save_path / "proba_distribution_rf.png")
+    plt.savefig(save_path / f"proba_distribution_rf.{DEFAULT_IMAGE_FORMAT}")
 
 
 @click.command()

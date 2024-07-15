@@ -9,3 +9,14 @@
 /scatter_metrics_counted_vs_neural.png
 /balanced_accuracy_scatter_counted_binary_fp.png
 /brier_score_scatter_counted_binary_fp.png
+/performance_metrics_all_morgan_vs_neural.pdf
+/significance_plot_morgan_vs_neural.pdf
+/scatter_metrics_morgan_vs_neural.pdf
+/performance_metrics_all_morgan_vs_counted.pdf
+/significance_plot_morgan_vs_counted.pdf
+/scatter_metrics_morgan_vs_counted.pdf
+/performance_metrics_all_counted_vs_neural.pdf
+/significance_plot_counted_vs_neural.pdf
+/scatter_metrics_counted_vs_neural.pdf
+/balanced_accuracy_scatter_counted_binary_fp.pdf
+/brier_score_scatter_counted_binary_fp.pdf
