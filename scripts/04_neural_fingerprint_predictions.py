@@ -49,6 +49,12 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="Endpoint to train on.",
     )
+    argument_parser.add_argument(
+        "--nn_calibration",
+        type=str,
+        default="isotonic",
+        help="Calibration method for neural networks.",
+    )
     args = argument_parser.parse_args()
     return args
 
@@ -214,8 +220,6 @@ def main() -> None:  # pylint: disable=too-many-locals
     split_strategy_list = [
         "Random",
         "Agglomerative clustering",
-        #  "Murcko scaffold",
-        #  "Generic scaffold",
     ]
 
     model_dict = define_models(args.n_jobs)
@@ -298,7 +302,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         data_path
         / "intermediate_data"
         / "model_predictions"
-        / f"neural_fingerprint_predictions_{args.endpoint}.tsv.gz"
+        / f"neural_fingerprint_predictions_{args.nn_calibration}_{args.endpoint}.tsv.gz"
     )
     prediction_df.to_csv(save_path, sep="\t", index=False)
 

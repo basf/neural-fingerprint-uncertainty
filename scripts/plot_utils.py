@@ -275,7 +275,7 @@ def load_data(
     if comparison == "morgan_vs_counted":
         comp_file = f"morgan_fingerprint_predictions_{endpoint}_counted.tsv.gz"
     else:
-        comp_file = f"neural_fingerprint_predictions_{endpoint}.tsv.gz"
+        comp_file = f"neural_fingerprint_predictions_isotonic_{endpoint}.tsv.gz"
     comp_prediction_df = pd.read_csv(
         prediction_folder / comp_file,
         sep="\t",
