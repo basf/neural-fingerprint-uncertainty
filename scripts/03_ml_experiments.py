@@ -186,7 +186,7 @@ def parse_counted_fp(counted_fp: str) -> bool:
     """
     if counted_fp == "not_counted":
         return False
-    elif counted_fp == "counted":
+    if counted_fp == "counted":
         return True
     raise ValueError("counted_fp must be either 'counted' or 'not_counted'")
 
@@ -207,7 +207,9 @@ def main() -> None:
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
 
-    file_name = f"morgan_fingerprint_predictions_{args.endpoint}_{args.counted_fp}.tsv.gz"
+    file_name = (
+        f"morgan_fingerprint_predictions_{args.endpoint}_{args.counted_fp}.tsv.gz"
+    )
     save_path = prediction_path / file_name
 
     split_strategy_list = [

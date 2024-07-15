@@ -15,13 +15,13 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from plot_utils import (
+    DEFAULT_IMAGE_FORMAT,
     get_model_order_and_color,
     get_nxm_figure,
     get_performance_metrics,
     load_all_performances,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
-    DEFAULT_IMAGE_FORMAT,
 )
 from scipy.stats import mannwhitneyu
 from sklearn.calibration import calibration_curve
@@ -240,7 +240,20 @@ def plot_metrics_scatter_encoding(
     save_path: Path | str | None = None,
     figsize: tuple[int, int] | None = None,
 ) -> None:
+    """Create a scatter plot comparing the performance of models with different encodings.
 
+    The X axis is the performance with the binary Morgan fingerprint and the Y axis is the
+    performance with the counted Morgan fingerprint.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    save_path : Path | str | None, optional (default=None)
+        Path to save the figure.
+    figsize : tuple[int, int] | None, optional (default=None)
+        Size of the figure.
+    """
     full_performance_df = load_all_performances(
         base_path, comparison="morgan_vs_counted"
     )

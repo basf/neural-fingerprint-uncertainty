@@ -9,6 +9,8 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from plot_utils import (
+    DEFAULT_DPI,
+    DEFAULT_IMAGE_FORMAT,
     get_model_order_and_color,
     get_nxm_figure,
     get_performance_metrics,
@@ -16,8 +18,6 @@ from plot_utils import (
     sliding_window_calibration_curve,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
-    DEFAULT_IMAGE_FORMAT,
-    DEFAULT_DPI,
 )
 
 
