@@ -59,7 +59,9 @@ def parse_args() -> argparse.Namespace:
     return args
 
 
-def define_chemprop_pipeline(n_jobs: int) -> CalibratedClassifierCV:
+def define_chemprop_pipeline(n_jobs: int,
+                             calibration_method: str = "isotonic"
+                             ) -> CalibratedClassifierCV:
     """Define the Chemprop pipeline.
 
     Parameters
@@ -107,7 +109,7 @@ def define_chemprop_pipeline(n_jobs: int) -> CalibratedClassifierCV:
     )
     calibrated_pipeline = CalibratedClassifierCV(
         estimator=pipeline,
-        method="isotonic",
+        method=calibration_method,
         cv=5,
         n_jobs=1,
         ensemble=False,
@@ -238,7 +240,7 @@ def main() -> None:  # pylint: disable=too-many-locals
         for trial, (train_idx, test_idx) in tqdm(
             enumerate(iter_splits), desc="Split", leave=False, total=n_splits
         ):
-            chemprop_model = define_chemprop_pipeline(args.n_jobs)
+            chemprop_model = define_chemprop_pipeline(args.n_jobs, calibration_method=args.nn_calibration)
             chemprop_model.fit(
                 endpoint_df.iloc[train_idx]["smiles"].tolist(),
                 endpoint_df.label.to_numpy()[train_idx],
