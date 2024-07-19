@@ -64,7 +64,8 @@ stages:
         - ./scripts/plot_utils.py
       outs:
         - ./data/figures/${item}/proba_distribution_rf.pdf
-        - ./data/figures/${item}/proba_distribution_chemprop.pdf
+        - ./data/figures/${item}/proba_distribution_chemprop_isotonic.pdf
+        - ./data/figures/${item}/proba_distribution_chemprop_sigmoid.pdf
         - ./data/figures/${item}/data_report.pdf
   create_final_plots:
     matrix:
