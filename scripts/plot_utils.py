@@ -245,6 +245,7 @@ def load_data(
     comparison: Literal[
         "morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"
     ] = "counted_vs_neural",
+    chemprop_calibration: Literal["isotonic", "sigmoid"] = "isotonic",
 ) -> pd.DataFrame:
     """Load the data for the endpoint.
 
@@ -258,6 +259,8 @@ def load_data(
         Defines the loaded data.
         If "morgan_vs_neural", the data is loaded for the comparison of Morgan and Neural fingerprints.
         If "morgan_vs_counted", the data is loaded for the comparison of Morgan fingerprints with and without counting.
+    chemprop_calibration : Literal["isotonic", "sigmoid"], optional (default="isotonic")
+        Calibration method for Chemprop.
 
     Returns
     -------
@@ -275,7 +278,9 @@ def load_data(
     if comparison == "morgan_vs_counted":
         comp_file = f"morgan_fingerprint_predictions_{endpoint}_counted.tsv.gz"
     else:
-        comp_file = f"neural_fingerprint_predictions_isotonic_{endpoint}.tsv.gz"
+        comp_file = (
+            f"neural_fingerprint_predictions_{chemprop_calibration}_{endpoint}.tsv.gz"
+        )
     comp_prediction_df = pd.read_csv(
         prediction_folder / comp_file,
         sep="\t",
@@ -310,6 +315,26 @@ def load_data(
     return endpoint_df
 
 
+def get_endpoint_list(base_path: Path) -> list[str]:
+    """Get the list of endpoints.
+
+    Parameters
+    ----------
+    base_path : Path
+        Base path of the project.
+
+    Returns
+    -------
+    list[str]
+        List of endpoints.
+    """
+    config_path = base_path / "config" / "endpoints.yaml"
+    # Load endpoints from yaml
+    with open(config_path, "r", encoding="UTF-8") as file:
+        endpoint_list = yaml.safe_load(file)["endpoint"]
+    return endpoint_list
+
+
 def load_all_performances(
     base_path: Path,
     comparison: Literal[
@@ -333,10 +358,7 @@ def load_all_performances(
         Data for all endpoints.
     """
     prediction_folder = base_path / "data" / "intermediate_data" / "model_predictions"
-    config_path = base_path / "config" / "endpoints.yaml"
-    # Load endpoints from yaml
-    with open(config_path, "r", encoding="UTF-8") as file:
-        endpoint_list = yaml.safe_load(file)["endpoint"]
+    endpoint_list = get_endpoint_list(base_path)
     performance_df_list = []
     for endpoint in endpoint_list:
         try:
