@@ -16,6 +16,7 @@ import pandas as pd
 import seaborn as sns
 from plot_utils import (
     DEFAULT_IMAGE_FORMAT,
+    get_endpoint_list,
     get_model_order_and_color,
     get_nxm_figure,
     get_performance_metrics,
@@ -352,6 +353,114 @@ def plot_metrics_all(
         )
 
 
+def plot_precision_recall(
+    base_path: Path,
+    comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"],
+    save_path: Path | str | None = None,
+    figsize: tuple[int, int] | None = None,
+) -> None:
+    """Create a boxplot with precision and recall for all endpoints and models.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"]
+        Comparison between models.
+    save_path : Path | str | None, optional (default=None)
+        Path to save the figure.
+    figsize : tuple[int, int] | None, optional (default=None)
+        Size of the figure.
+    """
+    all_data_df = load_all_performances(base_path, comparison=comparison)
+    model_order, color_dict = get_model_order_and_color(comparison=comparison)
+    _, axs, ax_legend = get_nxm_figure(figsize=figsize, ncols=1, nrows=2, share_y=False)
+
+    for i, metric in enumerate(["Precision", "Recall"]):
+        sns.boxplot(
+            data=all_data_df.loc[all_data_df["metric"] == metric],
+            x="split",
+            hue="model",
+            y="Performance",
+            ax=axs[i],
+            palette=color_dict,
+            hue_order=model_order,
+        )
+        axs[i].set_title(metric)
+        axs[i].set_xlabel("")
+        axs[i].set_ylabel("Metric value")
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=len(labels) // 2)
+    axs[0].legend().remove()
+    axs[1].legend().remove()
+    if save_path:
+        save_path = Path(save_path)
+        plt.savefig(save_path / f"precision_recall_{comparison}.{DEFAULT_IMAGE_FORMAT}")
+
+
+def compare_chemprop_calibration(
+    base_path: Path,
+    save_path: Path,
+    figsize: tuple[int, int] | None = None,
+) -> None:
+    """Compare the calibration of the Chemprop models.
+
+    Parameters
+    ----------
+    base_path : Path
+        Path to the data.
+    save_path : Path
+        Path to save the figure.
+    """
+    endpoint_list = get_endpoint_list(base_path)
+    prediction_path = base_path / "data" / "intermediate_data" / "model_predictions"
+    performance_df_list = []
+    for endpoint in endpoint_list:
+        endpoint_prediction_df_list = []
+        for cal_method in ["isotonic", "sigmoid"]:
+            prediction_df = pd.read_csv(
+                prediction_path
+                / f"neural_fingerprint_predictions_{cal_method}_{endpoint}.tsv.gz",
+                sep="\t",
+            )
+            prediction_df = prediction_df.loc[
+                prediction_df["model"] == "Calibrated Chemprop"
+            ]
+            prediction_df["encoding"] = "Neural FP"
+            prediction_df["endpoint"] = endpoint
+            prediction_df["Model name"] = f"Chemprop {cal_method} calibration"
+            endpoint_prediction_df_list.append(prediction_df)
+        endpoint_prediction_df = pd.concat(endpoint_prediction_df_list)
+        performance_df = get_performance_metrics(endpoint_prediction_df)
+        performance_df_list.append(performance_df)
+    all_performance_df = pd.concat(performance_df_list)
+    metric_list = ["Balanced accuracy", "Brier score", "Log loss"]
+    _, axs, ax_legend = get_nxm_figure(
+        figsize=figsize, ncols=1, nrows=len(metric_list), share_y=False
+    )
+    for i, metric in enumerate(metric_list):
+        sns.boxplot(
+            data=all_performance_df.loc[all_performance_df["metric"] == metric],
+            x="split",
+            hue="model",
+            y="Performance",
+            ax=axs[i],
+        )
+        axs[i].set_title(metric)
+        axs[i].set_xlabel("")
+        axs[i].set_ylabel("Metric value")
+    axs[0].set_ylabel("Balanced accuracy")
+    axs[1].set_ylabel("Brier score")
+    axs[2].set_ylabel("Log loss")
+    handles, labels = axs[0].get_legend_handles_labels()
+    ax_legend.legend(handles, labels, loc="center", ncol=2)
+    axs[0].legend().remove()
+    axs[1].legend().remove()
+    axs[2].legend().remove()
+
+    plt.savefig(save_path / f"chemprop_calibration.{DEFAULT_IMAGE_FORMAT}")
+
+
 def plot_significance_matrix(
     base_path: Path,
     comparison: Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"],
@@ -364,6 +473,8 @@ def plot_significance_matrix(
     ----------
     base_path : Path
         Path to the data.
+    comparison : Literal["morgan_vs_neural", "morgan_vs_counted", "counted_vs_neural"]
+        Comparison between models.
     save_path : Path | str | None, optional (default=None)
         Path to save the figure.
     figsize : tuple[int, int] | None, optional (default=None)
@@ -622,6 +733,7 @@ def create_figures(
     save_path = base_path / "data" / "figures" / "final_figures"
     save_path.mkdir(parents=True, exist_ok=True)
     if comparison == "other":
+        compare_chemprop_calibration(base_path, save_path)
         plot_metrics_scatter_encoding(base_path, save_path=save_path, figsize=(8, 4))
     else:
         plot_significance_matrix(
@@ -631,10 +743,11 @@ def create_figures(
             base_path, save_path=save_path, figsize=(8, 4), comparison=comparison
         )
         plot_metrics_all(base_path, save_path=save_path, comparison=comparison)
+        plot_precision_recall(base_path, save_path=save_path, comparison=comparison)
 
 
 if __name__ == "__main__":
     pd.set_option("display.max_columns", None)
     pd.set_option("display.max_rows", None)
     pd.set_option("display.max_colwidth", None)
-    create_figures()
+    create_figures(("--comparison", "other"))
