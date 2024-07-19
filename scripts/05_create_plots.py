@@ -140,7 +140,9 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
     plt.savefig(save_path / f"calibration_curves_{comparison}.{DEFAULT_IMAGE_FORMAT}")
 
 
-def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
+def plot_proba_chemprop(  # pylint: disable=too-many-locals
+    data_df: pd.DataFrame, save_path: Path, calibration: str = "", **kwargs: Any
+) -> None:
     """Plot the probability distribution for RF models with Morgan and Neural fingerprints.
 
     Parameters
@@ -149,6 +151,8 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
         Predictions for the endpoint.
     save_path : Path
         Path to save the figure.
+    calibration : str
+        Calibration method for the Chemprop model.
     **kwargs
         Additional keyword arguments.
     """
@@ -194,7 +198,9 @@ def plot_proba_chemprop(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -
     axs[1, 0].legend().remove()
     axs[1, 1].legend().remove()
     ax_legend.legend(handles, ["Active", "Inactive"], loc="center", ncol=4)
-    plt.savefig(save_path / f"proba_distribution_chemprop.{DEFAULT_IMAGE_FORMAT}")
+    plt.savefig(
+        save_path / f"proba_distribution_chemprop_{calibration}.{DEFAULT_IMAGE_FORMAT}"
+    )
 
 
 def plot_proba_rf(data_df: pd.DataFrame, save_path: Path, **kwargs: Any) -> None:
@@ -287,8 +293,15 @@ def create_figures(
     save_path = base_path / "data" / "figures" / endpoint
     save_path.mkdir(parents=True, exist_ok=True)
     if comparison == "other":
+        sigmoid_df = load_data(
+            endpoint,
+            prediction_folder,
+            comparison="morgan_vs_neural",
+            chemprop_calibration="sigmoid",
+        )
+        plot_proba_chemprop(sigmoid_df, save_path, calibration="sigmoid")
         data_df = load_data(endpoint, prediction_folder, comparison="counted_vs_neural")
-        plot_proba_chemprop(data_df, save_path)
+        plot_proba_chemprop(data_df, save_path, calibration="isotonic")
         plot_proba_rf(data_df, save_path)
         plot_data_report(data_df, save_path, **plot_kwargs)
     else:
