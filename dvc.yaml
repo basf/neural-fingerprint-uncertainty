@@ -77,6 +77,7 @@ stages:
       - ./scripts/plot_utils.py
     outs:
       - ./data/figures/final_figures/performance_metrics_all_${item.comparison}.pdf
+      - ./data/figures/final_figures/precision_recall_${item.comparison}.pdf
       - ./data/figures/final_figures/significance_plot_${item.comparison}.pdf
       - ./data/figures/final_figures/scatter_metrics_${item.comparison}.pdf
   create_final_plots_other:
@@ -88,6 +89,7 @@ stages:
     outs:
       - ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.pdf
       - ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.pdf
+      - ./data/figures/final_figures/chemprop_calibration.pdf
   create_final_tables:
     cmd: python scripts/07_create_final_tables.py
     deps:
