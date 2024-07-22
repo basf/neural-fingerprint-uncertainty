@@ -750,4 +750,4 @@ if __name__ == "__main__":
     pd.set_option("display.max_columns", None)
     pd.set_option("display.max_rows", None)
     pd.set_option("display.max_colwidth", None)
-    create_figures(("--comparison", "other"))
+    create_figures()
