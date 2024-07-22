@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from sklearn.calibration import calibration_curve
 from plot_utils import (
     DEFAULT_DPI,
     DEFAULT_IMAGE_FORMAT,
@@ -15,7 +16,6 @@ from plot_utils import (
     get_nxm_figure,
     get_performance_metrics,
     load_data,
-    sliding_window_calibration_curve,
     test_set_composition2ax,
     test_set_nn_similarity2ax,
 )
@@ -123,8 +123,11 @@ def plot_calibration_curves(  # pylint: disable=too-many-locals
         model_df = data_df.loc[data_df["Model name"] == model]
         for split in data_df["Split strategy"].unique():
             split_df = model_df.loc[model_df["Split strategy"] == split]
-            prob_true, prob_pred = sliding_window_calibration_curve(
-                split_df["label"], split_df["proba"]
+            prob_true, prob_pred = calibration_curve(
+                split_df["label"],
+                split_df["proba"],
+                n_bins=10,
+                strategy="quantile",
             )
             ax = name2ax_dict[split]
             ax.plot(prob_pred, prob_true, label=f"{model}", color=color)
@@ -178,8 +181,8 @@ def plot_proba_chemprop(  # pylint: disable=too-many-locals
                 alpha=0.5,
                 hue="label",
                 bins=np.linspace(0, 1, 20),
-                stat="density",
-                common_norm=False,
+                stat="count",
+                common_norm=True,
             )
             axs[row, col].set_title(f"{model}")
             if row == 1:
@@ -187,7 +190,7 @@ def plot_proba_chemprop(  # pylint: disable=too-many-locals
             else:
                 axs[row, col].set_xlabel("")
             if col == 0:
-                axs[row, col].set_ylabel("Density")
+                axs[row, col].set_ylabel("Count")
             else:
                 axs[row, col].set_ylabel("")
             col += 1
