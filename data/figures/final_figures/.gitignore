@@ -20,3 +20,7 @@
 /scatter_metrics_counted_vs_neural.pdf
 /balanced_accuracy_scatter_counted_binary_fp.pdf
 /brier_score_scatter_counted_binary_fp.pdf
+/precision_recall_morgan_vs_neural.pdf
+/precision_recall_morgan_vs_counted.pdf
+/precision_recall_counted_vs_neural.pdf
+/chemprop_calibration.pdf

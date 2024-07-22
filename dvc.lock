@@ -1759,8 +1759,8 @@ stages:
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: b289b2136ee362902214cc903a742b79.dir
-      size: 21283060
+      md5: d3f2ad1125a32101aac8b539963a9a66.dir
+      size: 24501909
       nfiles: 77
     - path: ./scripts/07_create_final_tables.py
       hash: md5
@@ -1769,7 +1769,7 @@ stages:
     outs:
     - path: ./logs/07_create_final_tables.log
       hash: md5
-      md5: 7b0e0910483a57cb3f8681c7534b414a
+      md5: 05a97a85b2c459dd2cb106643cb441d5
       size: 35885
   ml_experiments@APR_HepG2_CellLoss_72h_dn-true:
     cmd: python ./scripts/03_ml_experiments.py --endpoint APR_HepG2_CellLoss_72h_dn
@@ -2491,8 +2491,8 @@ stages:
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2515,21 +2515,21 @@ stages:
     outs:
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 6ba5da3e5a7a4d94f10d1f7b45dbed4a
-      size: 19990
+      md5: 0fbf337b70912fa06d17713ad84b3a93
+      size: 18347
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: d5058ceadc2fd5214ad7899c2e3aaeb6
-      size: 23329
+      md5: c2fc6b660d993c44ec929c639accf555
+      size: 23335
   create_comparison_plots@APR_HepG2_CellLoss_72h_dn-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2553,21 +2553,21 @@ stages:
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: f1ca25894a7705a654ea9638cbac7451
-      size: 19064
+      md5: 47c2f978b9d0bd4770d30bf083db9f25
+      size: 17911
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: a1b6b3bc388229fbb3abbc3c44dcdcc8
-      size: 20471
+      md5: e55866b9a465ced3771e8ee82f512982
+      size: 20477
   create_comparison_plots@ATG_NRF2_ARE_CIS_up-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2590,20 +2590,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: aaa2938c298869e3704e9ba09d70c806
-      size: 20079
+      md5: 01b49544a9f58c83dd370a26cb04833d
+      size: 18421
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 9623435664805736675a58318fdfaa5f
-      size: 22220
+      md5: 746f2fd326d80647d57e25c5b15d3ee2
+      size: 22226
   create_comparison_plots@ATG_NRF2_ARE_CIS_up-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2626,20 +2626,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 782e8bdd56186adaea0306ee0692db89
-      size: 19139
+      md5: cc29a4a97ab1c8f60df4fd608ef3a3ba
+      size: 17988
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 1bcfabbc83fb7256a6232d75ce765670
-      size: 20279
+      md5: 83223c1d7637bd66d850e7806463e6a0
+      size: 20285
   create_comparison_plots@ATG_PXRE_CIS_up-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2662,20 +2662,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 302092681d6fc9b69b8a79d642da375e
-      size: 20223
+      md5: 03b90d4a7b544d40057cf43195e3b98e
+      size: 18458
     - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 30c6321461c9c2e5532128fd131445c4
-      size: 24034
+      md5: 05d88177ba3441d2d37730b5a062a5c2
+      size: 24040
   create_comparison_plots@ATG_PXRE_CIS_up-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2698,20 +2698,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 11303a662512f82def6c2424ccc307f9
-      size: 19269
+      md5: 51ce7b26668e1f35271581853913aaec
+      size: 17992
     - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 6b74f546f03d4be1f4ebeff6eb3936fc
-      size: 20769
+      md5: 241f9922d76a53355507dde8ade1a1d3
+      size: 20775
   create_comparison_plots@BSK_3C_HLADR_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2734,20 +2734,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: a7b1945559f5d7705e6a693d74649a02
-      size: 19849
+      md5: 92a6da609b5e67c20c9af949d3157f23
+      size: 18330
     - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 49e583840e255e70d5be873889aa0543
-      size: 23484
+      md5: a4b52c37e4637a6ba39081de10c9d1eb
+      size: 23490
   create_comparison_plots@BSK_3C_HLADR_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2770,20 +2770,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 7d74c5e0308d3f8eeb93de37e4f751f5
-      size: 19020
+      md5: 5b5619e0e48d3ada07300a130b11fce8
+      size: 17926
     - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 9442b2a9e8d9084c4b291d9e9fb3c03d
-      size: 20906
+      md5: 941c6662bfec16b9b650929bad78d643
+      size: 20912
   create_comparison_plots@BSK_3C_Proliferation_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2806,21 +2806,21 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Proliferation_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 84e274767ce3eab85675826f76c86f86
-      size: 19912
+      md5: 0782748351ed901ebe1271fbdfaca9dd
+      size: 18385
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: ea9bbf55af20b3c8dcb0599494f4e25c
-      size: 22314
+      md5: f6be09d1fcf82c88d4689ce0c324a7ca
+      size: 22320
   create_comparison_plots@BSK_3C_Proliferation_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2844,21 +2844,21 @@ stages:
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 7689fdd11432c098087fac880a3b89ab
-      size: 19021
+      md5: f1ee8de3a88a5d7d81a7127d796be741
+      size: 17945
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 9b814eaf310fd65bd241acbff9e4e07a
-      size: 21076
+      md5: 340ad64dc8116788c45725121ffb0847
+      size: 21082
   create_comparison_plots@BSK_3C_SRB_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2881,20 +2881,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 31c9a1f1cc83fafbb00139151f485a71
-      size: 19820
+      md5: 875ac4f24e9b49015d40058a31a24bcc
+      size: 18353
     - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 6346a8191fa186cf8a11556af860722a
-      size: 22653
+      md5: aa2dc968f1eab464075162163c27f2d3
+      size: 22659
   create_comparison_plots@BSK_3C_SRB_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2917,20 +2917,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 4ff6a0008e0eeccd5907de8ceae83a03
-      size: 18925
+      md5: d036bef5e92792d62bc7db2b0e49caf1
+      size: 17910
     - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 20fa3b3b087039f7390e23b167af0c5f
-      size: 20983
+      md5: ac5e80183572a2922d8765989ac84a41
+      size: 20989
   create_comparison_plots@BSK_3C_Vis_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2953,20 +2953,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: d3e5d486c0a70cdc21a1ae41be824123
-      size: 19716
+      md5: aab8290e8a6ddd99ccbe00ea257eef67
+      size: 18313
     - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: de85617ae070a8834f536a49dff44902
-      size: 23046
+      md5: c5c26e71547aee6dbac8de1d4c261c42
+      size: 23052
   create_comparison_plots@BSK_3C_Vis_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -2989,20 +2989,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: d4d96e29b4ba9d906a38fd893bacc0cd
-      size: 18824
+      md5: d37dda428781c7bbb913fa28c078e104
+      size: 17899
     - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 7974c4cd0422688799646f48ac6ba328
-      size: 20815
+      md5: 948943813b9b28dabc11752949ada72b
+      size: 20821
   create_comparison_plots@BSK_4H_Eotaxin3_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3025,20 +3025,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 0100121086be6af4c7ff59f0933bb9b8
-      size: 19605
+      md5: 2e285453ff49bcbf892c5bd2d573dbf4
+      size: 18297
     - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 5d1e172693b211317121921341cff5ee
-      size: 24413
+      md5: 65f92001c9a0719c08f2b76e6d3679c6
+      size: 24419
   create_comparison_plots@BSK_4H_Eotaxin3_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3061,20 +3061,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: d06c3480784255e638f97cb4687826c0
-      size: 18748
+      md5: 423e66b07674fde18120216f93d8f7a6
+      size: 17847
     - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: fe58f3d133adeee083afc3b31d233462
-      size: 22712
+      md5: d64372c9435c10622603a49cb9d113e1
+      size: 22718
   create_comparison_plots@BSK_CASM3C_Proliferation_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3098,21 +3098,21 @@ stages:
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 5fe6f15c0005ab3dfd1a620319517564
-      size: 19692
+      md5: 90e34975db7b4406132e4a6a1fa1b69a
+      size: 18290
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 558f74c8cfdd1aeac422cac1a01ce604
-      size: 22543
+      md5: d68be916cbcea73d110750ec9260b4f6
+      size: 22549
   create_comparison_plots@BSK_CASM3C_Proliferation_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3136,21 +3136,21 @@ stages:
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 3665cb3cb6506f29e069bb01e428c973
-      size: 18829
+      md5: 7e593d612b2de82ed573d5b9cdc96eb8
+      size: 17870
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 9c2fa146d7dfa2760e43b64ac6bb2b28
-      size: 20739
+      md5: d693f12ba75a8c44609672b6f3f21e27
+      size: 20745
   create_comparison_plots@BSK_LPS_VCAM1_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3173,20 +3173,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 4510d2f109a2afe83072b4e396e61c33
-      size: 19730
+      md5: df5e19c8073a22672712b34d4a3b5017
+      size: 18333
     - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 97fe0afd6de554904c5ef2fe4f0d6f95
-      size: 22476
+      md5: e46bf12dbcf8a79f2bce9519f0ab4c2a
+      size: 22482
   create_comparison_plots@BSK_LPS_VCAM1_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3209,20 +3209,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: d93bcbabc4dccf2529ecca183673d93b
-      size: 18904
+      md5: e5da11b4d1ba4d1d102037eaeba297b7
+      size: 17846
     - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 8e012b19d19c3007b594cf4fb0b05a30
-      size: 20915
+      md5: 3bb2a762e35221b6feef2b382429a432
+      size: 20921
   create_comparison_plots@BSK_SAg_CD38_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3245,20 +3245,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 89dee87f23fd083d1f960426123d8efc
-      size: 19738
+      md5: 1d3cb1456072de32ef58525100dd5e16
+      size: 18321
     - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 74d1eedb618a25a63a21706584397e21
-      size: 21872
+      md5: 835515b7038d517d32378103e457e7d2
+      size: 21878
   create_comparison_plots@BSK_SAg_CD38_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3281,20 +3281,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 24c7f4826d87e0ce467fbc565f414295
-      size: 18897
+      md5: 6076861e6eb3764fe14128467994b425
+      size: 17831
     - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 8a6307b1ede880419079019576e402c4
-      size: 20143
+      md5: 6c62a0d2daf39847657bd16964c515b2
+      size: 20149
   create_comparison_plots@BSK_SAg_CD40_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3317,20 +3317,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 7b3faf91d95d0c7ae1643692b9b6f4f9
-      size: 19677
+      md5: 1bffb8d9498448eb1dd8d528478e56b3
+      size: 18291
     - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 22155a234c8fae2c30164f1845ce6d3e
-      size: 22567
+      md5: 5774e3412813a2050d92de7288ea8db4
+      size: 22573
   create_comparison_plots@BSK_SAg_CD40_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3353,20 +3353,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: b82d6e25afc78632b21092365bd624fe
-      size: 18825
+      md5: 61ba56247562c0e1447e017bb779ccd9
+      size: 17873
     - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: d7192a53bb6ee4061d37781ef11b9ee3
-      size: 21959
+      md5: 3a438277dfe602dc54e0c8cbf285e711
+      size: 21965
   create_comparison_plots@BSK_SAg_Proliferation_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3390,21 +3390,21 @@ stages:
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: efb3ef4075edec8d31676ce58eba9b4e
-      size: 19974
+      md5: 82ce4a8f7c219279c990e4b23a0bf6cd
+      size: 18331
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 53237e6699586ffaac08385b08c7cbc9
-      size: 23185
+      md5: ff6522e3bfc256ea2a2a975c26e133e4
+      size: 23191
   create_comparison_plots@BSK_SAg_Proliferation_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3428,21 +3428,21 @@ stages:
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: fd73746737192c70734a74772f3481ca
-      size: 19054
+      md5: af21e83dbac7a3e8accf5c1c6ac8662f
+      size: 17912
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 38a96b743659fe042228be70241c7907
-      size: 20275
+      md5: d8b03c46edec7d64c1054d955f98b6c4
+      size: 20281
   create_comparison_plots@BSK_hDFCGF_CollagenIII_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3466,21 +3466,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: d2460a9204e8ef3f6254f9f1ae697090
-      size: 19661
+      md5: 5b3808e1b0aec7667561320258b25705
+      size: 18323
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 2a2590769a783b23b7bb0383ce63c9a8
-      size: 22523
+      md5: d9a67a7bbb96ae5e8445fed33170ed8d
+      size: 22529
   create_comparison_plots@BSK_hDFCGF_CollagenIII_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3504,21 +3504,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: fffadf3b007942e82fcf5f7785d4467b
-      size: 18803
+      md5: bc768158540a87a240727a4e788967d2
+      size: 17890
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 6efb5d4ac7549d276c6145ca5d8cd553
-      size: 21065
+      md5: 5c8e3f0d7eb673c1feafcf7f0d1fdd79
+      size: 21071
   create_comparison_plots@BSK_hDFCGF_Proliferation_down-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3542,21 +3542,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 7b3031d049a7b1f33555ea2324faa42a
-      size: 19900
+      md5: ad69fb72d9ac2ee9ded332c3048cc81f
+      size: 18383
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 412315134ad19a60ea422fa34c5d149d
-      size: 22750
+      md5: c25a1a8389156badac2f18355e63dd5b
+      size: 22756
   create_comparison_plots@BSK_hDFCGF_Proliferation_down-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3580,21 +3580,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: edf38066e35e44d9b1bfac772246af4b
-      size: 19051
+      md5: a7added45db5268725e724dc437c9c53
+      size: 17938
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 85fa1ca1e5e90aa818809b5daad33fb7
-      size: 19793
+      md5: 37ff7ce6109611f9106c4ed88a77d523
+      size: 19799
   create_comparison_plots@CEETOX_H295R_11DCORT_dn-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3617,20 +3617,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: ea3b00c6229ff005c819d9986c7c2b0a
-      size: 19373
+      md5: 2d5c61e3d56499051967ac36019cce61
+      size: 18147
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: eef9883969c0ab28971ce21ed3cf887b
-      size: 21099
+      md5: bc8b1eb5f51314b72c34ef7e50583e08
+      size: 21105
   create_comparison_plots@CEETOX_H295R_11DCORT_dn-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3653,20 +3653,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: 22674aba5fcd0e14e908ce6bf5c32c64
-      size: 18736
+      md5: 88742ccf8d7383c050e0da2a91d08be2
+      size: 17802
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: c7ddce48c81bf7d6bcbf801b7eb225eb
-      size: 19990
+      md5: 60b3581f230ed37332cd452ec1869b24
+      size: 19996
   create_comparison_plots@CEETOX_H295R_ANDR_dn-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3689,20 +3689,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: bc088d908227eee0232ddc52f00c2aec
-      size: 19409
+      md5: 11d8512fecfe5ca99b144ab071f00aac
+      size: 18122
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: 72679b69448eb9924e51bf7928500f91
-      size: 23463
+      md5: 65ad11b471edd6f8fd1998806161b144
+      size: 23469
   create_comparison_plots@CEETOX_H295R_ANDR_dn-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3725,20 +3725,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: ded4d8dc31a1e76ec793fd719a0a2857
-      size: 18690
+      md5: 0f854d8a4654ec8002ac7f9c047f7548
+      size: 17759
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: aed3103ea6575df822539c7ce62d9488
-      size: 20563
+      md5: d2304d29272f70fa6b9e239e7a2ac737
+      size: 20569
   create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3762,21 +3762,21 @@ stages:
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 2b54aa41eb57c6939266565c318f5571
-      size: 19773
+      md5: 8df5ce7450000fd4a38a0fe6b31de11f
+      size: 18313
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: a7fc16ae9a9fb1c5e55216db06770c08
-      size: 23377
+      md5: 020337d60396be0245e1698a113a9c14
+      size: 23383
   create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3800,21 +3800,21 @@ stages:
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: b19f0cc6f75192e4a4661b8ec8308756
-      size: 19047
+      md5: 27b9be91c099f5e162debf5bbb4c6c6d
+      size: 17865
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 7a186faac1fe722208cc2027a0675278
-      size: 20898
+      md5: 66251a6c6a48066e54a57c8ae9e1de3b
+      size: 20904
   create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-morgan_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
       morgan_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3838,21 +3838,21 @@ stages:
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_morgan_vs_neural.pdf
       hash: md5
-      md5: 10fe289ce676a06a2c8a3589c9875d17
-      size: 20142
+      md5: 75b70978da83c7638ff0e8e34c85e7cd
+      size: 18343
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: c7d41bf4700938fa1368418e6cb05487
-      size: 22360
+      md5: 87c9f7b6bbbf1ac998cccbb8fdfc7242
+      size: 22366
   create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-morgan_vs_counted:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
       morgan_vs_counted
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3876,21 +3876,21 @@ stages:
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_morgan_vs_counted.pdf
       hash: md5
-      md5: bc532b4622791a28137bf416589cb017
-      size: 19203
+      md5: 8cb19fdd4269fe6655d8cf1d42962b07
+      size: 17887
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 99404fba04fbca961bcdc380f82df135
-      size: 20418
+      md5: 724980d42f71b485beb747cdee778ad0
+      size: 20424
   create_report_plots@APR_HepG2_CellLoss_72h_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3908,29 +3908,29 @@ stages:
     outs:
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/data_report.pdf
       hash: md5
-      md5: 4a3e83172fa5ab754f319d8b43add257
-      size: 17711
+      md5: 8a182322939230b78aa4dddf71573a81
+      size: 17717
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 0adb4a06862f90009b0dc5018b274693
-      size: 19030
+      md5: f51d0c7ccc94b98078e5167046a6e7d8
+      size: 18336
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 5f20536769bb1418221079453ec79974
-      size: 18555
+      md5: 3eb5c8044b7e5023ce72c94cead119c3
+      size: 18245
     - path: ./data/figures/APR_HepG2_CellLoss_72h_dn/proba_distribution_rf.pdf
       hash: md5
-      md5: ef86222e06d55d213e5154d5c348cdd2
-      size: 18673
+      md5: ca2642e7f2ff4eb27bd2f91f55287639
+      size: 18679
   create_report_plots@ATG_NRF2_ARE_CIS_up:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3948,28 +3948,28 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/data_report.pdf
       hash: md5
-      md5: c0f534f687934638984139b127f3beff
-      size: 17097
+      md5: 4d008f49113e16cd2481e26622be109c
+      size: 17103
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 9828fae02924951e94ac4b79692a05ae
-      size: 18456
+      md5: 90292566af1804f8b583f6f10b1b2583
+      size: 18563
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 803017e37e687aa01a6715df8ddd5942
-      size: 18500
+      md5: 5344dc1c56691b9a00742c066f07b48d
+      size: 18345
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/proba_distribution_rf.pdf
       hash: md5
-      md5: 8dd9bbc6f27ef86f6d0ba9aff2b3762e
-      size: 18249
+      md5: f322781766c06e57594325facd4718d1
+      size: 18255
   create_report_plots@ATG_PXRE_CIS_up:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -3987,28 +3987,28 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/data_report.pdf
       hash: md5
-      md5: a78edb040feebbc6277cb521168468bd
-      size: 17124
+      md5: 6c9088fbaf7ddbbc53b62666a1314325
+      size: 17130
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: aecc743c043e2912abfcd4db0c8f3659
-      size: 18498
+      md5: a14d9277c38dfbce2c44963b46c66df0
+      size: 18230
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: d690ec50cce6db04f3264ec2fbc1087c
-      size: 18623
+      md5: b532f8d272008ac63249b4ab9e52b0aa
+      size: 18010
     - path: ./data/figures/ATG_PXRE_CIS_up/proba_distribution_rf.pdf
       hash: md5
-      md5: c6fec0c71014d23e4cda8bff5f7f9f05
-      size: 18841
+      md5: 386493e504c931f1727c165680c6e490
+      size: 18847
   create_report_plots@BSK_3C_HLADR_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4026,28 +4026,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/data_report.pdf
       hash: md5
-      md5: 496ee5b5ecd99c369d7e384ded383030
-      size: 17107
+      md5: 41c0bf0388b2861fb706ccb0c51fe097
+      size: 17113
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 5c2cb31923f645f17c878e0ef87ee84d
-      size: 18732
+      md5: a40c6228b6c762616d8801727d5ac218
+      size: 18402
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 6b9362dc2ca30a2447ab5606755ea419
-      size: 18477
+      md5: 57b1c0d25c5cdd05aa4a08226d82bde3
+      size: 18175
     - path: ./data/figures/BSK_3C_HLADR_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 638d3a08069becc4876cd146e0bbb37a
-      size: 18576
+      md5: 5736d10c91958426fd99a4ea740b8b8a
+      size: 18582
   create_report_plots@BSK_3C_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4065,29 +4065,29 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Proliferation_down/data_report.pdf
       hash: md5
-      md5: b35f51c00d720f6d00239d21561f3da4
-      size: 17169
+      md5: 096dbe2d25e47c37598bcccef388f277
+      size: 17175
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: be6403c98b1b97b65f3bebf52f65d0f3
-      size: 18961
+      md5: 4040839eb228d19519f0ac45fffb3b80
+      size: 18412
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 5f4fa260fdcec9d7d833ca887e5f29b8
-      size: 18654
+      md5: 4db3314bb8f324550fd374e8472e2c5c
+      size: 18089
     - path: ./data/figures/BSK_3C_Proliferation_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 04c7177020f856b908da897c7d03937c
-      size: 18683
+      md5: 5bc2038452620e5c0f5a83a393f95e2d
+      size: 18689
   create_report_plots@BSK_3C_SRB_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4105,28 +4105,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/data_report.pdf
       hash: md5
-      md5: 507af956a805d53957326392c4fc1940
-      size: 17375
+      md5: f97596cbb412d7be9e50ddb54a6d7153
+      size: 17381
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: f1f524746a707617514fa2d2f81a5e43
-      size: 18501
+      md5: cd49a758122bf17c664692d91bb0dda5
+      size: 18377
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: a55abd988dc0dd47a641e1902bd7015a
-      size: 18408
+      md5: 9ca6d631e2b94cd7b374e0695b481df0
+      size: 17904
     - path: ./data/figures/BSK_3C_SRB_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 4a333b93e583f196c2bc2c7f5b40960f
-      size: 18590
+      md5: 5efc1af02ba505fc716fa97eb83b7f6a
+      size: 18596
   create_report_plots@BSK_3C_Vis_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4144,28 +4144,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/data_report.pdf
       hash: md5
-      md5: 065217000e261ef75067fbdabcd9b16e
-      size: 17183
+      md5: 0e3d263611ab3e885bb670eca4f3a99c
+      size: 17189
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 4227ef093f0bf427ae8c2d4906fb5f42
-      size: 18696
+      md5: ae2ac70e19ab37ae50c02c0fc1d0595c
+      size: 18136
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 74941d137da02c97ab450e0d0fd4c70f
-      size: 18722
+      md5: 1e1edc5313a7288e8bffefeb83e0a7e0
+      size: 17942
     - path: ./data/figures/BSK_3C_Vis_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 560f36945f604d79f39ee2e8c5c2aa44
-      size: 18668
+      md5: 63f8afb28cbaf09eafb8e4a2bdfcf324
+      size: 18674
   create_report_plots@BSK_4H_Eotaxin3_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4183,28 +4183,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/data_report.pdf
       hash: md5
-      md5: 695295d3a84ef70fbef08f5a4b3fd6de
-      size: 17110
+      md5: 9bf4b888d9f16265c8ea30d37e7a0f18
+      size: 17116
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: e222e2def0beac68765ca0d476806263
-      size: 18229
+      md5: a43766ec28cb68848fb79ba173bae126
+      size: 18074
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: c1ff2f638befef31d406962d0264da0a
-      size: 18428
+      md5: ee6346fa5be6943528bef384f37d5fa1
+      size: 18004
     - path: ./data/figures/BSK_4H_Eotaxin3_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 05a422a091ab0b57a528dd8150946aad
-      size: 18618
+      md5: 17d3f6051b19e8094090076a1339dd6a
+      size: 18624
   create_report_plots@BSK_CASM3C_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4222,30 +4222,30 @@ stages:
     outs:
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/data_report.pdf
       hash: md5
-      md5: ad732654565587c4dce3d9cc83f03260
-      size: 17119
+      md5: ece1c00b57f1f019b0e76b500ac7eed0
+      size: 17125
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 11adab4e2b89065187ba75f4ed8c7eeb
-      size: 18735
+      md5: fed37f96b6fac01911777ab5c208d05a
+      size: 18271
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 06e755ec6ca27d84bf59986b6d592ac8
-      size: 17697
+      md5: 391e1260e150eb578ee1feb4dfeb0b6b
+      size: 17882
     - path: ./data/figures/BSK_CASM3C_Proliferation_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 7b8c489de378569ef400bae5a6c47c44
-      size: 18568
+      md5: 53529fabc046e92a2e18464e9d47d56d
+      size: 18574
   create_report_plots@BSK_LPS_VCAM1_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4263,28 +4263,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/data_report.pdf
       hash: md5
-      md5: 9ace97f87581dab06a2452a46abea5a1
-      size: 17307
+      md5: ff7fb8f7a6028d4d4f002988b787cbc2
+      size: 17313
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 7197514175a2a45c4a5acedb77eaa9e9
-      size: 17901
+      md5: 84659d0da36d138832367fbb0cb6d48e
+      size: 18243
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 12b597a3e285b9adaf5f5f5f35543ac3
-      size: 18539
+      md5: 2dc2d024f5f9c273509a946d536c4c47
+      size: 17902
     - path: ./data/figures/BSK_LPS_VCAM1_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 20db7fffe83b2a9ab248aa15de883ac9
-      size: 18641
+      md5: 9d8d46076a8f80eef644802bf744fca5
+      size: 18647
   create_report_plots@BSK_SAg_CD38_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4302,28 +4302,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/data_report.pdf
       hash: md5
-      md5: d153a342042c8d0cf3a000b5c710da78
-      size: 17145
+      md5: cb67effe83ec7d6a62317d54b545ff52
+      size: 17151
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 066f5f6b163d6e1189ee2d984deb999c
-      size: 18477
+      md5: 2b2d59dc9bbd000227c5f16f907e17b3
+      size: 18378
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: c6f60ce93d82636764c823ccc11e678a
-      size: 18793
+      md5: 048e31e041015886e56b50d2ac5eb0fc
+      size: 18038
     - path: ./data/figures/BSK_SAg_CD38_down/proba_distribution_rf.pdf
       hash: md5
-      md5: d97ad82e3f9515b2ec1642001edeceb4
-      size: 18597
+      md5: 7425b9ac13bd298d83b189da447dd356
+      size: 18603
   create_report_plots@BSK_SAg_CD40_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4341,28 +4341,28 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/data_report.pdf
       hash: md5
-      md5: 0cf85dc93796be770ee99c3ebb1d95e3
-      size: 17073
+      md5: 6a89eff774bcfa224a8647b75df2eb89
+      size: 17079
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: e995f0d0875d478b5861e3631ebdbb78
-      size: 18512
+      md5: 3cf50b7f092ffa029ec95789f853865b
+      size: 18396
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 246626fd433edec250e86a44e46808e0
-      size: 17406
+      md5: fc0357319c8450b6fee9ed9be485429b
+      size: 17895
     - path: ./data/figures/BSK_SAg_CD40_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 5a36c84e2561e8b94a0f9863a3262962
-      size: 18641
+      md5: c64125bba10b051aa26576d951dc6e6a
+      size: 18647
   create_report_plots@BSK_SAg_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4380,30 +4380,30 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_Proliferation_down/data_report.pdf
       hash: md5
-      md5: f3d21e700151119fbb9398800171a813
-      size: 17339
+      md5: 42afb073148b64eca68ad53c9cec30a2
+      size: 17345
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 38e248cff3e26aa3f453ed9c367bd548
-      size: 18657
+      md5: 30d5222b446f967d2b65b9a3596eea92
+      size: 18321
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: fa4da88b3fadc96489cd7e8a122425f7
-      size: 18587
+      md5: ecefd4daa8cb3b869b569c1595441d79
+      size: 18137
     - path: ./data/figures/BSK_SAg_Proliferation_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 19007bc6590e78b2226cd4a341d59f10
-      size: 18163
+      md5: 985cf27aab1dca8dfc4ccec94f1c7669
+      size: 18169
   create_report_plots@BSK_hDFCGF_CollagenIII_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4421,30 +4421,30 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/data_report.pdf
       hash: md5
-      md5: 31ef3eddab7ac66a1ea0609ff70873f4
-      size: 17056
+      md5: 9ad35a244d329e2508e7f05b88d552e5
+      size: 17062
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 831ed7762d936d9e2ae5ec16ff635411
-      size: 18445
+      md5: f35cdedff8d1ae8062b437198c2f9137
+      size: 18175
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 87783f55aa67730a55aa647fe08fc95f
-      size: 17652
+      md5: 236860d94992ec3c3d387a597815a1e5
+      size: 18027
     - path: ./data/figures/BSK_hDFCGF_CollagenIII_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 3b4fa634c6cf87642c988e22232b905e
-      size: 18603
+      md5: 7fe449b0b5280c238937a67ff3390146
+      size: 18609
   create_report_plots@BSK_hDFCGF_Proliferation_down:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4462,30 +4462,30 @@ stages:
     outs:
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/data_report.pdf
       hash: md5
-      md5: bb17c80f3aa0303822273208a2f1f3f9
-      size: 17321
+      md5: 760d03b7cac38ab769ebce7a21d060c5
+      size: 17327
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: a63dcf9c94a761dd273761ea4ef5cb75
-      size: 18693
+      md5: 392d217b5be2971bdf94b19cc670c62d
+      size: 18312
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 75c19c9a4f70188d5c43be80570ded4e
-      size: 18598
+      md5: c1ce9768bfeaa5db81a385b3bcf5ab4f
+      size: 18004
     - path: ./data/figures/BSK_hDFCGF_Proliferation_down/proba_distribution_rf.pdf
       hash: md5
-      md5: 55eacc7b29f9140fb2e39d39be8c0263
-      size: 19317
+      md5: c37cacd0ffbba33f9675776e55e0f68d
+      size: 19323
   create_report_plots@CEETOX_H295R_11DCORT_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4503,28 +4503,28 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/data_report.pdf
       hash: md5
-      md5: 74a7af050f7062450a9d81884a2d0c8a
-      size: 17215
+      md5: 86ecbc3541209493da25041e64274529
+      size: 17221
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 0055021b815d276c546cc29f861e70ee
-      size: 18805
+      md5: eacc73f5a647b43264a1005ae12577f4
+      size: 18425
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: aa95e19832cddf3a05f0ed6c1a5bfb53
-      size: 18419
+      md5: 748d88bed10a37d9bb9b95e380211d23
+      size: 18051
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/proba_distribution_rf.pdf
       hash: md5
-      md5: b632261b73bccfd05d82c0db2874ad54
-      size: 18905
+      md5: 7f5f46733c0b111ebc8df86e56871bc1
+      size: 18911
   create_report_plots@CEETOX_H295R_ANDR_dn:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4542,28 +4542,28 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/data_report.pdf
       hash: md5
-      md5: b49680b1fd1e3879c20d612f7348a81c
-      size: 17680
+      md5: 6009e4723f9e4e1b3dd3e566f232b3aa
+      size: 17686
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: f6e9711f0d64eaf7b7615cabedd66777
-      size: 18559
+      md5: eff2e54741544bed8f1583cd3214bde6
+      size: 18444
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 20a9c4dd336a06e41c133e70dad43346
-      size: 18666
+      md5: 5a3cc2a276c01d178a82ce41fb0a85d6
+      size: 17997
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/proba_distribution_rf.pdf
       hash: md5
-      md5: 6b74bf4143358ce65cbdb45e95d63301
-      size: 18610
+      md5: 9c95696c2dad109ecb6cfc7f277407cc
+      size: 18616
   create_report_plots@TOX21_ARE_BLA_agonist_ratio:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4581,30 +4581,30 @@ stages:
     outs:
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/data_report.pdf
       hash: md5
-      md5: bc2d3876851d5a288fadbdb740942ed8
-      size: 17473
+      md5: c009c6bbe51a14c1de755956f9cdd4d3
+      size: 17479
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 81c3095c6a5cfcb1fdb9a7ce5829b8e5
-      size: 18839
+      md5: c064570c9886772ca6f8321aca683a7a
+      size: 18252
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 52075f7c6e5edd01b0614c1836e107a4
-      size: 17456
+      md5: b693aeaba51b4297d7f51000a1591d2a
+      size: 18029
     - path: ./data/figures/TOX21_ARE_BLA_agonist_ratio/proba_distribution_rf.pdf
       hash: md5
-      md5: 7ae40ecd6b0795c60024c5b6fbe0f0d5
-      size: 19044
+      md5: de93fbb4a521c81e0b2f7a370eb8ea20
+      size: 19050
   create_comparison_plots@APR_HepG2_CellLoss_72h_dn-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint APR_HepG2_CellLoss_72h_dn  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4628,21 +4628,21 @@ stages:
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 445b0d5f1d9492169f3d5167a626a3dc
-      size: 20031
+      md5: ce07d3342658088a36f34c0b35076439
+      size: 18379
     - path: 
         ./data/figures/APR_HepG2_CellLoss_72h_dn/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: d358cbf5f2fc428855c1042c63f3c9b6
-      size: 23338
+      md5: 98fce839e5d502a2e5c376c04469e55b
+      size: 23344
   create_comparison_plots@ATG_NRF2_ARE_CIS_up-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_NRF2_ARE_CIS_up  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4665,20 +4665,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 220fbf031d762421268b2e81b21a644b
-      size: 20095
+      md5: ef71eaffc5ed22b429b727ca897f7d8e
+      size: 18421
     - path: ./data/figures/ATG_NRF2_ARE_CIS_up/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: a9373895b3951747e99e2566947cf548
-      size: 22014
+      md5: 6183aba791ded69d6df1891512ab4ac8
+      size: 22020
   create_comparison_plots@ATG_PXRE_CIS_up-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint ATG_PXRE_CIS_up  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4701,20 +4701,20 @@ stages:
     outs:
     - path: ./data/figures/ATG_PXRE_CIS_up/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 569b468a86848968b652366d7803a011
-      size: 20224
+      md5: 22289e7957c87a443b148184016c937c
+      size: 18473
     - path: ./data/figures/ATG_PXRE_CIS_up/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 393bb9bb30bf027bc1778469e9ffcc4b
-      size: 22980
+      md5: 5406477a57677fc9e88e1a1c441bba63
+      size: 22986
   create_comparison_plots@BSK_3C_HLADR_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_HLADR_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4737,20 +4737,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_HLADR_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: c9a2ac90cf26dc593d6496f822f2d9c6
-      size: 19886
+      md5: 47466b161e63da787b72abb28ad5a7d8
+      size: 18369
     - path: ./data/figures/BSK_3C_HLADR_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 7c8e95ef3238f38d8e1272b4443dd907
-      size: 24304
+      md5: 3f37f14b2d8d80e465782b72f062a4a2
+      size: 24310
   create_comparison_plots@BSK_3C_Proliferation_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Proliferation_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4774,21 +4774,21 @@ stages:
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 5a33bf66e926a0623217de8c5280b730
-      size: 19975
+      md5: 2c9ee45a6bfaa9885f5554fe6b9d3ea0
+      size: 18369
     - path: 
         ./data/figures/BSK_3C_Proliferation_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 1199ffb85e7b1fff56078e55a574feee
-      size: 22313
+      md5: 797f86d266f5d8045ee90b85aa5ba8ec
+      size: 22319
   create_comparison_plots@BSK_3C_SRB_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_SRB_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4811,20 +4811,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_SRB_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 9152f2fe148a1a10929206592aed77e9
-      size: 19871
+      md5: 4fd58eff7d96e321be88e568de5cd741
+      size: 18363
     - path: ./data/figures/BSK_3C_SRB_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 8b907aff64a26ba463f1a911bf1b1f59
-      size: 22851
+      md5: 27040832392adaabb2ee10ec6d2cff8e
+      size: 22857
   create_comparison_plots@BSK_3C_Vis_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_3C_Vis_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4847,20 +4847,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_3C_Vis_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: b6dc6b563d70a8648c5f10148e3cee35
-      size: 19787
+      md5: fbfae7ea16f2e46a7b81b9ec998719c0
+      size: 18341
     - path: ./data/figures/BSK_3C_Vis_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: eb409c18e0a0cbb65c9692a0fb00348c
-      size: 23531
+      md5: d4b29826d75e474a2ac56fa7aead9896
+      size: 23537
   create_comparison_plots@BSK_4H_Eotaxin3_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_4H_Eotaxin3_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4883,20 +4883,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_4H_Eotaxin3_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 3077434aed5c46a56cb796a0cfefa31b
-      size: 19671
+      md5: b6b73721ca824dec8f338e403ae5f2f6
+      size: 18297
     - path: ./data/figures/BSK_4H_Eotaxin3_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 0996ac045dca6b5f2563d014bd33d4fa
-      size: 23349
+      md5: b8d381b3615d5b538a7b04c19c7c17e6
+      size: 23355
   create_comparison_plots@BSK_CASM3C_Proliferation_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_CASM3C_Proliferation_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4920,21 +4920,21 @@ stages:
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 461d63b9d779713d3ea66527102db793
-      size: 19709
+      md5: c06d8ad65057cbaed31a8a1aa1a3ef01
+      size: 18300
     - path: 
         ./data/figures/BSK_CASM3C_Proliferation_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 965d46d9dffb1b185adb78544ee8bae2
-      size: 22492
+      md5: bb781c7e0331f2cb2b9f26f1f68c8dc1
+      size: 22498
   create_comparison_plots@BSK_LPS_VCAM1_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_LPS_VCAM1_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4957,20 +4957,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_LPS_VCAM1_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: e143e950435754a66ba53bdc78f492fb
-      size: 19778
+      md5: 8f22880d1f1b05b7a634d3d9c53a505a
+      size: 18309
     - path: ./data/figures/BSK_LPS_VCAM1_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 95556f288bb93232768cde1b2af86d29
-      size: 22176
+      md5: 12ab87c85eb46825b1f8a8a29da3d479
+      size: 22182
   create_comparison_plots@BSK_SAg_CD38_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD38_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -4993,20 +4993,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD38_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 900546dbc3280f8547f812685e05daf6
-      size: 19841
+      md5: 67f39371d9301bb9c375edfd9e48a12c
+      size: 18319
     - path: ./data/figures/BSK_SAg_CD38_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 1e9f2b57f4853ad4eb8bb53db4685798
-      size: 21849
+      md5: c724eb4981d384a1b04000a2ee44aef4
+      size: 21855
   create_comparison_plots@BSK_SAg_CD40_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_CD40_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5029,20 +5029,20 @@ stages:
     outs:
     - path: ./data/figures/BSK_SAg_CD40_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 30d3c65c078fe3ebe0c0ae3008f4edf7
-      size: 19796
+      md5: 5c53fb64b8caa67b7f2b094889926e0d
+      size: 18297
     - path: ./data/figures/BSK_SAg_CD40_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: f2b9dcf38a8293b37a73c4bc3e2364b9
-      size: 22082
+      md5: 1130523f0b5a34ee1cd693af1aced30f
+      size: 22088
   create_comparison_plots@BSK_SAg_Proliferation_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_SAg_Proliferation_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5066,21 +5066,21 @@ stages:
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 3decb876c8a6d0878bf4267fa805d777
-      size: 20043
+      md5: 12ec5f4ee5ea41730b3b1db729621992
+      size: 18373
     - path: 
         ./data/figures/BSK_SAg_Proliferation_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: ed132f4845b9e58855ee5f49f209b038
-      size: 22737
+      md5: 7073e236ef35238b35f755613b530766
+      size: 22743
   create_comparison_plots@BSK_hDFCGF_CollagenIII_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_CollagenIII_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5104,21 +5104,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 886f819ab20d1b9170fa28b52c6f2367
-      size: 19715
+      md5: 4e39fffc4c10c2631958cb3d20abfa67
+      size: 18334
     - path: 
         ./data/figures/BSK_hDFCGF_CollagenIII_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: c817dc59628c8bb43c883e0d7965adf8
-      size: 22882
+      md5: fe1d961f51d34c8e9d15d65d0878604a
+      size: 22888
   create_comparison_plots@BSK_hDFCGF_Proliferation_down-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint BSK_hDFCGF_Proliferation_down  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5142,21 +5142,21 @@ stages:
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: ca43bf178e9dd787196376c4aaf5cec4
-      size: 19977
+      md5: ca587271399b6cb8c4754ab387453c7d
+      size: 18388
     - path: 
         ./data/figures/BSK_hDFCGF_Proliferation_down/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 8687258a3a3fbbbdbc75c72a53616f07
-      size: 22116
+      md5: 7bb161fa7cdfa25a4f96a052f47bfd9f
+      size: 22122
   create_comparison_plots@CEETOX_H295R_11DCORT_dn-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_11DCORT_dn  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5179,20 +5179,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 3ec018bcae58465f3a0713dad092dadb
-      size: 19428
+      md5: aae7c25d4d2ff321c6b445115db2ba40
+      size: 18164
     - path: ./data/figures/CEETOX_H295R_11DCORT_dn/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: d284e08582fa2ee840b5fac4fdeaece7
-      size: 20901
+      md5: 2a63eac24b8a8708bd81693a051b2ec2
+      size: 20907
   create_comparison_plots@CEETOX_H295R_ANDR_dn-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint CEETOX_H295R_ANDR_dn  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5215,20 +5215,20 @@ stages:
     outs:
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: b36bf27ce35c0dfe5b8bcff2879f433c
-      size: 19462
+      md5: 474b9767e675098a3df50ba75bbf6c26
+      size: 18131
     - path: ./data/figures/CEETOX_H295R_ANDR_dn/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: 84342879d375b42f9c1e4afc17a49163
-      size: 23114
+      md5: 39e31ca5e6c1f88d45768f56e0d4e72e
+      size: 23120
   create_comparison_plots@TOX21_ARE_BLA_agonist_ratio-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_ARE_BLA_agonist_ratio  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5252,21 +5252,21 @@ stages:
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: 34491683552f98952fd8c1eeb5ea6ee8
-      size: 19836
+      md5: df510c3d53291b2d9f80cb15612a7f5c
+      size: 18322
     - path: 
         ./data/figures/TOX21_ARE_BLA_agonist_ratio/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: c36f83f16600d4f311f27d4a9815d241
-      size: 22219
+      md5: 1eaa3fba75d679d8d63da9bb8355219c
+      size: 22225
   create_comparison_plots@TOX21_TR_LUC_GH3_Antagonist-counted_vs_neural:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
       counted_vs_neural
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5290,108 +5290,120 @@ stages:
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/calibration_curves_counted_vs_neural.pdf
       hash: md5
-      md5: a4c3943d321211e6ff250152a774b359
-      size: 20172
+      md5: 33d1094b32167ab2deca034df88a1051
+      size: 18332
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/performance_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: c42795823af1115b83fd29cb26b0bc02
-      size: 22270
+      md5: d47bf25ee1d60bdaf6874cc56498e9d4
+      size: 22276
   create_final_plots@morgan_vs_neural:
     cmd: python scripts/06_create_final_figures.py  --comparison morgan_vs_neural
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: b289b2136ee362902214cc903a742b79.dir
-      size: 21283060
+      md5: d3f2ad1125a32101aac8b539963a9a66.dir
+      size: 24501909
       nfiles: 77
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 23c7e399fa2a8cc4cc8fdcb1c214b28b
-      size: 23182
+      md5: 528a5428bd9f1ff691e326a583cabc45
+      size: 28056
     - path: ./scripts/plot_utils.py
       hash: md5
-      md5: a1fa1e88097ba98b473578e57cce203b
-      size: 17440
+      md5: 8ad82e5afc98be3fdb77320e4744aaac
+      size: 18011
     outs:
     - path: ./data/figures/final_figures/performance_metrics_all_morgan_vs_neural.pdf
       hash: md5
-      md5: ef4bbb9723cf3c1930f65dd10460e8b1
-      size: 34889
+      md5: fe4cb7758c533c2285865e67e1c91cd6
+      size: 35938
+    - path: ./data/figures/final_figures/precision_recall_morgan_vs_neural.pdf
+      hash: md5
+      md5: 99f206994f96d140755b15fab53bab93
+      size: 21133
     - path: ./data/figures/final_figures/scatter_metrics_morgan_vs_neural.pdf
       hash: md5
-      md5: c3fd90c0a81f7ad6a95592a67d090e7b
-      size: 81459
+      md5: a47d18ea7a9007fe00c721f15b26ac0b
+      size: 81628
     - path: ./data/figures/final_figures/significance_plot_morgan_vs_neural.pdf
       hash: md5
-      md5: 5c9cc9a34fa51f7b60ce3f95c6a1c6ce
-      size: 80478
+      md5: 94ac105515b7703fe8b2b9230748c206
+      size: 75225
   create_final_plots@morgan_vs_counted:
     cmd: python scripts/06_create_final_figures.py  --comparison morgan_vs_counted
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: b289b2136ee362902214cc903a742b79.dir
-      size: 21283060
+      md5: d3f2ad1125a32101aac8b539963a9a66.dir
+      size: 24501909
       nfiles: 77
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 23c7e399fa2a8cc4cc8fdcb1c214b28b
-      size: 23182
+      md5: 528a5428bd9f1ff691e326a583cabc45
+      size: 28056
     - path: ./scripts/plot_utils.py
       hash: md5
-      md5: a1fa1e88097ba98b473578e57cce203b
-      size: 17440
+      md5: 8ad82e5afc98be3fdb77320e4744aaac
+      size: 18011
     outs:
     - path: ./data/figures/final_figures/performance_metrics_all_morgan_vs_counted.pdf
       hash: md5
-      md5: 0120d36ac56d21ee71df04ef8ddc2a2e
-      size: 30380
+      md5: d87d373239b7a9abbd5b11223b7d88f7
+      size: 30580
+    - path: ./data/figures/final_figures/precision_recall_morgan_vs_counted.pdf
+      hash: md5
+      md5: 9528baa3abef9ff0d51083817642a40d
+      size: 19678
     - path: ./data/figures/final_figures/scatter_metrics_morgan_vs_counted.pdf
       hash: md5
-      md5: 54794686de496ce43c7fe14c7c79cd1e
-      size: 68477
+      md5: c9ea10f034601671013fbdd72382c4cf
+      size: 68577
     - path: ./data/figures/final_figures/significance_plot_morgan_vs_counted.pdf
       hash: md5
-      md5: 5b5c13229fc2c96ab8b875a1ce6e9385
-      size: 52324
+      md5: fec171a49b3a15a5e0cf44ede8d53956
+      size: 52327
   create_final_plots@counted_vs_neural:
     cmd: python scripts/06_create_final_figures.py  --comparison counted_vs_neural
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: b289b2136ee362902214cc903a742b79.dir
-      size: 21283060
+      md5: d3f2ad1125a32101aac8b539963a9a66.dir
+      size: 24501909
       nfiles: 77
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 23c7e399fa2a8cc4cc8fdcb1c214b28b
-      size: 23182
+      md5: 528a5428bd9f1ff691e326a583cabc45
+      size: 28056
     - path: ./scripts/plot_utils.py
       hash: md5
-      md5: a1fa1e88097ba98b473578e57cce203b
-      size: 17440
+      md5: 8ad82e5afc98be3fdb77320e4744aaac
+      size: 18011
     outs:
     - path: ./data/figures/final_figures/performance_metrics_all_counted_vs_neural.pdf
       hash: md5
-      md5: cea161bdec33fa3ec265dbc24b153893
-      size: 35089
+      md5: 20090ac9a841bc627bafb3196663e5c5
+      size: 36167
+    - path: ./data/figures/final_figures/precision_recall_counted_vs_neural.pdf
+      hash: md5
+      md5: f09d907d61105eda14fe433fa8bd07a4
+      size: 21647
     - path: ./data/figures/final_figures/scatter_metrics_counted_vs_neural.pdf
       hash: md5
-      md5: d34746e0008d2ca82655c7d59cd97fe9
-      size: 81502
+      md5: a2a92710fe6c214c90d621ad74352bd7
+      size: 81537
     - path: ./data/figures/final_figures/significance_plot_counted_vs_neural.pdf
       hash: md5
-      md5: 820f7ea29a54150f82e709ac6903b784
-      size: 91164
+      md5: df4c0de4f1d93993eb090440e3baa683
+      size: 90482
   create_report_plots@TOX21_TR_LUC_GH3_Antagonist:
     cmd: python ./scripts/05_create_plots.py --endpoint TOX21_TR_LUC_GH3_Antagonist  --comparison
       other
     deps:
     - path: ./scripts/05_create_plots.py
       hash: md5
-      md5: 05dbf7ed27166e6381919ddfe08e851f
-      size: 11050
+      md5: 09a5f990314bb68f8cc0d5ad1788f6b5
+      size: 11123
     - path: ./scripts/plot_utils.py
       hash: md5
       md5: 8ad82e5afc98be3fdb77320e4744aaac
@@ -5409,47 +5421,51 @@ stages:
     outs:
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/data_report.pdf
       hash: md5
-      md5: d79384f01ba450b87b250b846b11d8e6
-      size: 17496
+      md5: 81529b2266b71c5e101104192473ed8b
+      size: 17502
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_chemprop_isotonic.pdf
       hash: md5
-      md5: 99adc6f423fa65444c7323e12ea09658
-      size: 18782
+      md5: cbbffda03f49c1dc699a3dc443a434f4
+      size: 18692
     - path: 
         ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_chemprop_sigmoid.pdf
       hash: md5
-      md5: 6b2552402fe957aeb8ee78d3762f1a55
-      size: 17834
+      md5: e115325bec73bf1acd05ac7153fc8ce9
+      size: 18141
     - path: ./data/figures/TOX21_TR_LUC_GH3_Antagonist/proba_distribution_rf.pdf
       hash: md5
-      md5: 0957b27468c242aafe8bcf23ffc38e55
-      size: 18945
+      md5: 06434a3b1e5d47175846f1266b26c558
+      size: 18951
   create_final_plots_other:
     cmd: python scripts/06_create_final_figures.py  --comparison other
     deps:
     - path: ./data/intermediate_data/model_predictions
       hash: md5
-      md5: b289b2136ee362902214cc903a742b79.dir
-      size: 21283060
+      md5: d3f2ad1125a32101aac8b539963a9a66.dir
+      size: 24501909
       nfiles: 77
     - path: ./scripts/06_create_final_figures.py
       hash: md5
-      md5: 23c7e399fa2a8cc4cc8fdcb1c214b28b
-      size: 23182
+      md5: 528a5428bd9f1ff691e326a583cabc45
+      size: 28056
     - path: ./scripts/plot_utils.py
       hash: md5
-      md5: a1fa1e88097ba98b473578e57cce203b
-      size: 17440
+      md5: 8ad82e5afc98be3fdb77320e4744aaac
+      size: 18011
     outs:
     - path: ./data/figures/final_figures/balanced_accuracy_scatter_counted_binary_fp.pdf
       hash: md5
-      md5: f0d16d2be800ce7770c65f87e3a00483
-      size: 19229
+      md5: c5bf4409388c879dadff7fd515fdf8d6
+      size: 19273
     - path: ./data/figures/final_figures/brier_score_scatter_counted_binary_fp.pdf
       hash: md5
-      md5: 58f48c5a650b0a6050ee8e3dd0c98bf4
-      size: 18591
+      md5: 7648779f4ded46b9a25d6fdae67ed366
+      size: 18577
+    - path: ./data/figures/final_figures/chemprop_calibration.pdf
+      hash: md5
+      md5: 60168806ed22bbe23a6538622c63e392
+      size: 18738
   neural_fingerprint_predictions@APR_HepG2_CellLoss_72h_dn-isotonic:
     cmd: python ./scripts/04_neural_fingerprint_predictions.py  --endpoint APR_HepG2_CellLoss_72h_dn
       --nn_calibration isotonic
