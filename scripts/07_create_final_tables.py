@@ -7,7 +7,7 @@ import numpy.typing as npt
 import pandas as pd
 import yaml
 from loguru import logger
-from plot_utils import get_performance_metrics, load_all_performances, load_data, get_model_order_and_color
+from plot_utils import get_model_order_and_color, load_all_performances, load_data
 
 
 def agg_mean_std(values: npt.NDArray[np.float_]) -> str:
@@ -96,7 +96,7 @@ def create_table_rf_calibrated_rf(base_path: Path) -> None:
         all_data_df["base_model"].isin(["RF", "Calibrated RF"])
     ]
     all_data_df = all_data_df.query("encoding == 'Neural FP'")
-    for split in ["Random", "Agglomerative clustering"]:
+    for split in ["Agglomerative clustering", "Random"]:
         split_df = all_data_df.loc[all_data_df["split"] == split]
         agg_performance_df = split_df.pivot_table(
             index=["endpoint", "metric"],

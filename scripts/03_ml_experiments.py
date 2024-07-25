@@ -43,17 +43,27 @@ def parse_args() -> argparse.Namespace:
         type=str,
         help="Endpoint to train on.",
     )
+    argument_parser.add_argument(
+        "--counted_fp",
+        type=str,
+        default="not_counted",
+        help="Whether to use counted fingerprints.",
+    )
     args = argument_parser.parse_args()
     return args
 
 
-def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
+def define_models(
+    n_jobs: int, counted_bits: bool = False
+) -> dict[str, tuple[Pipeline, dict[str, list[Any]]]]:
     """Define the models to train.
 
     Parameters
     ----------
     n_jobs : int
         Number of jobs to use for training.
+    counted_bits : bool, optional
+        Whether to use counted fingerprints, by default False
 
     Returns
     -------
@@ -61,28 +71,46 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
         Dictionary of model names and tuples of the model pipeline and the
         hyperparameter grid.
     """
-    knn_pipeline = Pipeline(
-        [
-            ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP(return_as="sparse")),
-            ("precomputed_kernel", TanimotoToTraining(distance=True)),
-            (
-                "k_nearest_neighbors",
-                KNeighborsClassifier(metric="precomputed", n_jobs=n_jobs),
-            ),
-        ],
-        n_jobs=n_jobs,
-        memory=joblib.Memory(),
-    )
+    if counted_bits:
+        knn_pipeline = Pipeline(
+            [
+                ("smi2mol", SmilesToMol()),
+                ("mol2morgan", MolToMorganFP(return_as="sparse", counted=counted_bits)),
+                (
+                    "k_nearest_neighbors",
+                    KNeighborsClassifier(n_jobs=n_jobs),
+                ),
+            ],
+            n_jobs=n_jobs,
+            memory=joblib.Memory(),
+        )
+    else:
+        knn_pipeline = Pipeline(
+            [
+                ("smi2mol", SmilesToMol()),
+                ("mol2morgan", MolToMorganFP(return_as="sparse")),
+                ("precomputed_kernel", TanimotoToTraining(distance=True)),
+                (
+                    "k_nearest_neighbors",
+                    KNeighborsClassifier(metric="precomputed", n_jobs=n_jobs),
+                ),
+            ],
+            n_jobs=n_jobs,
+            memory=joblib.Memory(),
+        )
     knn_hyperparams = {
         "k_nearest_neighbors__n_neighbors": [9],
     }
 
+    if counted_bits:
+        kernel = "rbf"
+    else:
+        kernel = tanimoto_similarity_sparse
     svc_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP(return_as="sparse")),
-            ("svc", SVC(kernel=tanimoto_similarity_sparse, probability=True)),
+            ("mol2morgan", MolToMorganFP(return_as="sparse", counted=counted_bits)),
+            ("svc", SVC(kernel=kernel, probability=True)),
         ],
         n_jobs=n_jobs,
         memory=joblib.Memory(),
@@ -94,7 +122,7 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     random_forest_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP(return_as="sparse")),
+            ("mol2morgan", MolToMorganFP(return_as="sparse", counted=counted_bits)),
             (
                 "balanced_random_forest",
                 RandomForestClassifier(
@@ -113,7 +141,7 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     cal_rf_pipeline = Pipeline(
         [
             ("smi2mol", SmilesToMol()),
-            ("mol2morgan", MolToMorganFP(return_as="sparse")),
+            ("mol2morgan", MolToMorganFP(return_as="sparse", counted=counted_bits)),
             (
                 "calibrated_rf",
                 CalibratedClassifierCV(
@@ -143,9 +171,30 @@ def define_models(n_jobs: int) -> dict[str, tuple[Pipeline, dict[str, list[Any]]
     return model_dict
 
 
+def parse_counted_fp(counted_fp: str) -> bool:
+    """Parse the counted_fp argument.
+
+    Parameters
+    ----------
+    counted_fp : str
+        Whether to use counted fingerprints.
+
+    Returns
+    -------
+    bool
+        Whether to use counted fingerprints.
+    """
+    if counted_fp == "not_counted":
+        return False
+    if counted_fp == "counted":
+        return True
+    raise ValueError("counted_fp must be either 'counted' or 'not_counted'")
+
+
 def main() -> None:
     """Run ML experiments on the Tox21 dataset."""
     args = parse_args()
+    counted_fp = parse_counted_fp(args.counted_fp)
     data_path = Path(__file__).parents[1] / "data"
     endpoint_df = pd.read_csv(
         data_path
@@ -157,9 +206,11 @@ def main() -> None:
 
     prediction_path = data_path / "intermediate_data" / "model_predictions"
     prediction_path.mkdir(parents=True, exist_ok=True)
-    save_path = (
-        prediction_path / f"morgan_fingerprint_predictions_{args.endpoint}.tsv.gz"
+
+    file_name = (
+        f"morgan_fingerprint_predictions_{args.endpoint}_{args.counted_fp}.tsv.gz"
     )
+    save_path = prediction_path / file_name
 
     split_strategy_list = [
         "Random",
@@ -168,7 +219,7 @@ def main() -> None:
         #  "Generic scaffold",
     ]
 
-    model_dict = define_models(args.n_jobs)
+    model_dict = define_models(args.n_jobs, counted_fp)
     splitter = LeavePGroupsOut(1)
     prediction_df_list = []
 
